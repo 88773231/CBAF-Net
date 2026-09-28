@@ -1,9 +1,9 @@
-# Anonymous Supplementary Package for CBAF-Net
+# Companion Anonymous Supplementary Package for CBAF-Net
 
-This directory is the anonymous, reviewer-facing supplementary package for the
-CBAF-Net manuscript. It contains only frozen formal results, the strict graph-edge
-sensitivity analysis, aggregate audits, and reindexed prediction artifacts needed
-to verify the reported statistics.
+This document describes the separate anonymous, reviewer-facing supplementary
+package for the CBAF-Net manuscript. The code repository contains this manifest
+and the audit scripts, but not the restricted frozen-result directories listed
+below; those artifacts must be distributed as a separately reviewed supplement.
 
 ## Scope
 
@@ -18,7 +18,7 @@ The package does not redistribute raw posts, account records, original platform
 identifiers, model checkpoints, author information, connection credentials, or
 machine-specific paths.
 
-## Directory map
+## Supplement directory map
 
 - `audits/formal/`: frozen release-contract and shortcut audits.
 - `audits/strict/`: strict edge policy and zero-same-profile-edge summary.
@@ -52,4 +52,4 @@ run `sha256sum -c SHA256SUMS`.
 
 ## Availability boundary
 
-This anonymous package is intentionally results-only. It supports metric and audit recomputation from frozen predictions, but not end-to-end retraining. The authors must separately verify the public code version, formal environment, source-data access terms, generator disclosure, and institutional ethics wording before claiming a complete reproducibility release.
+This anonymous package is intentionally results-only. It supports metric and audit recomputation from frozen predictions, but not end-to-end retraining. The public code archive is `https://github.com/88773231/CBAF-Net`; the immutable release tag will be recorded after the manuscript, code, and metadata are frozen. Source-data access terms, the formal environment, generator disclosure, and institutional ethics wording must still be reported accurately before claiming complete end-to-end reproducibility.

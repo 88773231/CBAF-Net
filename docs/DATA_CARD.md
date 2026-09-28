@@ -20,6 +20,12 @@ view and four-class view use the same 1,677 profile groups.
 
 ## Data provenance and construction
 
+The released views are hybrid research datasets rather than wholly synthetic
+datasets. They combine source-derived public material with controlled synthetic
+simulations. The source-derived portion remains governed by the original
+provider terms, while the simulated classes are generated for controlled
+experiments and are not verified real-platform labels.
+
 - Human profiles: TwiBot-22-derived historical replay.
 - Traditional bots: TwiBot-22-derived profiles with three controlled policies
   (burst scheduler, cyclic reposter, and uniform scheduler; 559 groups each).

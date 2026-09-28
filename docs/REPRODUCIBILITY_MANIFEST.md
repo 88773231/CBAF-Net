@@ -1,5 +1,10 @@
 # Reproducibility Manifest
 
+This manifest records the protocol and provenance of the companion frozen
+results package. The code repository does not include the restricted
+`reports/`, `audits/`, or `results/` directories referenced below; paths refer
+to the separately reviewed supplementary bundle.
+
 ## Frozen protocol
 
 - Evaluation seeds: 42, 43, 44.
@@ -77,7 +82,9 @@ rewritten to `not_distributed/...`; scientific counts and metrics are unchanged.
 ## Reproduction boundary and author actions
 
 - This anonymous package supports recomputation of the reported metrics and audits from frozen prediction artifacts; it does not support end-to-end retraining.
-- A public code archive URL and immutable commit or release tag have not yet been supplied by the authors.
+- Public code archive: `https://github.com/88773231/CBAF-Net`.
+- Immutable source reference: create and record the `v1.0.0` tag only after the manuscript, code, and metadata are frozen.
+- The repository contains code and documentation only; it does not redistribute raw source records or unrestricted generated records.
 - Exact Python, PyTorch, CUDA, scikit-learn, graph-library, operating-system, GPU/CPU, memory, and runtime details are not recoverable from the frozen prediction package and must be exported from the formal training environment before an end-to-end release claim is made.
 - Controlled-generator checkpoints, prompts, decoding settings, simulator versions, seed policy, and filtering or deduplication configuration must be published or access-bounded explicitly in the final code/data release.
-- Data licenses, permitted access, privacy, competing-interest, funding, and institutional ethics declarations remain author-verified submission metadata rather than anonymous prediction-package fields.
+- Data licenses, permitted access, privacy, and institutional ethics wording remain author-verified submission metadata rather than anonymous prediction-package fields. The manuscript declares no external funding and no competing interests.
