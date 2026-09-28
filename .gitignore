@@ -1,0 +1,46 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+pydeps/
+.pytest_cache/
+.mypy_cache/
+
+# Raw and restricted data
+downloads/
+data/
+datasets/
+raw/
+*.jsonl
+*.parquet
+*.feather
+*.pkl
+*.pt
+*.pth
+*.ckpt
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+secrets.*
+credentials.*
+
+# Logs and temporary outputs
+logs/
+tmp/
+*_tmp.*
+*.log
+*.out
+*.err
+results/predictions/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
