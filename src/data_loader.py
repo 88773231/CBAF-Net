@@ -113,6 +113,10 @@ class Twibot20Dataset(Dataset):
         }
 
 
+# The historical class name is retained for checkpoint compatibility.
+Twibot22Dataset = Twibot20Dataset
+
+
 class QuadBotDataset(Twibot20Dataset):
     def __init__(self, data_dir, split='train', num_steps=5, preserve_tabular_scale=False):
         super().__init__(data_dir, split=split, num_steps=num_steps, remap_llm_label=False,
