@@ -17,6 +17,7 @@ raw/
 *.parquet
 *.feather
 *.pkl
+*.joblib
 *.pt
 *.pth
 *.ckpt
