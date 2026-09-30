@@ -1,0 +1,69 @@
+{
+  "schema_version": "cbaf-strict-dataset-manifest-1",
+  "publication_names": {
+    "three_class": "Twibot22",
+    "four_class": "Quadbot"
+  },
+  "compatibility_schema_identifiers": {
+    "quadbot_3class": "Twibot22",
+    "quadbot_4class": "Quadbot",
+    "quadbot-v3-*": "controlled-pipeline schema family, not a public dataset name"
+  },
+  "graph_protocol": {
+    "scope": "split_local",
+    "metric": "cosine",
+    "k": 10,
+    "stored_pair_order": [
+      "target",
+      "selected_neighbor"
+    ],
+    "runtime_message_direction": "selected_neighbor_to_target",
+    "exclude_self": true,
+    "exclude_same_base_profile": true,
+    "uses_labels": false,
+    "uses_provenance": false
+  },
+  "datasets": {
+    "Twibot22": {
+      "classes": 3,
+      "trajectories": 5031,
+      "profile_groups": 1677,
+      "feature_export_audit_sha256": "92c5b383bffd6e4bfa039bf7cdaa70910d55697ae803ef9b4c508c33da0248a5",
+      "splits": {
+        "train": {
+          "rows": 3354,
+          "source_jsonl_sha256": "50c1bc3c6f5f1cf933a7959e15d46db241b648f34dc4ea9001eea326259998aa"
+        },
+        "val": {
+          "rows": 837,
+          "source_jsonl_sha256": "924e9b9479cbe566238fb7d865e1deadd0fc3ef1f07f2e9f7fc52ac0fe59939d"
+        },
+        "test": {
+          "rows": 840,
+          "source_jsonl_sha256": "a140cd3d413229c57a5f3f1c6b5ef6f262b9dabb53ac796934d950b5b4f19906"
+        }
+      }
+    },
+    "Quadbot": {
+      "classes": 4,
+      "trajectories": 6708,
+      "profile_groups": 1677,
+      "feature_export_audit_sha256": "d804096535374858ce50de7ebd956375fc68c1a8aaca7988f0910832ac274a28",
+      "splits": {
+        "train": {
+          "rows": 4472,
+          "source_jsonl_sha256": "b93bf2bb3b78823ab25dcd8b2b7ea4ab2e1585af8d6cfbf7a5d5300323f3b89f"
+        },
+        "val": {
+          "rows": 1116,
+          "source_jsonl_sha256": "d0a1fa71969333b5c976b744e2e0ea7e688ffaba1df771392519b2a97691d4ad"
+        },
+        "test": {
+          "rows": 1120,
+          "source_jsonl_sha256": "980b5d4e3dddc5da373be8bd3a80faa50c844137f7df79e1a6c3ae5e35f33384"
+        }
+      }
+    }
+  },
+  "redistribution_boundary": "Source JSONL and tensor views are not distributed by this code repository. Users must obtain source material under the original provider terms and verify these hashes before claiming exact reproduction."
+}

@@ -37,12 +37,25 @@ views in this study; they do not imply that every class is an original TwiBot-22
 annotation. Controlled-generation classes must not be represented as verified
 real-platform accounts.
 
+Earlier pipeline records use compatibility schema identifiers such as
+`quadbot_3class`, `quadbot_4class`, and `quadbot-v3-*`. These strings are stable
+machine-readable provenance identifiers, not additional public dataset names.
+New model-facing output directories default to `Twibot22` and `Quadbot`.
+
 ## Feature representation
 
 The frozen export records 768-dimensional description, text, and AMR blocks; a
 2,304-dimensional graph block; six numerical features; and eleven style features.
-Graph edges are split-local directed cosine kNN edges with `k=10`; labels and
-provenance fields are excluded from graph construction.
+The URL feature counts both literal URLs and privacy-redacted `<URL>` tokens.
+Because every released trajectory has 25 posts and 25 actions, the numerical
+post/action counts and the duplicated style post count are three constant schema
+columns. The release backbone retains their positions but maps them to zero using
+training-fitted per-column standardization; validation and test never contribute
+normalization statistics. The raw-tree BSE cannot split on constant columns.
+Graph files contain split-local cosine kNN `(target, selected_neighbor)` pairs
+with `k=10`; labels and provenance fields are excluded from graph construction.
+The strict loader excludes same-profile pairs and converts them to
+`selected_neighbor -> target` messages in one-hop target-neighbor batches.
 
 ## Quality controls
 
@@ -51,16 +64,16 @@ provenance fields are excluded from graph construction.
 - No invalid time steps, duplicate within-record post/action IDs, alignment
   mismatches, graph-edge reference errors, or empty post texts were reported by
   the frozen release audit.
-- The strict graph sensitivity export removes all same-profile kNN edges; the
-  audited same-profile edge fraction is `0.0` for every split in both views.
+- The strict graph export removes all same-profile kNN edges; the audited
+  same-profile edge fraction is `0.0` for every split in both views.
 
 ## Known limitations
 
 - LLM-bot and full-stack-agent classes are controlled simulations, not evidence of
   real-platform generalization.
-- Source/generator differences can create dataset shortcuts. A metadata/style-only
-  diagnostic reaches test Macro-F1 0.7170 on Twibot22 and 0.7692 on Quadbot,
-  indicating substantial residual distributional signal.
+- Source/generator differences can create dataset shortcuts. The audited
+  behavior/style diagnostics retain substantial predictive signal, so they are
+  reported as a limitation rather than evidence of real-platform generalization.
 - Removing same-profile graph edges addresses one leakage route only. It does not
   establish cross-source, cross-generator, temporal, or cross-platform robustness.
 - The effective independent sample size is 1,677 profile groups, not 6,708 fully

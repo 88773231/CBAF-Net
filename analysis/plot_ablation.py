@@ -1,24 +1,27 @@
-"""Create the publication figure for the seed-42 CBAF-Net ablation diagnostic."""
+"""Create the publication ablation figure from an audited strict-run summary."""
 
 import argparse
+import json
 from pathlib import Path
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.ticker import MaxNLocator
 
 
-VARIANTS = ["CBAF-Net", "Numerical only", "Style only", "BSE only"]
-RESULTS = {
-    "Twibot22 (3 classes)": [0.7246, 0.6983, 0.7255, 0.7250],
-    "Quadbot (4 classes)": [0.7919, 0.7693, 0.7862, 0.7900],
-}
-
-# The common scale is deliberately shared across panels. This keeps the visual
-# comparison honest while still making the small fixed-seed differences legible.
-X_MIN = 0.690
-X_MAX = 0.805
-X_TICKS = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80]
+VARIANTS = [
+    "CBAF-Net",
+    "Numerical-only BSE fusion",
+    "Style-only BSE fusion",
+    "BSE only",
+]
+SUMMARY_KEYS = [
+    "CBAF-Net",
+    "BSE-numerical-only fusion",
+    "BSE-style-only fusion",
+    "BSE-only",
+]
 
 FULL_COLOR = "#1F5A94"
 FULL_EDGE = "#163F69"
@@ -48,12 +51,41 @@ def configure_matplotlib() -> None:
     )
 
 
-def draw_panel(ax: plt.Axes, title: str, values: list[float], show_labels: bool) -> None:
+def results_from_aggregates(aggregates: dict) -> dict[str, list[float]]:
+    if not isinstance(aggregates, dict):
+        raise ValueError("strict summary does not contain an aggregates object")
+
+    results = {}
+    for dataset in ("Twibot22", "Quadbot"):
+        dataset_summary = aggregates.get(dataset)
+        if not isinstance(dataset_summary, dict):
+            raise ValueError(f"strict summary is missing {dataset} aggregates")
+        values = []
+        for key in SUMMARY_KEYS:
+            record = dataset_summary.get(key)
+            if not isinstance(record, dict) or record.get("status") != "available":
+                raise ValueError(f"strict summary is missing available {dataset}/{key}")
+            values.append(float(record["statistics"]["macro_f1"]["mean"]))
+        label = f"{dataset} ({3 if dataset == 'Twibot22' else 4} classes)"
+        results[label] = values
+    return results
+
+
+def load_results(summary_path: Path) -> dict[str, list[float]]:
+    payload = json.loads(summary_path.read_text(encoding="utf-8"))
+    return results_from_aggregates(payload.get("aggregates"))
+
+
+def draw_panel(
+    ax: plt.Axes,
+    title: str,
+    values: list[float],
+    show_labels: bool,
+    x_limits: tuple[float, float],
+) -> None:
     y_positions = list(range(len(VARIANTS)))[::-1]
     full_value = values[0]
 
-    # Subtle alternating bands improve row tracking without turning the chart
-    # into a table or introducing decorative framing.
     for row, y in enumerate(y_positions):
         if row % 2 == 0:
             ax.axhspan(y - 0.43, y + 0.43, color="#F7F8FA", zorder=0)
@@ -66,9 +98,6 @@ def draw_panel(ax: plt.Axes, title: str, values: list[float], show_labels: bool)
         alpha=0.62,
         zorder=1,
     )
-
-    # Each ablated result is linked to the full-model reference. This directly
-    # shows the direction and magnitude of the diagnostic change.
     for y, value in zip(y_positions[1:], values[1:]):
         ax.plot(
             [min(value, full_value), max(value, full_value)],
@@ -100,25 +129,28 @@ def draw_panel(ax: plt.Axes, title: str, values: list[float], show_labels: bool)
         zorder=4,
     )
 
-    for idx, (y, value) in enumerate(zip(y_positions, values)):
-        color = FULL_COLOR if idx == 0 else TEXT
-        weight = "bold" if idx == 0 else "normal"
+    # Place labels toward the open side of the shared scale. The two datasets
+    # occupy opposite halves, so this also keeps Quadbot labels clear of the
+    # full-model reference line near the right edge.
+    label_switch = (x_limits[0] + x_limits[1]) / 2.0
+    for index, (y, value) in enumerate(zip(y_positions, values)):
+        label_on_left = value >= label_switch
         ax.annotate(
             f"{value:.4f}",
             xy=(value, y),
-            xytext=(6, 0),
+            xytext=(-6 if label_on_left else 6, 0),
             textcoords="offset points",
-            ha="left",
+            ha="right" if label_on_left else "left",
             va="center",
             fontsize=7.8,
-            color=color,
-            fontweight=weight,
+            color=FULL_COLOR if index == 0 else TEXT,
+            fontweight="bold" if index == 0 else "normal",
             zorder=5,
         )
 
     ax.set_title(title, color=TEXT, fontweight="bold", pad=7)
-    ax.set_xlim(X_MIN, X_MAX)
-    ax.set_xticks(X_TICKS)
+    ax.set_xlim(*x_limits)
+    ax.xaxis.set_major_locator(MaxNLocator(nbins=6))
     ax.set_ylim(-0.55, len(VARIANTS) - 0.45)
     ax.set_yticks(y_positions)
     ax.set_yticklabels(VARIANTS)
@@ -126,18 +158,22 @@ def draw_panel(ax: plt.Axes, title: str, values: list[float], show_labels: bool)
     ax.tick_params(axis="x", colors=MUTED, length=3, width=0.7)
     ax.grid(axis="x", color=GRID, linewidth=0.65, zorder=0)
     ax.set_axisbelow(True)
-
     for spine in ("top", "right", "left"):
         ax.spines[spine].set_visible(False)
     ax.spines["bottom"].set_color("#9AA3AD")
 
 
-def build_figure() -> plt.Figure:
+def build_figure(results: dict[str, list[float]]) -> plt.Figure:
     configure_matplotlib()
-    fig, axes = plt.subplots(1, 2, figsize=(7.12, 3.36), sharex=True, sharey=False)
+    all_values = [value for values in results.values() for value in values]
+    lower = min(all_values)
+    upper = max(all_values)
+    padding = max(0.006, (upper - lower) * 0.22)
+    x_limits = (max(0.0, lower - padding), min(1.0, upper + padding))
 
-    for index, (ax, (title, values)) in enumerate(zip(axes, RESULTS.items())):
-        draw_panel(ax, title, values, show_labels=index == 0)
+    fig, axes = plt.subplots(1, 2, figsize=(7.12, 3.36), sharex=True, sharey=False)
+    for index, (ax, (title, values)) in enumerate(zip(axes, results.items())):
+        draw_panel(ax, title, values, show_labels=index == 0, x_limits=x_limits)
 
     fig.suptitle(
         "Behavior-statistics view ablation",
@@ -150,13 +186,12 @@ def build_figure() -> plt.Figure:
     fig.text(
         0.5,
         0.925,
-        "Seed 42 diagnostic | test-set Macro-F1 | descriptive point estimates",
+        "Mean test Macro-F1 over seeds 42, 43, and 44",
         ha="center",
         va="center",
         fontsize=8.2,
         color=MUTED,
     )
-
     legend_handles = [
         Line2D(
             [0],
@@ -201,27 +236,40 @@ def build_figure() -> plt.Figure:
         columnspacing=1.5,
         handletextpad=0.55,
     )
-
-    fig.supxlabel("Macro-F1 (higher is better; common scale across panels)", y=0.035, fontsize=8.4, color=TEXT)
-    fig.subplots_adjust(left=0.145, right=0.985, bottom=0.19, top=0.77, wspace=0.17)
+    fig.supxlabel(
+        "Macro-F1 (higher is better; common scale across panels)",
+        y=0.035,
+        fontsize=8.4,
+        color=TEXT,
+    )
+    fig.subplots_adjust(left=0.23, right=0.985, bottom=0.19, top=0.77, wspace=0.17)
     return fig
+
+
+def save_figure(figure: plt.Figure, output: Path) -> None:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output.with_suffix(".png"), dpi=600, facecolor="white")
+    figure.savefig(output.with_suffix(".pdf"), facecolor="white")
+    figure.savefig(output.with_suffix(".svg"), facecolor="white")
+    plt.close(figure)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--summary",
+        type=Path,
+        default=Path("results/strict_postprocessed/strict_rerun_summary.json"),
+        help="Audited strict-rerun summary produced by postprocess_strict_rerun.py.",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
-        default=Path("results/figures/cbaf_net_ablation_fcs"),
+        default=Path("results/strict_postprocessed/figures/cbaf_net_ablation"),
         help="Output path without a file extension.",
     )
     args = parser.parse_args()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    fig = build_figure()
-    fig.savefig(args.output.with_suffix(".png"), dpi=600, facecolor="white")
-    fig.savefig(args.output.with_suffix(".pdf"), facecolor="white")
-    fig.savefig(args.output.with_suffix(".svg"), facecolor="white")
-    plt.close(fig)
+    save_figure(build_figure(load_results(args.summary)), args.output)
     print(f"Wrote {args.output}.png/.pdf/.svg")
 
 

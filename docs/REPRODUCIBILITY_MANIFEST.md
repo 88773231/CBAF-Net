@@ -1,90 +1,85 @@
 # Reproducibility Manifest
 
-This manifest records the protocol and provenance of the companion frozen
-results package. The code repository does not include the restricted
-`reports/`, `audits/`, or `results/` directories referenced below; paths refer
-to the separately reviewed supplementary bundle.
+This manifest defines the single publication protocol for CBAF-Net. Numeric
+results are generated from audited prediction artifacts; they are not copied
+into this document by hand.
 
-## Frozen protocol
+## Publication protocol
 
-- Evaluation seeds: 42, 43, 44.
-- Model selection: validation-selected, global decision-level probability fusion.
-- The method is not a per-sample dynamic router.
-- Primary metric: Macro-F1; accuracy and MCC are also recorded.
-- Test uncertainty: paired profile-level resampling, with 280 test profile groups.
-- Exact formal-versus-strict comparison: 5,000 bootstrap resamples per dataset and
-  seed using Python `random.Random`.
-- Population standard deviation is reported across the three training seeds.
+- Datasets: `Twibot22` (three classes) and `Quadbot` (four classes).
+- Evaluation seeds: 42, 43, and 44.
+- Splits: profile-group disjoint train, validation, and test partitions.
+- Graph: split-local directed cosine kNN with `k=10`; self-pairs and candidates
+  sharing `base_profile_id` are excluded.
+- Runtime graph direction: selected neighbor to target.
+- Batching: every seed target is expanded with all ten one-hop neighbors;
+  supervised loss and reported metrics are computed only on seed targets.
+- Backbone tabular preprocessing: per-column population standardization fitted
+  on training data only. Zero-variance columns retain their schema positions
+  and map to zero.
+- Behavioral-statistics expert: fitted on the raw exported numerical/style
+  values from the training split.
+- Fusion: selected using validation data and frozen before test inference.
+- Primary metric: Macro-F1. Accuracy, macro-precision, macro-recall, and MCC are
+  also recomputed from prediction files.
+- Across-seed variation: population standard deviation over three seeds.
+- Test uncertainty: paired resampling of complete profile groups, preserving
+  all controlled variants of a profile in each bootstrap draw.
 
-## Frozen Macro-F1 summary
+There is no separate "default" graph result in the publication protocol. Any
+checkpoint or prediction produced by the earlier induced-mini-batch graph path
+is incompatible with this release.
 
-| Protocol | Dataset | BotDMM | CBAF-Net |
-|---|---|---:|---:|
-| Formal | Twibot22 | 0.7059 +/- 0.0060 | 0.7255 +/- 0.0020 |
-| Formal | Quadbot | 0.7723 +/- 0.0022 | 0.7884 +/- 0.0025 |
-| Strict edge policy | Twibot22 | 0.7060 +/- 0.0060 | 0.7246 +/- 0.0009 |
-| Strict edge policy | Quadbot | 0.7726 +/- 0.0026 | 0.7884 +/- 0.0025 |
+## Generated result artifacts
 
-## Artifact provenance
+The canonical postprocessor consumes exactly six main runs and their adjacent
+training summaries. It verifies graph/preprocessing records, checkpoint hashes,
+sample identity across seeds, prediction alignment, and recomputed metrics.
+The public output contains:
 
-| Package location | Origin and role |
+| Package location | Role |
 |---|---|
-| `reports/formal_fusion_controls_profile_audit.*` | Recomputed from frozen formal probability files; no retraining. |
-| `reports/formal_vs_strict_profile_bootstrap_exact.json` | Exact 5,000-resample paired profile comparison. |
-| `audits/formal/release_contract_*.json` | Frozen release contract, composition, split, and feature checks. |
-| `audits/formal/shortcut_audit.json` | Frozen metadata/style diagnostic and alignment contract. |
-| `audits/strict/edge_summary.json` | Strict edge counts and zero same-profile fraction. |
-| `configs/formal_training_config.json` | Machine-readable formal training, BSE, and fusion-selection configuration. |
-| `results/formal/` | Formal metrics and reindexed validation/test probabilities. |
-| `results/strict/` | Strict-edge metrics and reindexed validation/test probabilities. |
+| `results/strict_postprocessed/strict_rerun_summary.json` | Audited per-seed records and aggregate statistics. |
+| `results/strict_postprocessed/strict_rerun_table.csv` | Compact manuscript-table input. |
+| `results/strict_postprocessed/figures/` | Confusion, reliability, and ablation figures regenerated from audited predictions. |
+| `results/strict_postprocessed/predictions/` | Reindexed validation/test probabilities for metric recomputation. |
+| `results/strict_postprocessed/SHA256SUMS` | Integrity hashes for distributed result artifacts. |
 
-## Recomputable analyses
-
-The distributed prediction JSONL files contain `row_index`, anonymous
-`profile_group`, gold label, BotDMM prediction/probability, BSE
-prediction/probability, and fused prediction/probability. These values are
-sufficient to recompute confusion matrices, accuracy, Macro-F1, MCC, fixed-average
-fusion, validation-selected fusion evaluation, and paired profile-level bootstrap
-comparisons. The package does not contain training data or checkpoints, so it does
-not yet support end-to-end retraining.
+No raw data, unrestricted generated records, original account identifiers, or
+model checkpoints are distributed in this results package.
 
 ## Recorded training configuration
 
-The frozen evaluator and manuscript record the following values:
+- Backbone: `embedding_dimension=128`, `feature_dim=128`, five temporal steps,
+  dropout `0.30`, and deterministic temporal mean pooling.
+- Optimizer: AdamW with learning rate `5e-5` and weight decay `5e-4`.
+- Loader: seed batch size `64`, maximum `60` epochs, and validation Macro-F1
+  early stopping with patience `10`.
+- BSE: `HistGradientBoostingClassifier(learning_rate=0.1,
+  min_samples_leaf=20, max_iter=300, max_leaf_nodes=15,
+  l2_regularization=1.0, random_state=seed)`. All shallow estimator parameters
+  are recorded and verified against the serialized estimator before release.
+- Auxiliary contrastive, prototype, domain-adversarial, and gate losses are not
+  part of the reported CBAF-Net objective.
 
-- BotDMM backbone: `embedding_dimension=128`, `feature_dim=128`,
-  `num_temporal_steps=5`, `dropout=0.30`, `temperature=0.10`, `alpha=0.50`.
-- Backbone loader: batch size `64`; maximum `60` epochs; validation Macro-F1
-  early-stopping patience `10`; evaluation seeds `42`, `43`, and `44`.
-- BSE: `HistGradientBoostingClassifier(max_iter=300, max_leaf_nodes=15,
-  l2_regularization=1.0, random_state=seed)` fitted only on the training split.
-- Fusion: candidate weights `(0, 0.05, Ellipsis, 1.0)`; choose validation Macro-F1
-  maximum and freeze the scalar before test evaluation.
-- Formal backbone objective: the recorded evaluator uses the BotDMM base path
-  (`ablation_mode=base`, `enhanced=False`); no unreported auxiliary loss is
-  included in the CBAF-Net definition.
+The exact Python, package, CUDA, cuDNN, GPU, and operating-system versions are
+stored with the frozen release environment manifest.
 
-## Strict edge policy
+## Reproduction boundary
 
-For each split independently, graph vectors form directed cosine kNN edges with
-`k=10`. The strict sensitivity view excludes candidate neighbors sharing the same
-profile group and still emits exactly ten outgoing edges per row. No cross-split
-edges are permitted. See `audits/strict/EDGE_POLICY.md` and
-`audits/strict/edge_summary.json`.
+The public code supports inspection of the tensor-view schema, graph contract,
+training path, and evaluation pipeline. It does not by itself reconstruct the
+controlled generated classes; that requires restricted source material and
+retained generation records that are not distributed here. The public results
+package supports metric, figure, calibration, and profile-cluster bootstrap
+recomputation without exposing restricted records. Neither package establishes
+cross-platform, cross-generator, temporal, or live account generalization.
 
-## Package transformation
-
-Prediction values are copied without numerical modification. Internal sample IDs
-are removed. Internal base-profile IDs are deterministically reindexed within each
-dataset as package-local `profile_group` values. Path-bearing audit fields are
-rewritten to `not_distributed/...`; scientific counts and metrics are unchanged.
-
-## Reproduction boundary and author actions
-
-- This anonymous package supports recomputation of the reported metrics and audits from frozen prediction artifacts; it does not support end-to-end retraining.
-- Public code archive: `https://github.com/88773231/CBAF-Net`.
-- Immutable source reference: create and record the `v1.0.0` tag only after the manuscript, code, and metadata are frozen.
-- The repository contains code and documentation only; it does not redistribute raw source records or unrestricted generated records.
-- Exact Python, PyTorch, CUDA, scikit-learn, graph-library, operating-system, GPU/CPU, memory, and runtime details are not recoverable from the frozen prediction package and must be exported from the formal training environment before an end-to-end release claim is made.
-- Controlled-generator checkpoints, prompts, decoding settings, simulator versions, seed policy, and filtering or deduplication configuration must be published or access-bounded explicitly in the final code/data release.
-- Data licenses, permitted access, privacy, and institutional ethics wording remain author-verified submission metadata rather than anonymous prediction-package fields. The manuscript declares no external funding and no competing interests.
+- The anonymous review package omits the public repository URL and author
+  account identity. A permanent code archive URL can be added after review.
+- The corrected public reference is tagged `v1.1.0`. The pre-existing
+  `v1.0.0` tag is not modified.
+- The MIT license covers only author-owned code and documentation. It does not
+  relicense TwiBot-22-derived material, third-party models, or generated data.
+- Funding, competing-interest, ethics, and source-access declarations remain
+  author-level submission metadata and must be verified before submission.

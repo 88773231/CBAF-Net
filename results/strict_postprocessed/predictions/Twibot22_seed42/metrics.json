@@ -1,0 +1,200 @@
+{
+  "dataset": "Twibot22",
+  "seed": 42,
+  "method": "CBAF-Net",
+  "feature_dim": 17,
+  "feature_mode": "both",
+  "fusion_weight_bse": 0.2,
+  "baseline_checkpoint": "training/Twibot22_seed42/best_model.pt",
+  "checkpoint_protocol_verified": true,
+  "checkpoint_protocol_record": "training/Twibot22_seed42/training_summary.json",
+  "checkpoint_sha256": "6b180bd740f4940c5fb143d85d9745a9802273a858c154a0db0288eb0bea59ed",
+  "checkpoint_sha256_verified": true,
+  "checkpoint_envelope": {
+    "format_version": "cbaf-botdmm-checkpoint-v2",
+    "verified": true,
+    "tabular_preprocessing_signature": "cf236ed2348c47a69dd9329986c320b1486af2a61695997361066de1939591c1"
+  },
+  "backbone_tabular_preprocessing": {
+    "version": "train-column-zscore-v1",
+    "fit_split": "train",
+    "transform": "per_column_population_zscore",
+    "zero_variance_policy": "retain_position_and_set_to_zero",
+    "clamp": [
+      -5.0,
+      5.0
+    ],
+    "signature_sha256": "cf236ed2348c47a69dd9329986c320b1486af2a61695997361066de1939591c1",
+    "num_prop": {
+      "dimension": 6,
+      "train_mean": [
+        6.762728691101074,
+        6.616830348968506,
+        8.064835548400879,
+        2.707947015762329,
+        3.2580950260162354,
+        3.2580950260162354
+      ],
+      "train_population_std": [
+        1.4131126403808594,
+        1.0062847137451172,
+        1.7614164352416992,
+        1.7091535329818726,
+        0.0,
+        0.0
+      ],
+      "zero_variance_indices": [
+        4,
+        5
+      ]
+    },
+    "llm_features": {
+      "dimension": 11,
+      "train_mean": [
+        3.2580950260162354,
+        4.778808116912842,
+        3.787080764770508,
+        0.5400377511978149,
+        0.020092032849788666,
+        0.39073342084884644,
+        0.35830649733543396,
+        0.0939418226480484,
+        0.004283445421606302,
+        0.09862849861383438,
+        0.41834232211112976
+      ],
+      "train_population_std": [
+        0.0,
+        0.3506936728954315,
+        0.46990880370140076,
+        0.13973583281040192,
+        0.005330720916390419,
+        0.4469921886920929,
+        0.8435493111610413,
+        0.04893864691257477,
+        0.0064029269851744175,
+        0.1869065910577774,
+        0.3799072504043579
+      ],
+      "zero_variance_indices": [
+        0
+      ]
+    }
+  },
+  "graph_execution": {
+    "edge_policy": "strict_split_local_knn",
+    "knn_k": 10,
+    "batching": "one_hop_target_neighbor",
+    "message_direction": "selected_neighbor_to_target"
+  },
+  "val": {
+    "accuracy": 0.7873357228195937,
+    "precision": 0.8382690562751582,
+    "recall": 0.7873357228195937,
+    "macro_f1": 0.7702907097758968,
+    "mcc": 0.7174171463540021,
+    "confusion_matrix": [
+      [
+        266,
+        13,
+        0
+      ],
+      [
+        165,
+        114,
+        0
+      ],
+      [
+        0,
+        0,
+        279
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.7571428571428571,
+    "precision": 0.8166997577369352,
+    "recall": 0.7571428571428571,
+    "macro_f1": 0.7298764384889765,
+    "mcc": 0.6811030574275183,
+    "confusion_matrix": [
+      [
+        265,
+        12,
+        3
+      ],
+      [
+        186,
+        91,
+        3
+      ],
+      [
+        0,
+        0,
+        280
+      ]
+    ]
+  },
+  "bse_only_test": {
+    "accuracy": 0.7595238095238095,
+    "precision": 0.8245449304011202,
+    "recall": 0.7595238095238095,
+    "macro_f1": 0.731617627169991,
+    "mcc": 0.6872696778064891,
+    "confusion_matrix": [
+      [
+        268,
+        10,
+        2
+      ],
+      [
+        188,
+        90,
+        2
+      ],
+      [
+        0,
+        0,
+        280
+      ]
+    ]
+  },
+  "prediction_artifacts": {
+    "val": "val_predictions.jsonl",
+    "test": "test_predictions.jsonl",
+    "profile_cluster_bootstrap": "python analysis/profile_cluster_bootstrap.py --predictions test_predictions.jsonl --out profile_bootstrap.json"
+  },
+  "bse_configuration": {
+    "estimator": "sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier",
+    "sklearn_version": "1.7.2",
+    "parameter_source": "estimator.get_params(deep=False)",
+    "parameters": {
+      "categorical_features": "from_dtype",
+      "class_weight": null,
+      "early_stopping": "auto",
+      "interaction_cst": null,
+      "l2_regularization": 1.0,
+      "learning_rate": 0.1,
+      "loss": "log_loss",
+      "max_bins": 255,
+      "max_depth": null,
+      "max_features": 1.0,
+      "max_iter": 300,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "monotonic_cst": null,
+      "n_iter_no_change": 10,
+      "random_state": 42,
+      "scoring": "loss",
+      "tol": 1e-07,
+      "validation_fraction": 0.1,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "public_identity_reindexing": {
+    "sample_id": "dataset-local sequential identifier",
+    "base_profile_id": "dataset-local sequential profile cluster identifier",
+    "mapping_published": false
+  }
+}

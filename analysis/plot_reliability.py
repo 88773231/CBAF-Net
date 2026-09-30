@@ -268,8 +268,10 @@ def build_figure(curves: dict, summary: dict, output: Path, n_bins: int) -> None
         for key in METHODS:
             _plot_reliability(ax, curves[dataset][key], key)
         ax.set_title(f"({chr(97 + idx)}) {dataset}: reliability", fontweight="bold", pad=6)
-        ax.set_xlim(0.25, 1.0)
-        ax.set_ylim(0.0, 1.0)
+        # Keep markers at probability/accuracy boundaries fully inside the
+        # axes. The labeled ticks still show the meaningful [0, 1] range.
+        ax.set_xlim(0.245, 1.015)
+        ax.set_ylim(-0.015, 1.015)
         ax.set_xticks([0.25, 0.40, 0.55, 0.70, 0.85, 1.0])
         ax.set_yticks(np.linspace(0.0, 1.0, 6))
         ax.grid(axis="both", color="#D9D9D9", lw=0.55, alpha=0.65)
@@ -295,7 +297,9 @@ def build_figure(curves: dict, summary: dict, output: Path, n_bins: int) -> None
         for key in METHODS:
             _plot_confidence_distribution(hist_ax, curves[dataset][key], key)
         hist_ax.set_title(f"({chr(99 + idx)}) {dataset}: confidence distribution", fontweight="bold", pad=5)
-        hist_ax.set_xlim(0.25, 1.0)
+        # The final histogram edge is exactly 1.0; a small right pad prevents
+        # the step line from being clipped by the right spine.
+        hist_ax.set_xlim(0.245, 1.015)
         hist_ax.set_xticks([0.25, 0.40, 0.55, 0.70, 0.85, 1.0])
         hist_ax.grid(axis="y", color="#D9D9D9", lw=0.55, alpha=0.65)
         hist_ax.set_xlabel("Maximum predicted probability")

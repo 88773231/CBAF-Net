@@ -510,7 +510,8 @@ def audit_features(
             "uses_labels": False,
             "uses_provenance": False,
             "cross_split_edges_allowed": False,
-            "same_base_profile_edges_allowed": "must be reported; strict exports may exclude them",
+            "same_base_profile_edges_allowed": False,
+            "exclude_same_base_profile": True,
         },
         "splits": {},
         "errors": [],
@@ -548,13 +549,17 @@ def audit_features(
             rules = payload.get("rules") or {}
             if "knn_k" not in rules and "k" not in rules:
                 result["warnings"].append("feature_export_audit.json does not record kNN k")
-            result["protocol"]["exclude_same_base_profile"] = bool(
-                rules.get("knn_exclude_same_base_profile", False)
-            )
+            declared_exclusion = rules.get("knn_exclude_same_base_profile") is True
+            result["protocol"]["exclude_same_base_profile"] = declared_exclusion
+            if not declared_exclusion:
+                result["errors"].append(
+                    "feature_export_audit.json does not declare "
+                    "knn_exclude_same_base_profile=true"
+                )
         except (OSError, json.JSONDecodeError) as exc:
             result["errors"].append(f"cannot read feature audit: {exc}")
     else:
-        result["warnings"].append(f"missing feature export audit: {audit_path}")
+        result["errors"].append(f"missing feature export audit: {audit_path}")
 
     try:
         import torch  # type: ignore
@@ -607,9 +612,13 @@ def audit_features(
                 split_report["same_base_profile_edge_count"] = same_base
                 split_report["same_base_profile_edge_fraction"] = (same_base / len(src)) if src else 0.0
                 if same_base:
-                    result["warnings"].append(
+                    result["errors"].append(
                         f"{split}: {same_base} kNN edges connect paired variants sharing base_profile_id"
                     )
+            elif not meta_path.exists():
+                result["errors"].append(
+                    f"{split}: missing metadata required to audit same-base-profile edges: {meta_path}"
+                )
             if view_name and views_root:
                 view_path = views_root / view_name / f"{split}.jsonl"
                 if not view_path.exists():
@@ -655,7 +664,7 @@ def metadata_probe_contract() -> dict[str, Any]:
     return {
         "name": "metadata_only",
         "purpose": "measure label predictability from scalar metadata without text/graph embeddings or provenance",
-        "current_formal_input": [
+        "current_release_input": [
             "profile.public_metrics.followers_count",
             "profile.public_metrics.following_count",
             "profile.public_metrics.tweet_count",

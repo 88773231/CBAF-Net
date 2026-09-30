@@ -29,25 +29,42 @@ class StructuralAttention(nn.Module):
 
         if edge_index.size(1) > 0:
             src, dst = edge_index
-            valid_edges = (src < x.size(0)) & (dst < x.size(0))
+            valid_edges = (
+                (src >= 0)
+                & (dst >= 0)
+                & (src < x.size(0))
+                & (dst < x.size(0))
+            )
             src, dst = src[valid_edges], dst[valid_edges]
 
             if len(src) > 0:
                 q_dst, k_src = q[dst], k[src]
                 scores = torch.sum(q_dst * k_src, dim=-1) / math.sqrt(self.out_dim)
                 scores = torch.clamp(scores, -5.0, 5.0)
-                dst_nodes, dst_indices = torch.unique(dst, return_inverse=True)
-                attn_weights = torch.zeros_like(scores)
-
-                for i in range(len(dst_nodes)):
-                    mask = (dst_indices == i)
-                    if mask.any():
-                        attn_weights[mask] = F.softmax(scores[mask], dim=0)
-
+                max_per_dst = torch.full(
+                    (x.size(0),),
+                    -torch.inf,
+                    device=scores.device,
+                    dtype=scores.dtype,
+                )
+                max_per_dst.scatter_reduce_(
+                    0,
+                    dst,
+                    scores,
+                    reduce="amax",
+                    include_self=True,
+                )
+                exp_scores = torch.exp(scores - max_per_dst[dst])
+                denom = torch.zeros(
+                    x.size(0),
+                    device=scores.device,
+                    dtype=scores.dtype,
+                )
+                denom.scatter_add_(0, dst, exp_scores)
+                attn_weights = exp_scores / denom[dst].clamp_min(1e-12)
                 attn_weights = F.dropout(attn_weights, p=self.dropout, training=self.training)
                 out = torch.zeros_like(x)
-                for i in range(len(src)):
-                    out[dst[i]] += attn_weights[i] * v[src[i]]
+                out.index_add_(0, dst, attn_weights.unsqueeze(1) * v[src])
             else:
                 out = v
         else:
@@ -58,9 +75,11 @@ class StructuralAttention(nn.Module):
         return out
 
 
-class TemporalAttention(nn.Module):
+class TemporalMeanPooling(nn.Module):
+    """Mean-pool temporal steps, then apply normalization and dropout."""
+
     def __init__(self, embedding_dim, dropout=0.2):
-        super(TemporalAttention, self).__init__()
+        super().__init__()
         self.embedding_dim = embedding_dim
         self.layernorm = nn.LayerNorm(embedding_dim)
         self.dropout = nn.Dropout(dropout)

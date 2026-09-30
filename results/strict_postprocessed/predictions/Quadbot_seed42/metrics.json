@@ -1,0 +1,227 @@
+{
+  "dataset": "Quadbot",
+  "seed": 42,
+  "method": "CBAF-Net",
+  "feature_dim": 17,
+  "feature_mode": "both",
+  "fusion_weight_bse": 0.65,
+  "baseline_checkpoint": "training/Quadbot_seed42/best_model.pt",
+  "checkpoint_protocol_verified": true,
+  "checkpoint_protocol_record": "training/Quadbot_seed42/training_summary.json",
+  "checkpoint_sha256": "820e15cac770b698616d2c88c352f4c2bdd1daeaab334bb310db16b80a110cb3",
+  "checkpoint_sha256_verified": true,
+  "checkpoint_envelope": {
+    "format_version": "cbaf-botdmm-checkpoint-v2",
+    "verified": true,
+    "tabular_preprocessing_signature": "848ca77638a2fd4c17c7267d6349a198b2cebdbc886537bf97a912842d6abb83"
+  },
+  "backbone_tabular_preprocessing": {
+    "version": "train-column-zscore-v1",
+    "fit_split": "train",
+    "transform": "per_column_population_zscore",
+    "zero_variance_policy": "retain_position_and_set_to_zero",
+    "clamp": [
+      -5.0,
+      5.0
+    ],
+    "signature_sha256": "848ca77638a2fd4c17c7267d6349a198b2cebdbc886537bf97a912842d6abb83",
+    "num_prop": {
+      "dimension": 6,
+      "train_mean": [
+        6.762728691101074,
+        6.616829872131348,
+        8.064835548400879,
+        2.70794677734375,
+        3.2580950260162354,
+        3.2580950260162354
+      ],
+      "train_population_std": [
+        1.4131126403808594,
+        1.0062847137451172,
+        1.7614164352416992,
+        1.7091535329818726,
+        0.0,
+        0.0
+      ],
+      "zero_variance_indices": [
+        4,
+        5
+      ]
+    },
+    "llm_features": {
+      "dimension": 11,
+      "train_mean": [
+        3.2580950260162354,
+        4.814379692077637,
+        3.859705686569214,
+        0.5277917385101318,
+        0.021336447447538376,
+        0.4113326966762543,
+        0.3935241103172302,
+        0.10700059682130814,
+        0.004457241855561733,
+        0.2792307734489441,
+        0.535894513130188
+      ],
+      "train_population_std": [
+        0.0,
+        0.3344932794570923,
+        0.45923665165901184,
+        0.12609364092350006,
+        0.005754130892455578,
+        0.4274674952030182,
+        0.8526601195335388,
+        0.05251584202051163,
+        0.0063445777632296085,
+        0.3569771349430084,
+        0.3887022137641907
+      ],
+      "zero_variance_indices": [
+        0
+      ]
+    }
+  },
+  "graph_execution": {
+    "edge_policy": "strict_split_local_knn",
+    "knn_k": 10,
+    "batching": "one_hop_target_neighbor",
+    "message_direction": "selected_neighbor_to_target"
+  },
+  "val": {
+    "accuracy": 0.8306451612903226,
+    "precision": 0.8688653377100428,
+    "recall": 0.8306451612903225,
+    "macro_f1": 0.8162633192160667,
+    "mcc": 0.7943995551608922,
+    "confusion_matrix": [
+      [
+        262,
+        10,
+        0,
+        7
+      ],
+      [
+        165,
+        110,
+        0,
+        4
+      ],
+      [
+        0,
+        0,
+        279,
+        0
+      ],
+      [
+        1,
+        2,
+        0,
+        276
+      ]
+    ]
+  },
+  "test": {
+    "accuracy": 0.8125,
+    "precision": 0.860017597100611,
+    "recall": 0.8125,
+    "macro_f1": 0.7905477478704435,
+    "mcc": 0.7763440897055793,
+    "confusion_matrix": [
+      [
+        264,
+        9,
+        2,
+        5
+      ],
+      [
+        187,
+        88,
+        1,
+        4
+      ],
+      [
+        0,
+        0,
+        280,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        278
+      ]
+    ]
+  },
+  "bse_only_test": {
+    "accuracy": 0.8125,
+    "precision": 0.8602478643169409,
+    "recall": 0.8125,
+    "macro_f1": 0.7911096143159663,
+    "mcc": 0.7761779163801058,
+    "confusion_matrix": [
+      [
+        264,
+        9,
+        2,
+        5
+      ],
+      [
+        186,
+        89,
+        1,
+        4
+      ],
+      [
+        0,
+        0,
+        280,
+        0
+      ],
+      [
+        2,
+        1,
+        0,
+        277
+      ]
+    ]
+  },
+  "prediction_artifacts": {
+    "val": "val_predictions.jsonl",
+    "test": "test_predictions.jsonl",
+    "profile_cluster_bootstrap": "python analysis/profile_cluster_bootstrap.py --predictions test_predictions.jsonl --out profile_bootstrap.json"
+  },
+  "bse_configuration": {
+    "estimator": "sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier",
+    "sklearn_version": "1.7.2",
+    "parameter_source": "estimator.get_params(deep=False)",
+    "parameters": {
+      "categorical_features": "from_dtype",
+      "class_weight": null,
+      "early_stopping": "auto",
+      "interaction_cst": null,
+      "l2_regularization": 1.0,
+      "learning_rate": 0.1,
+      "loss": "log_loss",
+      "max_bins": 255,
+      "max_depth": null,
+      "max_features": 1.0,
+      "max_iter": 300,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "monotonic_cst": null,
+      "n_iter_no_change": 10,
+      "random_state": 42,
+      "scoring": "loss",
+      "tol": 1e-07,
+      "validation_fraction": 0.1,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "public_identity_reindexing": {
+    "sample_id": "dataset-local sequential identifier",
+    "base_profile_id": "dataset-local sequential profile cluster identifier",
+    "mapping_published": false
+  }
+}

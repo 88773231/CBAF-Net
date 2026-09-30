@@ -3,7 +3,7 @@
 
 Each ``base_profile_id`` is sampled as a unit, so paired counterfactual
 trajectories from one source profile never become independent bootstrap units.
-The input is intentionally plain JSONL and can be produced by the formal
+The input is intentionally plain JSONL and can be produced by the strict
 CBAF-Net evaluator without loading a model checkpoint.
 """
 

@@ -10,7 +10,7 @@ The displayed matrix for every task/model pair is computed as follows:
 
 Example
 -------
-python build_cbaf_confusion_fcs.py \
+python analysis/plot_confusion.py \
   --predictions-root results/predictions \
   --output results/figures/cbaf_net_confusion_fcs
 """
@@ -20,7 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, Iterable, List, Mapping, Sequence, Tuple
+from typing import Dict, List, Mapping, Sequence, Tuple
 
 import matplotlib
 
@@ -28,7 +28,6 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyBboxPatch
 
 
 SEEDS: Tuple[int, ...] = (42, 43, 44)
@@ -36,11 +35,15 @@ SEEDS: Tuple[int, ...] = (42, 43, 44)
 TASKS: Mapping[str, Mapping[str, Sequence[str]]] = {
     "Twibot22": {
         "labels": ("Human", "Traditional Bot", "LLM Bot"),
-        "display_labels": ("Human", "Traditional\nBot", "LLM Bot"),
+        "x_labels": ("Human", "Traditional\nBot", "LLM Bot"),
+        "y_labels": ("Human", "Traditional\nBot", "LLM Bot"),
     },
     "Quadbot": {
         "labels": ("Human", "Traditional Bot", "LLM Bot", "Full-stack Agent"),
-        "display_labels": ("Human", "Traditional\nBot", "LLM Bot", "Full-stack\nAgent"),
+        # Compact x labels remain unambiguous in a two-column-width figure.
+        # Full class names are retained on the y axis.
+        "x_labels": ("Human", "Trad.\nBot", "LLM\nBot", "Full-stack\nAgent"),
+        "y_labels": ("Human", "Traditional\nBot", "LLM Bot", "Full-stack\nAgent"),
     },
 }
 
@@ -193,13 +196,13 @@ def configure_style() -> None:
         {
             "font.family": "sans-serif",
             "font.sans-serif": ["Arial", "DejaVu Sans"],
-            "font.size": 8.5,
-            "axes.titlesize": 10.5,
+            "font.size": 8.2,
+            "axes.titlesize": 9.4,
             "axes.titleweight": "semibold",
-            "axes.labelsize": 9.5,
+            "axes.labelsize": 8.8,
             "axes.labelweight": "semibold",
-            "xtick.labelsize": 8.2,
-            "ytick.labelsize": 8.2,
+            "xtick.labelsize": 7.7,
+            "ytick.labelsize": 7.8,
             "svg.fonttype": "none",
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
@@ -232,7 +235,8 @@ def draw_panel(
     model: str,
     panel_letter: str,
 ) -> plt.Axes:
-    display_labels = TASKS[task]["display_labels"]
+    x_labels = TASKS[task]["x_labels"]
+    y_labels = TASKS[task]["y_labels"]
     image = ax.imshow(
         matrix,
         cmap="Blues",
@@ -243,46 +247,26 @@ def draw_panel(
     )
     annotate_matrix(ax, matrix)
 
-    positions = np.arange(len(display_labels))
+    positions = np.arange(len(x_labels))
     ax.set_xticks(positions)
     ax.set_yticks(positions)
-    ax.set_xticklabels(display_labels)
-    ax.set_yticklabels(display_labels)
-    ax.tick_params(axis="both", which="major", length=0, pad=4)
-    ax.set_title(f"({panel_letter}) {task} - {model}", pad=10)
-    ax.set_xlabel("Predicted class", labelpad=5)
-    ax.set_ylabel("True class", labelpad=7)
+    ax.set_xticklabels(x_labels, linespacing=0.95)
+    ax.set_yticklabels(y_labels, linespacing=0.95)
+    ax.tick_params(axis="x", which="major", length=0, pad=3)
+    ax.tick_params(axis="y", which="major", length=0, pad=4)
+    ax.set_title(f"({panel_letter}) {task} - {model}", pad=7)
+    ax.set_xlabel("Predicted class", labelpad=4)
+    ax.set_ylabel("True class", labelpad=5)
 
     # White internal boundaries keep cells legible without making the panel look tabular.
-    ax.set_xticks(np.arange(-0.5, len(display_labels), 1), minor=True)
-    ax.set_yticks(np.arange(-0.5, len(display_labels), 1), minor=True)
+    ax.set_xticks(np.arange(-0.5, len(x_labels), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(y_labels), 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=1.0)
     ax.tick_params(which="minor", bottom=False, left=False)
     for spine in ax.spines.values():
         spine.set_color("#8190A2")
         spine.set_linewidth(0.7)
     return image
-
-
-def add_panel_borders(fig: plt.Figure, axes: Iterable[plt.Axes]) -> None:
-    for ax in axes:
-        bbox = ax.get_position()
-        pad_x = 0.055
-        pad_bottom = 0.075
-        pad_top = 0.045
-        border = FancyBboxPatch(
-            (bbox.x0 - pad_x, bbox.y0 - pad_bottom),
-            bbox.width + 2 * pad_x,
-            bbox.height + pad_bottom + pad_top,
-            boxstyle="round,pad=0.004,rounding_size=0.008",
-            transform=fig.transFigure,
-            fill=False,
-            edgecolor="#C7D0DA",
-            linewidth=0.7,
-            zorder=0,
-            clip_on=False,
-        )
-        fig.add_artist(border)
 
 
 def save_figure(
@@ -293,17 +277,20 @@ def save_figure(
     output_stem.parent.mkdir(parents=True, exist_ok=True)
     configure_style()
 
-    fig = plt.figure(figsize=(8.25, 6.875), facecolor="white")
+    # 7.12 inches matches a typical two-column text block. Keeping the source
+    # at its final print width prevents labels that only work on an oversized
+    # canvas from colliding after manuscript scaling.
+    fig = plt.figure(figsize=(7.12, 5.72), facecolor="white")
     grid = fig.add_gridspec(
         2,
         3,
         width_ratios=(1.0, 1.0, 0.045),
-        left=0.105,
-        right=0.91,
-        bottom=0.12,
-        top=0.86,
-        wspace=0.48,
-        hspace=0.52,
+        left=0.115,
+        right=0.895,
+        bottom=0.105,
+        top=0.855,
+        wspace=0.42,
+        hspace=0.50,
     )
     axes = [
         fig.add_subplot(grid[0, 0]),
@@ -333,7 +320,12 @@ def save_figure(
         raise RuntimeError("No confusion panels were drawn")
 
     colorbar = fig.colorbar(image, cax=colorbar_axis, ticks=np.linspace(0, 1, 6))
-    colorbar.set_label("Mean row-normalized proportion", rotation=90, labelpad=9)
+    colorbar.set_label(
+        "Mean row-normalized proportion",
+        rotation=90,
+        labelpad=7,
+        fontsize=8.2,
+    )
     colorbar.ax.set_yticklabels(
         [f"{int(value * 100)}%" for value in np.linspace(0, 1, 6)]
     )
@@ -342,7 +334,7 @@ def save_figure(
 
     fig.suptitle(
         "Class-level confusion comparison",
-        fontsize=13.0,
+        fontsize=11.5,
         fontweight="semibold",
         y=0.975,
     )
@@ -352,19 +344,9 @@ def save_figure(
         "Mean of row-normalized test confusion matrices across seeds 42, 43, and 44",
         ha="center",
         va="center",
-        fontsize=9.0,
+        fontsize=7.9,
         color="#4F5D6D",
     )
-    fig.text(
-        0.5,
-        0.035,
-        "Cells show the percentage of each true class assigned to each predicted class.",
-        ha="center",
-        va="center",
-        fontsize=8.2,
-        color="#4F5D6D",
-    )
-    add_panel_borders(fig, axes)
 
     for suffix, options in (
         (".png", {"dpi": dpi}),

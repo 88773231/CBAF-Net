@@ -27,7 +27,10 @@ NUM_DIM = 6
 LLM_DIM = 11
 NUM_STEPS = 5
 KNN_K = 10
-URL_RE = re.compile(r"https?://\S+|www\.\S+", re.I)
+# Released source text is privacy-sanitized with the literal ``<URL>`` token.
+# Count that token as well as unsanitized URLs so the exported URL statistic is
+# not accidentally constant after redaction.
+URL_RE = re.compile(r"https?://\S+|www\.\S+|<URL>", re.I)
 USER_RE = re.compile(r"@[A-Za-z0-9_]+")
 HASHTAG_RE = re.compile(r"#[A-Za-z0-9_]+")
 TOKEN_RE = re.compile(r"[\w']+", re.UNICODE)
@@ -240,14 +243,14 @@ def build_edge_index(
     graph_matrix: np.ndarray,
     k: int = KNN_K,
     base_profile_ids: list[str] | None = None,
-    exclude_same_base_profile: bool = False,
+    exclude_same_base_profile: bool = True,
 ) -> torch.Tensor:
-    """Build a split-local, label-free cosine kNN graph.
+    """Build split-local, label-free ``(target, neighbor)`` kNN pairs.
 
-    ``exclude_same_base_profile`` is optional for backward compatibility.  When
-    enabled, paired counterfactual variants cannot become each other's nearest
-    neighbors; rows with fewer than ``k`` valid neighbors simply have a lower
-    out-degree.
+    The release default excludes paired counterfactual variants sharing a base
+    profile. Rows with fewer than ``k`` valid neighbors have a lower selection
+    degree. Runtime graph attention reverses each pair to send a message from
+    the selected neighbor to its target row.
     """
     n = int(graph_matrix.shape[0])
     if n <= 1:
@@ -285,7 +288,7 @@ def export_split(
     split: str,
     out_root: Path,
     knn_k: int = KNN_K,
-    exclude_same_base_profile: bool = False,
+    exclude_same_base_profile: bool = True,
 ) -> dict:
     descriptions = []
     texts = [[] for _ in range(NUM_STEPS)]
@@ -338,6 +341,10 @@ def export_split(
         for source, target in zip(edge_index[0].tolist(), edge_index[1].tolist()):
             if base_ids[int(source)] == base_ids[int(target)]:
                 same_base_edges += 1
+    if exclude_same_base_profile and same_base_edges:
+        raise RuntimeError(
+            f"strict export produced {same_base_edges} same-base-profile edges for {split}"
+        )
     return {
         "rows": len(rows),
         "labels": dict(sorted(Counter(labels).items())),
@@ -367,7 +374,11 @@ def main() -> None:
     parser.add_argument(
         "--exclude-same-base-profile",
         action="store_true",
-        help="prevent paired counterfactual variants from becoming kNN neighbors",
+        default=True,
+        help=(
+            "Compatibility flag; strict exports always exclude paired "
+            "counterfactual variants sharing base_profile_id."
+        ),
     )
     args = parser.parse_args()
     if args.knn_k < 1:
@@ -384,11 +395,11 @@ def main() -> None:
             "graph_identifier_policy": "node and edge identifiers excluded",
             "graph_record_semantics": "interaction graph from each manifest record",
             "graph_feature_semantics": "hashed profile/structure/temporal vector",
-            "edge_index_semantics": "directed split-local cosine kNN over graph feature vectors",
+            "edge_index_semantics": "split-local cosine kNN (target, selected_neighbor) pairs over graph feature vectors; runtime messages flow selected_neighbor to target",
             "knn_k": int(args.knn_k),
             "knn_scope": "split_local_transductive",
             "knn_cross_split_edges": False,
-            "knn_same_base_profile_edges": "excluded when --exclude-same-base-profile is set; otherwise reported",
+            "knn_same_base_profile_edges": "always excluded by the strict release export",
             "knn_exclude_same_base_profile": bool(args.exclude_same_base_profile),
             "label_and_provenance_used": False,
         },

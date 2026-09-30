@@ -14,6 +14,8 @@ data/
 datasets/
 raw/
 *.jsonl
+# Sanitized strict predictions are deliberate public reproducibility artifacts.
+!results/strict_postprocessed/predictions/**/*.jsonl
 *.parquet
 *.feather
 *.pkl
@@ -39,6 +41,7 @@ tmp/
 *.out
 *.err
 results/predictions/
+checkpoints/
 
 # OS/editor files
 .DS_Store

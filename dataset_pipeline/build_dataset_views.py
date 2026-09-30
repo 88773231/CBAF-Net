@@ -135,12 +135,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--three-class-name",
-        default="quadbot_3class",
+        default="Twibot22",
         help="Output directory name for the three-class view.",
     )
     parser.add_argument(
         "--four-class-name",
-        default="quadbot_4class",
+        default="Quadbot",
         help="Output directory name for the four-class view.",
     )
     return parser.parse_args()
@@ -377,8 +377,8 @@ def write_audit_only_master(
     view_names: dict[str, str] | None = None,
 ) -> dict:
     view_names = view_names or {
-        "quadbot_3class": "quadbot_3class",
-        "quadbot_4class": "quadbot_4class",
+        "quadbot_3class": "Twibot22",
+        "quadbot_4class": "Quadbot",
     }
     audit_dir = output_root / "audit_only"
     audit_dir.mkdir(parents=True, exist_ok=True)
@@ -416,8 +416,8 @@ def write_views(
     view_names: dict[str, str] | None = None,
 ) -> dict:
     view_names = view_names or {
-        "quadbot_3class": "quadbot_3class",
-        "quadbot_4class": "quadbot_4class",
+        "quadbot_3class": "Twibot22",
+        "quadbot_4class": "Quadbot",
     }
     counters = defaultdict(Counter)
     split_map = build_split_map(records, seed)
@@ -592,8 +592,8 @@ def check_model_record(record: dict, expected_split: str, path: str) -> list[str
 
 def self_check_views(output_root: Path, view_names: dict[str, str] | None = None) -> dict:
     view_names = view_names or {
-        "quadbot_3class": "quadbot_3class",
-        "quadbot_4class": "quadbot_4class",
+        "quadbot_3class": "Twibot22",
+        "quadbot_4class": "Quadbot",
     }
     errors = []
     files = {}

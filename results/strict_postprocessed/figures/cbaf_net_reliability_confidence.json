@@ -1,0 +1,70 @@
+{
+  "description": "Test-set reliability summary from frozen predictions; values are mean across seeds 42/43/44.",
+  "n_bins": 10,
+  "datasets": {
+    "Twibot22": {
+      "baseline_prob": {
+        "accuracy_mean": 0.7511904761904762,
+        "accuracy_std": 0.0041239304942115975,
+        "ece_mean": 0.07709714026441648,
+        "ece_std": 0.012676249376172014,
+        "mce_mean": 0.2799956411797017,
+        "mce_std": 0.13208223841219868,
+        "mean_confidence_mean": 0.7808503695068851,
+        "n_test_per_seed": 840
+      },
+      "bse_prob": {
+        "accuracy_mean": 0.7595238095238095,
+        "accuracy_std": 0.0,
+        "ece_mean": 0.078563370733595,
+        "ece_std": 0.0,
+        "mce_mean": 0.2651995048756993,
+        "mce_std": 0.0,
+        "mean_confidence_mean": 0.8238349302465992,
+        "n_test_per_seed": 840
+      },
+      "fused_prob": {
+        "accuracy_mean": 0.7555555555555555,
+        "accuracy_std": 0.0049563476177764895,
+        "ece_mean": 0.07866484747264525,
+        "ece_std": 0.0077520945519015975,
+        "mce_mean": 0.23228184063519633,
+        "mce_std": 0.07317487889831112,
+        "mean_confidence_mean": 0.8079020603849819,
+        "n_test_per_seed": 840
+      }
+    },
+    "Quadbot": {
+      "baseline_prob": {
+        "accuracy_mean": 0.7961309523809524,
+        "accuracy_std": 0.01116369007947088,
+        "ece_mean": 0.06804637093806551,
+        "ece_std": 0.03710448545908314,
+        "mce_mean": 0.3017552639546954,
+        "mce_std": 0.08166155236554752,
+        "mean_confidence_mean": 0.850791576549056,
+        "n_test_per_seed": 1120
+      },
+      "bse_prob": {
+        "accuracy_mean": 0.8125,
+        "accuracy_std": 0.0,
+        "ece_mean": 0.06813710682354482,
+        "ece_std": 0.0,
+        "mce_mean": 0.432447826312879,
+        "mce_std": 0.0,
+        "mean_confidence_mean": 0.8677716721676826,
+        "n_test_per_seed": 1120
+      },
+      "fused_prob": {
+        "accuracy_mean": 0.8110119047619048,
+        "accuracy_std": 0.0025774565588822487,
+        "ece_mean": 0.04995681049935682,
+        "ece_std": 0.002876095987705702,
+        "mce_mean": 0.2882559680943401,
+        "mce_std": 0.09441119221096408,
+        "mean_confidence_mean": 0.851943110336359,
+        "n_test_per_seed": 1120
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "cbaf-controlled-view-provenance-example-1",
+  "updated_at": "2026-09-30",
+  "status": "example_only_not_a_release_record",
+  "base_profile_id": "example_profile_group_0001",
+  "source": {
+    "dataset": "TwiBot-22",
+    "source_record_id": "not_in_public_release",
+    "access_terms": "verification_required",
+    "redistribution_status": "verification_required"
+  },
+  "paired_trajectories": [
+    {
+      "label": 0,
+      "label_name": "human",
+      "construction": "historical_replay",
+      "policy_or_generator": null
+    },
+    {
+      "label": 1,
+      "label_name": "traditional_bot",
+      "construction": "controlled_scheduling_or_reposting_policy",
+      "policy_or_generator": "verification_required"
+    },
+    {
+      "label": 2,
+      "label_name": "llm_bot",
+      "construction": "controlled_content_only_generation",
+      "policy_or_generator": "verification_required"
+    },
+    {
+      "label": 3,
+      "label_name": "full_stack_agent",
+      "construction": "controlled_observe_remember_act_simulation",
+      "policy_or_generator": "verification_required"
+    }
+  ],
+  "release_boundary": {
+    "provenance_is_audit_only": true,
+    "original_account_identifiers_are_public": false,
+    "raw_source_records_are_redistributed": false,
+    "generator_checkpoint_and_decoding_configuration": "verification_required"
+  }
+}

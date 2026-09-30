@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+*.png binary
+*.pdf binary
+*.svg binary
+*.pt binary
+*.pth binary
+*.joblib binary
+*.docx binary
+
+# This canonical CSV is hashed byte-for-byte in the public result manifest.
+results/strict_postprocessed/strict_rerun_table.csv binary
