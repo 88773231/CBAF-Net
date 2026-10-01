@@ -1,6 +1,6 @@
 # CBAF-Net Reproducibility Release
 
-This repository accompanies the manuscript "CBAF-Net: Auditable Decision-Level Fusion for Controlled Evaluation of LLM-Driven and Agentic Social Accounts."
+This repository accompanies the manuscript "CBAF-Net: Auditable Fusion for Controlled Multiclass Detection of LLM-Driven and Agentic Social Accounts"
 
 CBAF-Net combines probabilities from a frozen BotDMM checkpoint with an independently fitted HistGradientBoosting behavioral-statistics expert. The scalar mixture weight is selected on the validation split and then frozen before test evaluation.
 
