@@ -1,0 +1,51 @@
+{
+  "schema": "botdmm-relative-timing-development-v1",
+  "purpose": "Fair-information backbone control before proposing another architecture",
+  "cpu_threads": 2,
+  "seeds": [42, 43, 44],
+  "methods": ["botdmm_timing", "botdmm_without_timing"],
+  "configuration": {
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10
+  },
+  "mlp_reference": {
+    "round": "policy_robust_20261013",
+    "method": "erm_mlp",
+    "same_recipe_keys": [
+      "dropout", "learning_rate", "weight_decay", "max_epochs", "patience", "batch_size"
+    ],
+    "same_seeded_profile_folds": true,
+    "same_raw_individual_information": true,
+    "additional_botdmm_information": "original_hash_graph_features_and_fold_local_knn_neighbors",
+    "different_capacity": "must_report_parameter_counts_not_identical_architectures"
+  },
+  "inner_split": "one_sixth_remaining_original_training_profiles_reuse_policy_study",
+  "selection_rule": "worst_known_policy_macro_f1_then_overall_macro_f1_then_mcc",
+  "outer_challenge": "existing_validation_profiles_of_excluded_traditional_policy",
+  "graph": {
+    "construction": "cosine_original_exported_hash_graph_features",
+    "knn_k": 10,
+    "scope": "rebuild_separately_in_fitting_selection_challenge_folds",
+    "same_profile_edges": "excluded",
+    "labels_and_policy_used_for_neighbor_selection": false,
+    "is_real_social_graph": false,
+    "challenge_scope": "within_challenge_unlabelled_transductive_not_inductive"
+  },
+  "timing": "global_7_appended_to_numerical_step_7_appended_to_action",
+  "without_timing_graph": "identical_original_graph_no_timing_knn_rebuild",
+  "training": "seed_row_cross_entropy_auxiliary_heads_disabled_like_release",
+  "sampler": "same_class_complete_profile_batches_for_both_backbones",
+  "test_access": "forbidden",
+  "old_paper_results": "remain_immutable",
+  "reproduction_boundary": "same_local_release_architecture_new_inputs_and_shared_schedule_not_original_paper_full_reproduction",
+  "posthoc_development": true,
+  "sota_or_success_claim": "not_prespecified",
+  "no_hyperparameter_search_on_outer_results": true
+}
