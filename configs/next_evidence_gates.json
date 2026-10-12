@@ -3,6 +3,19 @@
   "canonical_account_data": "retain_existing_5031_and_6708_trajectory_views",
   "completed_repair": "relative_rounded_gap_sidecars_for_development_splits",
   "candidate_status": "experimental_temporal_gate_not_established_as_the_final_method",
+  "completed_policy_objective_study": {
+    "scheduled_and_completed_runs": 90,
+    "neural_checkpoints_replayed": 72,
+    "scope": "posthoc_three_seed_development_existing_validation_challenges",
+    "combination": "GroupDRO_plus_RDrop_same_MLP",
+    "decision": "not_promoted_reject_as_unified_two_view_improvement",
+    "burst_policy_combined_minus_erm_percentage_points": {
+      "Twibot22": -6.44,
+      "Quadbot": 1.96
+    },
+    "future_weight_search_on_these_outer_scores": "not_permitted",
+    "architectural_module_claim": "none_training_objectives_only"
+  },
   "do_not_repeat": [
     "enlarge_or_regenerate_the_main_views_without_a_specific_evidence_need",
     "search_more_weights_on_the_previously_inspected_test",
@@ -13,9 +26,12 @@
   "next_model_hypothesis": {
     "target": "unseen_behavior_policy_generalization",
     "first_control": "strong_matched_mlp_with_relative_timing",
-    "candidate_mechanisms_to_validate": [
-      "profile_grouped_policy_robust_optimization",
-      "timing_style_view_consistency_under_label_preserving_augmentations"
+    "first_required_comparison": "retrained_BotDMM_with_relative_timing_and_same_inner_selection",
+    "candidate_mechanisms_to_validate": [],
+    "completed_mechanisms_not_to_present_as_final": [
+      "policy_class_group_DRO",
+      "RDrop_prediction_consistency",
+      "combined_GroupDRO_RDrop"
     ],
     "novelty_status": "hypotheses_only_not_claimed_as_original_or_effective",
     "domain_metadata_use": "training_grouping_only_never_prediction_input",

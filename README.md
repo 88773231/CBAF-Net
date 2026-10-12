@@ -33,6 +33,12 @@ exploratory, use train/validation only, and do not replace the published test
 table. An input repair must be shared by every new comparator; it cannot be
 presented as an architecture gain against a comparator denied that input.
 
+The fixed policy-objective study and its complete negative/mixed outcomes
+are separate development artifacts in `docs/POLICY_ROBUST_STUDY.md` and
+`docs/POLICY_ROBUST_RESULTS.md`. The combination is not promoted to the paper
+method: it helps one four-class burst-policy challenge but harms the
+three-class counterpart. No main test table or release baseline is replaced.
+
 ## Repository layout
 
 - `src/run_cbaf.py`: canonical CBAF-Net evaluator used by the paper.

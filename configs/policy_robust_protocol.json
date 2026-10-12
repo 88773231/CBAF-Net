@@ -1,0 +1,44 @@
+{
+  "schema": "cbaf-policy-robust-development-v1",
+  "purpose": "One bounded objective study; not a new final method or untouched test",
+  "cpu_threads": 2,
+  "seeds": [42, 43, 44],
+  "methods": [
+    "hgb_statistics",
+    "erm_mlp",
+    "group_dro_mlp",
+    "rdrop_mlp",
+    "group_dro_rdrop_mlp"
+  ],
+  "configuration": {
+    "steps": 5,
+    "mlp_hidden_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "dro_step_size": 0.01,
+    "consistency_weight": 0.5
+  },
+  "fitting_groups": "traditional_policy_x_class_training_only",
+  "sampler": "shuffle_class_complete_profile_batches_same_for_all_neural_methods",
+  "inner_split": "reuse_seeded_one_sixth_remaining_training_profile_partition",
+  "selection_rule": "worst_known_policy_macro_f1_then_overall_macro_f1_then_mcc",
+  "outer_challenge": "existing_validation_profiles_of_each_excluded_policy",
+  "outer_scope": "posthoc_development_screen_previously_inspected_no_confirmation_claim",
+  "input_boundary": "all_neural_methods_use_identical_flattened_features_and_timing",
+  "hgb_boundary": "same_records_global_statistics_only_not_identical_encoding",
+  "model_comparison": "same_MLP_architecture_parameter_count_and_epoch_budget",
+  "compute_boundary": "RDrop_uses_two_training_forward_passes_explicitly_recorded",
+  "no_time_or_content_augmentation": true,
+  "test_access": "forbidden",
+  "success_outcome": "not_prespecified_keep_all_results_and_objective_removals",
+  "stopping_rule": "no_weight_search_on_outer_challenges_after_this_round",
+  "novelty_boundary": "GroupDRO_and_RDrop_are_existing_methods_not_claimed_original",
+  "references": [
+    "https://arxiv.org/abs/1911.08731",
+    "https://arxiv.org/abs/2106.14448"
+  ]
+}
