@@ -5,6 +5,10 @@ The reported `v1.1.0` CBAF-Net method and results are unchanged. The files
 are experimental development code, not an implemented revision of the paper's
 reported method or evidence of state-of-the-art performance.
 
+Completed validation tables and the unseen-policy screen are reported in
+[DEVELOPMENT_RESULTS.md](DEVELOPMENT_RESULTS.md), including outcomes where
+simple comparators or removal variants outperform the full candidate.
+
 ## Input Failure
 
 The original feature export retains post/action types and text, but not
