@@ -185,7 +185,7 @@ def build_figure(results: dict[str, list[float]]) -> plt.Figure:
     )
     fig.text(
         0.5,
-        0.925,
+        0.91,
         "Mean test Macro-F1 over seeds 42, 43, and 44",
         ha="center",
         va="center",
@@ -242,7 +242,7 @@ def build_figure(results: dict[str, list[float]]) -> plt.Figure:
         fontsize=8.4,
         color=TEXT,
     )
-    fig.subplots_adjust(left=0.23, right=0.985, bottom=0.19, top=0.77, wspace=0.17)
+    fig.subplots_adjust(left=0.23, right=0.985, bottom=0.19, top=0.72, wspace=0.17)
     return fig
 
 

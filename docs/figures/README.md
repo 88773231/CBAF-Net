@@ -31,3 +31,12 @@ Watermarked stock icon references were not incorporated.
 
 The figure update changes neither the detector nor the released predictions.
 The source assets are covered by the repository's code/documentation license.
+
+## Ablation figure
+
+`cbaf_ablation.png` and `cbaf_ablation.svg` are the current manuscript
+renderings of `analysis/plot_ablation.py`. They read the audited means from
+`results/strict_postprocessed/strict_rerun_summary.json`; only title, subtitle,
+legend, and panel spacing have changed from the archived rendering.
+`tests/test_ablation_figure_layout.py` checks text clearance and the reported
+value annotations. The underlying results and archived release remain intact.
