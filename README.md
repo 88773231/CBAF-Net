@@ -38,8 +38,9 @@ branches are not part of the reported CBAF-Net method.
 - `configs/`: a non-sensitive controlled-view provenance example.
 - `docs/`: data card and reproducibility boundary.
 - `docs/figures/cbaf_architecture.svg`: editable method schematic; the PNG is
-  its manuscript rendering. The validation curve is illustrative, not a
-  measured result, and the watermarked icon references were not reused.
+  its manuscript rendering. The account scene, snippets, and plotted
+  probabilities/validation curve are illustrative, not measured results.
+  `docs/figures/README.md` records the drawing's scope and visual references.
 
 The backbone's temporal reducer is deterministic mean pooling followed by
 LayerNorm and dropout. The implementation names it `TemporalMeanPooling`; the

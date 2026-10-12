@@ -1,204 +1,318 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="900" viewBox="0 0 1920 900">
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1240" viewBox="0 0 1880 1240">
+
   <defs>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
-      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#51657a" stroke-width="2"/>
+    <style>text{font-family:Arial,"DejaVu Sans",sans-serif}use{stroke-linejoin:round}</style>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#697d8d" stroke-width="1.8"/>
     </marker>
-    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
-      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#2876b9" stroke-width="2"/>
+    <marker id="barr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#2875a8" stroke-width="1.8"/>
     </marker>
-    <marker id="redArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
-      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#be6156" stroke-width="2"/>
+    <marker id="rarr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#b7645a" stroke-width="1.8"/>
     </marker>
-    <style>
-      text { font-family: Arial, "DejaVu Sans", sans-serif; fill: #203244; }
-      .head { font-size: 37px; font-weight: 700; }
-      .label { font-size: 31px; font-weight: 700; }
-      .small { font-size: 26px; }
-      .tiny { font-size: 23px; }
-      .muted { fill: #526579; }
-      .blue { fill: #246da7; }
-      .red { fill: #af594e; }
-      .teal { fill: #247b72; }
-      .line { stroke: #aab7c3; stroke-width: 3; fill: none; }
-      .flow { stroke: #51657a; stroke-width: 3.5; fill: none; marker-end: url(#arrow); }
-      .blueflow { stroke: #2876b9; stroke-width: 3.5; fill: none; marker-end: url(#blueArrow); }
-      .redflow { stroke: #be6156; stroke-width: 3.5; fill: none; marker-end: url(#redArrow); }
-    </style>
+    <g id="person">
+      <path d="M-30 28 Q-42-13-23-37 Q0-56 27-31 Q39-6 29 29" fill="#37464f"/>
+      <ellipse cx="0" cy="-4" rx="27" ry="33" fill="#f1cbb5"/>
+      <path d="M-27-12 Q-9-14 1-29 Q20-12 28-11 V-31 Q0-53-24-32 Z" fill="#37464f"/>
+      <path d="M-56 73 Q-54 32-19 25 L0 37 L19 25 Q54 32 56 73" fill="#78a4bc"/>
+      <path d="M-12 26 L0 38 L12 26" fill="#fff"/>
+      <path d="M-11 2 h2 M10 2 h2" stroke="#37464f" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-7 16 Q0 21 7 16" fill="none" stroke="#b37965" stroke-width="2.5"/>
+    </g>
+    <g id="robot">
+      <path d="M0-39 V-54" fill="none" stroke="currentColor" stroke-width="4"/>
+      <circle cx="0" cy="-57" r="6" fill="#d0ab55"/>
+      <rect x="-37" y="-38" width="74" height="59" rx="17" fill="#eef4f5" stroke="currentColor" stroke-width="4"/>
+      <rect x="-26" y="-24" width="52" height="30" rx="11" fill="currentColor"/>
+      <circle cx="-12" cy="-9" r="5" fill="#fff"/><circle cx="12" cy="-9" r="5" fill="#fff"/>
+      <path d="M-8 13 H8" stroke="currentColor" stroke-width="3"/>
+      <path d="M-46-20 V3 M46-20 V3" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M-18 22 Q-44 30-43 60 H43 Q44 30 18 22" fill="currentColor" opacity=".83"/>
+    </g>
+    <g id="post">
+      <path d="M-27-31 H14 L27-18 V31 H-27 Z" fill="#fff" stroke="currentColor" stroke-width="3"/>
+      <path d="M14-31 V-18 H27 M-17-8 H17 M-17 3 H17 M-17 14 H8" fill="none" stroke="currentColor" stroke-width="3"/>
+    </g>
+    <g id="reply">
+      <path d="M-27-23 H27 V16 H-9 L-26 29 V16 H-27 Z" fill="#fff" stroke="currentColor" stroke-width="3"/>
+      <path d="M11-5 H-12 M-4-13 L-12-5 L-4 3" fill="none" stroke="currentColor" stroke-width="3"/>
+    </g>
+    <g id="clock">
+      <circle r="28" fill="#fff" stroke="currentColor" stroke-width="3"/>
+      <path d="M0-17 V0 L14 9" fill="none" stroke="currentColor" stroke-width="4"/>
+    </g>
+    <g id="calendar">
+      <rect x="-29" y="-28" width="58" height="56" rx="6" fill="#fff" stroke="currentColor" stroke-width="3"/>
+      <path d="M-29-12 H29 M-15-35 V-20 M15-35 V-20" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="M-15 0 h7 M8 0 h7 M-15 14 h7 M8 14 h7" fill="none" stroke="currentColor" stroke-width="4"/>
+    </g>
+    <g id="lock">
+      <path d="M-17-5 V-19 Q-17-41 0-41 Q17-41 17-19 V-5" fill="none" stroke="currentColor" stroke-width="4"/>
+      <rect x="-26" y="-6" width="52" height="39" rx="7" fill="#fff" stroke="currentColor" stroke-width="4"/>
+      <circle cy="11" r="4" fill="currentColor"/><path d="M0 12 V21" stroke="currentColor" stroke-width="3"/>
+    </g>
+    <g id="wrench">
+      <path d="M-10-22 Q10-38 21-21 L8-9 L14 0 L27-13 Q33 8 9 13 L-17 36 L-30 23 L-7-4 Q-21-13-10-22 Z"
+        fill="#fff" stroke="currentColor" stroke-width="3"/>
+    </g>
   </defs>
-  <rect width="1920" height="900" fill="#ffffff"/>
 
-  <!-- One account trajectory, not four independent source datasets. -->
-  <text x="70" y="65" class="head">Account evidence</text>
-  <text x="480" y="65" class="head">Two independently trained paths</text>
-  <text x="1460" y="65" class="head">Frozen decision rule</text>
-  <path d="M70 87 H1850" stroke="#aab7c3" stroke-width="3"/>
-  <path d="M415 105 V760 M1410 105 V760" stroke="#d4dce3" stroke-width="3"/>
-
-  <circle cx="225" cy="224" r="91" fill="#f5f9fc" stroke="#8ca1b2" stroke-width="3"/>
-  <circle cx="225" cy="196" r="24" fill="#fff" stroke="#233d53" stroke-width="5"/>
-  <path d="M178 273 C180 236 270 236 272 273" fill="none" stroke="#233d53" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="130" cy="166" r="24" fill="#e9f2fa" stroke="#2876b9" stroke-width="3"/>
-  <path d="M120 164 h19 m-18 7 h15 m-15-14 h16" stroke="#2876b9" stroke-width="3"/>
-  <circle cx="327" cy="162" r="24" fill="#fcefe9" stroke="#be6156" stroke-width="3"/>
-  <path d="M317 153 h20 v18 h-13 l-6 5 v-5 h-1 z" fill="none" stroke="#be6156" stroke-width="3"/>
-  <circle cx="315" cy="289" r="24" fill="#eaf5ef" stroke="#247b72" stroke-width="3"/>
-  <circle cx="315" cy="289" r="12" fill="none" stroke="#247b72" stroke-width="3"/>
-  <path d="M315 279 v11 l8 5" fill="none" stroke="#247b72" stroke-width="3"/>
-  <text x="225" y="352" text-anchor="middle" class="label">Paired trajectory</text>
-  <text x="225" y="390" text-anchor="middle" class="small muted">same base profile</text>
-
-  <path d="M90 465 H358" stroke="#d7e0e7" stroke-width="3"/>
-  <text x="95" y="507" class="label blue">Multimodal view</text>
-  <g fill="#e9f2fa" stroke="#2876b9" stroke-width="3">
-    <rect x="95" y="535" width="51" height="62" rx="4"/>
-    <path d="M108 552 h24 M108 564 h24 M108 576 h16" fill="none"/>
-    <rect x="175" y="542" width="51" height="62" rx="4"/>
-    <path d="M187 557 h24 M187 570 h20 M187 583 h24" fill="none"/>
-    <rect x="255" y="535" width="51" height="62" rx="4"/>
-    <path d="M268 551 h24 M268 564 h22 M268 577 h18" fill="none"/>
-  </g>
-  <text x="95" y="640" class="small">profile · posts · actions</text>
-  <text x="95" y="674" class="tiny muted">5 post and 5 event steps</text>
-
-  <path d="M90 710 H358" stroke="#d7e0e7" stroke-width="3"/>
-  <g fill="#be6156">
-    <rect x="99" y="736" width="17" height="24"/><rect x="127" y="723" width="17" height="37"/>
-    <rect x="155" y="730" width="17" height="30"/><rect x="183" y="713" width="17" height="47"/>
-  </g>
-  <text x="216" y="741" class="small red">6 numerical</text>
-  <text x="216" y="774" class="small red">11 style</text>
-
-  <!-- Blue backbone: feature encoders, content and strict graph structure, five-step pooling. -->
-  <path d="M450 125 H1360" stroke="#2876b9" stroke-width="5"/>
-  <text x="472" y="168" class="head blue">Frozen BotDMM backbone</text>
-  <text x="472" y="204" class="small muted">profile + post/action sequence + numerical/style inputs</text>
-  <path d="M350 583 C403 583 411 282 474 265" class="blueflow"/>
-  <path d="M352 745 C390 728 383 422 474 265" fill="none" stroke="#2876b9" stroke-width="3" stroke-dasharray="11 8" marker-end="url(#blueArrow)"/>
-
-  <g fill="#f1f7fc" stroke="#719bc0" stroke-width="3">
-    <rect x="475" y="239" width="68" height="52" rx="6"/>
-    <rect x="560" y="239" width="68" height="52" rx="6"/>
-    <rect x="645" y="239" width="68" height="52" rx="6"/>
-    <rect x="730" y="239" width="68" height="52" rx="6"/>
-    <rect x="815" y="239" width="68" height="52" rx="6"/>
-  </g>
-  <g text-anchor="middle" class="tiny blue">
-    <text x="509" y="272">profile</text><text x="594" y="272">posts</text>
-    <text x="679" y="272">events</text><text x="764" y="272">num.</text>
-    <text x="849" y="272">style</text>
-  </g>
-  <text x="489" y="332" class="small muted">encoded, concatenated at each step</text>
-  <path d="M885 265 H921" class="blueflow"/>
-  <path d="M921 265 C946 265 947 328 972 328" stroke="#2876b9" stroke-width="3" fill="none"/>
-  <path d="M921 265 C946 265 947 456 972 456" stroke="#2876b9" stroke-width="3" fill="none"/>
-
-  <circle cx="1040" cy="328" r="70" fill="#eaf3fb" stroke="#2876b9" stroke-width="4"/>
-  <path d="M1010 321 C1023 288 1052 289 1070 320 M1009 339 C1030 359 1055 357 1072 337" fill="none" stroke="#2876b9" stroke-width="5"/>
-  <text x="1040" y="421" text-anchor="middle" class="label blue">Content</text>
-
-  <circle cx="1040" cy="505" r="70" fill="#f1eff9" stroke="#7963a5" stroke-width="4"/>
-  <g stroke="#7963a5" stroke-width="4" fill="#fff">
-    <path d="M1013 516 L1040 480 L1068 518 L1013 516 M1040 480 L1037 533"/>
-    <circle cx="1013" cy="516" r="8"/><circle cx="1040" cy="480" r="8"/>
-    <circle cx="1068" cy="518" r="8"/><circle cx="1037" cy="533" r="8"/>
-  </g>
-  <text x="1040" y="603" text-anchor="middle" class="label" fill="#68518f">Structure</text>
-  <path d="M855 450 C918 450 940 492 969 492" stroke="#7963a5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
-  <g fill="#fff" stroke="#7963a5" stroke-width="3">
-    <circle cx="817" cy="446" r="11"/><circle cx="857" cy="421" r="11"/>
-    <circle cx="869" cy="472" r="11"/><circle cx="822" cy="493" r="11"/>
-  </g>
-  <path d="M817 446 L857 421 L869 472 L822 493 Z M817 446 L869 472" stroke="#7963a5" stroke-width="3" fill="none"/>
-  <text x="489" y="415" class="label">Split-local kNN</text>
-  <text x="489" y="455" class="small muted">neighbor → target only</text>
-  <text x="489" y="490" class="small muted">no same-profile edge</text>
-
-  <path d="M1110 328 C1160 328 1165 388 1190 388 M1110 505 C1160 505 1165 438 1190 438" stroke="#7e9eb8" stroke-width="3" fill="none"/>
-  <g fill="#fff" stroke="#2876b9" stroke-width="3">
-    <circle cx="1207" cy="414" r="18"/><circle cx="1242" cy="414" r="18"/>
-    <circle cx="1277" cy="414" r="18"/><circle cx="1312" cy="414" r="18"/>
-    <circle cx="1347" cy="414" r="18"/>
-  </g>
-  <text x="1207" y="423" text-anchor="middle" class="tiny">1</text>
-  <text x="1242" y="423" text-anchor="middle" class="tiny">2</text>
-  <text x="1277" y="423" text-anchor="middle" class="tiny">3</text>
-  <text x="1312" y="423" text-anchor="middle" class="tiny">4</text>
-  <text x="1347" y="423" text-anchor="middle" class="tiny">5</text>
-  <text x="1268" y="351" text-anchor="middle" class="small blue">five step features</text>
-  <text x="1277" y="478" text-anchor="middle" class="tiny muted">mean pool → Pmulti</text>
-
-  <!-- Independent behavioral branch; no neural feature sharing. -->
-  <path d="M450 655 H1360" stroke="#be6156" stroke-width="5"/>
-  <text x="472" y="705" class="head red">Behavioral statistics expert</text>
-  <text x="472" y="742" class="small muted">raw 17-D fields · separate fit</text>
-  <path d="M352 745 H460" class="redflow"/>
-  <path d="M746 798 H796" class="redflow"/>
-  <g fill="#fff" stroke="#be6156" stroke-width="3">
-    <circle cx="870" cy="749" r="14"/><circle cx="831" cy="797" r="14"/>
-    <circle cx="909" cy="797" r="14"/><circle cx="870" cy="844" r="14"/>
-    <circle cx="1040" cy="749" r="14"/><circle cx="1001" cy="797" r="14"/>
-    <circle cx="1079" cy="797" r="14"/><circle cx="1040" cy="844" r="14"/>
-  </g>
-  <g fill="none" stroke="#be6156" stroke-width="3">
-    <path d="M870 764 V778 L831 783 M870 778 L909 783 M831 811 L870 830 M909 811 L870 830"/>
-    <path d="M1040 764 V778 L1001 783 M1040 778 L1079 783 M1001 811 L1040 830 M1079 811 L1040 830"/>
-  </g>
-  <text x="1175" y="772" class="label red">HGB trees</text>
-  <text x="1175" y="815" class="small muted">→ PBSE</text>
-
-  <!-- Only decision-level combination; validation cannot change test examples. -->
-  <path d="M1429 125 H1840" stroke="#247b72" stroke-width="5"/>
-  <text x="1450" y="168" class="small teal" font-weight="700">VALIDATION ONLY</text>
-  <path d="M1454 264 V205 H1703" stroke="#8caea8" stroke-width="3" fill="none"/>
-  <path d="M1475 252 L1525 237 L1575 221 L1625 194 L1675 214" fill="none" stroke="#247b72" stroke-width="5"/>
-  <g fill="#fff" stroke="#247b72" stroke-width="3">
-    <circle cx="1475" cy="252" r="6"/><circle cx="1525" cy="237" r="6"/>
-    <circle cx="1575" cy="221" r="6"/><circle cx="1675" cy="214" r="6"/>
-  </g>
-  <circle cx="1625" cy="194" r="10" fill="#d9a547" stroke="#fff" stroke-width="3"/>
-  <text x="1718" y="225" class="small teal">select w*</text>
-  <text x="1454" y="306" class="small muted">Macro-F1 grid (schematic)</text>
-  <path d="M1630 319 V364" stroke="#247b72" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
-
-  <path d="M1359 414 H1466" class="blueflow"/>
-  <path d="M1330 795 C1425 795 1418 572 1466 572" class="redflow"/>
-  <circle cx="1592" cy="473" r="111" fill="#f8fbfa" stroke="#72a59e" stroke-width="5"/>
-  <path d="M1514 428 A91 91 0 0 1 1669 426" fill="none" stroke="#2876b9" stroke-width="10"/>
-  <path d="M1669 521 A91 91 0 0 1 1514 521" fill="none" stroke="#be6156" stroke-width="10"/>
-  <text x="1592" y="455" text-anchor="middle" class="head teal">w*</text>
-  <text x="1592" y="493" text-anchor="middle" class="small">locked before test</text>
-  <path d="M1466 414 H1485 M1466 572 H1485" stroke="#51657a" stroke-width="3"/>
-  <path d="M1705 473 H1795" class="flow"/>
-  <g fill="#247b72">
-    <rect x="1802" y="430" width="17" height="71" rx="3"/>
-    <rect x="1828" y="452" width="17" height="49" rx="3"/>
-    <rect x="1854" y="413" width="17" height="88" rx="3"/>
-  </g>
-  <text x="1828" y="540" text-anchor="middle" class="label teal">Pfinal</text>
-  <text x="1612" y="635" text-anchor="middle" class="small">Pfinal = (1-w*) Pmulti + w* PBSE</text>
-
-  <path d="M1463 681 H1850" stroke="#d7e0e7" stroke-width="3"/>
-  <text x="1455" y="725" class="small muted">Prediction classes</text>
-  <g stroke-width="3" fill="#fff">
-    <circle cx="1505" cy="781" r="33" stroke="#2876b9"/>
-    <circle cx="1610" cy="781" r="33" stroke="#be6156"/>
-    <circle cx="1715" cy="781" r="33" stroke="#7963a5"/>
-    <circle cx="1820" cy="781" r="33" stroke="#247b72"/>
-  </g>
-  <circle cx="1505" cy="772" r="8" fill="none" stroke="#2876b9" stroke-width="3"/>
-  <path d="M1489 795 Q1505 779 1521 795" fill="none" stroke="#2876b9" stroke-width="3"/>
-  <g fill="none" stroke-width="3">
-    <rect x="1595" y="772" width="30" height="20" rx="5" stroke="#be6156"/>
-    <path d="M1610 772 v-8 M1700 772 h30 v20 h-30 z M1715 772 v-8" stroke="#7963a5"/>
-    <rect x="1805" y="772" width="30" height="20" rx="5" stroke="#247b72"/>
-    <path d="M1820 772 v-8 M1820 793 l12 11" stroke="#247b72"/>
-  </g>
-  <g fill="#be6156"><circle cx="1603" cy="782" r="2.5"/><circle cx="1618" cy="782" r="2.5"/></g>
-  <g fill="#7963a5"><circle cx="1708" cy="782" r="2.5"/><circle cx="1722" cy="782" r="2.5"/></g>
-  <g fill="#247b72"><circle cx="1813" cy="782" r="2.5"/><circle cx="1827" cy="782" r="2.5"/></g>
-  <g class="tiny" text-anchor="middle">
-    <text x="1505" y="844">Human</text><text x="1610" y="844">Trad. bot</text>
-    <text x="1715" y="844">LLM bot</text><text x="1820" y="844">Agent</text>
-  </g>
-  <text x="960" y="882" text-anchor="middle" class="tiny muted">Group-disjoint train / validation / test · same master profiles in nested 3-class and 4-class views</text>
+<rect x="0" y="0" width="1880" height="1240" rx="0" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="35" y="56" font-size="38" fill="#273540" font-weight="700" text-anchor="start">(a) Account evidence</text>
+<text x="480" y="56" font-size="38" fill="#273540" font-weight="700" text-anchor="start">(b) Two model paths</text>
+<text x="1445" y="56" font-size="38" fill="#273540" font-weight="700" text-anchor="start">(c) Frozen fusion</text>
+<path d="M35 82 H1840" fill="none" stroke="#c2cbd1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="461" y="105" width="930" height="692" rx="18" fill="#f1f7fb" stroke="none" stroke-width="2"/>
+<rect x="461" y="814" width="930" height="279" rx="18" fill="#fcf1ef" stroke="none" stroke-width="2"/>
+<rect x="102" y="137" width="273" height="440" rx="28" fill="#e2ecf1" stroke="#728997" stroke-width="3"/>
+<rect x="119" y="155" width="239" height="393" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<rect x="190" y="143" width="99" height="13" rx="6" fill="#728997" stroke="none" stroke-width="2"/>
+<use href="#person" transform="translate(169 230) scale(0.46)" color="#273540"/>
+<text x="210" y="227" font-size="30" fill="#273540" font-weight="700" text-anchor="start">Account</text>
+<path d="M213 244 H330 M213 257 H301" fill="none" stroke="#b3c2cc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M141 281 H335" fill="none" stroke="#d2dce3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#post" transform="translate(151 327) scale(0.49)" color="#2875a8"/>
+<text x="178" y="323" font-size="29" fill="#2875a8" font-weight="400" text-anchor="start">Daily update</text>
+<path d="M180 339 H329 M180 351 H300" fill="none" stroke="#b3c2cc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#reply" transform="translate(151 407) scale(0.49)" color="#287f76"/>
+<text x="178" y="401" font-size="29" fill="#287f76" font-weight="400" text-anchor="start">Short reply</text>
+<path d="M180 417 H327 M180 429 H298" fill="none" stroke="#b3c2cc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<use href="#clock" transform="translate(151 484) scale(0.43)" color="#cba24f"/>
+<text x="176" y="490" font-size="29" fill="#273540" font-weight="400" text-anchor="start">Event time</text>
+<circle cx="238" cy="562" r="6" fill="#728997" stroke="none" stroke-width="2"/>
+<use href="#person" transform="translate(66 425) scale(0.79)" color="#273540"/>
+<path d="M42 476 Q79 490 111 448" fill="none" stroke="#f1cbb5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="210" y="622" font-size="32" fill="#273540" font-weight="400" text-anchor="middle">Profile + posts + actions</text>
+<text x="210" y="660" font-size="28" fill="#647582" font-weight="400" text-anchor="middle">Illustrative account record</text>
+<use href="#calendar" transform="translate(111 718) scale(0.76)" color="#2875a8"/>
+<use href="#reply" transform="translate(217 718) scale(0.76)" color="#287f76"/>
+<use href="#clock" transform="translate(320 718) scale(0.76)" color="#cba24f"/>
+<path d="M142 718 H180 M248 718 H282" fill="none" stroke="#adb9c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="211" y="781" font-size="31" fill="#273540" font-weight="400" text-anchor="middle">Five ordered time steps</text>
+<text x="35" y="864" font-size="32" fill="#b7645a" font-weight="700" text-anchor="start">Shared behavioral fields</text>
+<rect x="52" y="927" width="13" height="33" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="74" y="891" width="13" height="69" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="96" y="910" width="13" height="50" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="118" y="876" width="13" height="84" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="140" y="918" width="13" height="42" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="162" y="896" width="13" height="64" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<path d="M45 965 H189" fill="none" stroke="#adb9c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="209" y="916" font-size="31" fill="#273540" font-weight="400" text-anchor="start">6 numerical</text>
+<text x="209" y="955" font-size="31" fill="#273540" font-weight="400" text-anchor="start">11 style</text>
+<rect x="53" y="989" width="17" height="17" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="76" y="989" width="17" height="17" rx="2" fill="#84b6aa" stroke="none" stroke-width="2"/>
+<rect x="99" y="989" width="17" height="17" rx="2" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="122" y="989" width="17" height="17" rx="2" fill="#77a5bd" stroke="none" stroke-width="2"/>
+<rect x="145" y="989" width="17" height="17" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="168" y="989" width="17" height="17" rx="2" fill="#d99a89" stroke="none" stroke-width="2"/>
+<text x="35" y="1059" font-size="30" fill="#647582" font-weight="400" text-anchor="start">One 17-D exported vector</text>
+<path d="M381 365 C420 365 420 317 476 317" fill="none" stroke="#2875a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<path d="M382 945 C428 945 413 603 476 603" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rarr)" stroke-dasharray="8 7"/>
+<path d="M382 945 H482" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rarr)"/>
+<text x="491" y="158" font-size="38" fill="#2875a8" font-weight="700" text-anchor="start">Frozen BotDMM backbone</text>
+<text x="491" y="198" font-size="29" fill="#647582" font-weight="400" text-anchor="start">Signed-hash text / event vectors; train-fitted scaling</text>
+<text x="498" y="247" font-size="32" fill="#2875a8" font-weight="700" text-anchor="start">Input encoders</text>
+<use href="#post" transform="translate(518 291) scale(0.5)" color="#2875a8"/>
+<text x="558" y="301" font-size="30" fill="#273540" font-weight="400" text-anchor="start">Profile</text>
+<text x="558" y="337" font-size="29" fill="#647582" font-weight="400" text-anchor="start">Linear</text>
+<use href="#post" transform="translate(518 386) scale(0.5)" color="#2875a8"/>
+<text x="558" y="396" font-size="30" fill="#273540" font-weight="400" text-anchor="start">Posts</text>
+<text x="558" y="432" font-size="29" fill="#647582" font-weight="400" text-anchor="start">LSTM</text>
+<use href="#reply" transform="translate(518 481) scale(0.5)" color="#287f76"/>
+<text x="558" y="491" font-size="30" fill="#273540" font-weight="400" text-anchor="start">Actions</text>
+<text x="558" y="527" font-size="29" fill="#647582" font-weight="400" text-anchor="start">LSTM</text>
+<rect x="500" y="588" width="10" height="18" rx="1" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="515" y="570" width="10" height="36" rx="1" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="530" y="579" width="10" height="27" rx="1" fill="#b7645a" stroke="none" stroke-width="2"/>
+<text x="558" y="586" font-size="30" fill="#273540" font-weight="400" text-anchor="start">17-D fields</text>
+<text x="558" y="623" font-size="29" fill="#647582" font-weight="400" text-anchor="start">2 x Linear</text>
+<path d="M725 309 C740 309 737 442 758 442" fill="none" stroke="#2875a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M725 404 C740 404 737 442 758 442" fill="none" stroke="#2875a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M725 499 C740 499 737 442 758 442" fill="none" stroke="#287f76" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M725 594 C740 594 737 442 758 442" fill="none" stroke="#b7645a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="754" y="332" width="29" height="36" rx="2" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="754" y="374" width="29" height="36" rx="2" fill="#74a9c8" stroke="none" stroke-width="2"/>
+<rect x="754" y="416" width="29" height="36" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="754" y="458" width="29" height="36" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="754" y="500" width="29" height="36" rx="2" fill="#d69483" stroke="none" stroke-width="2"/>
+<text x="768" y="588" font-size="33" fill="#273540" font-weight="400" text-anchor="middle">x_t</text>
+<path d="M783 444 C810 444 805 318 831 318" fill="none" stroke="#2875a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<path d="M783 444 C810 444 805 595 831 595" fill="none" stroke="#8068a1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<text x="966" y="255" font-size="32" fill="#2875a8" font-weight="700" text-anchor="middle">Content MLP</text>
+<circle cx="858" cy="295" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="858" cy="326" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="858" cy="357" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<path d="M866 295 L928 281" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 295 L928 312" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 295 L928 343" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 295 L928 374" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 326 L928 281" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 326 L928 312" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 326 L928 343" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 326 L928 374" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 357 L928 281" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 357 L928 312" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 357 L928 343" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M866 357 L928 374" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="936" cy="281" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="936" cy="312" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="936" cy="343" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="936" cy="374" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<path d="M944 281 L1006 295" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 281 L1006 326" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 281 L1006 357" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 312 L1006 295" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 312 L1006 326" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 312 L1006 357" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 343 L1006 295" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 343 L1006 326" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 343 L1006 357" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 374 L1006 295" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 374 L1006 326" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M944 374 L1006 357" fill="none" stroke="#b6ccd9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1014" cy="295" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="1014" cy="326" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<circle cx="1014" cy="357" r="8" fill="#fff" stroke="#2875a8" stroke-width="2"/>
+<rect x="1050" y="299" width="10" height="57" rx="2" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="1063" y="299" width="10" height="57" rx="2" fill="#5696bd" stroke="none" stroke-width="2"/>
+<rect x="1076" y="299" width="10" height="57" rx="2" fill="#9ec6dc" stroke="none" stroke-width="2"/>
+<text x="966" y="458" font-size="32" fill="#8068a1" font-weight="700" text-anchor="middle">Structure attention</text>
+<circle cx="864" cy="517" r="17" fill="#fff" stroke="#8068a1" stroke-width="3"/>
+<path d="M880 517 L923 567" fill="none" stroke="#8068a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<circle cx="860" cy="639" r="17" fill="#fff" stroke="#8068a1" stroke-width="3"/>
+<path d="M876 639 L923 595" fill="none" stroke="#8068a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<circle cx="1031" cy="516" r="17" fill="#fff" stroke="#8068a1" stroke-width="3"/>
+<path d="M1015 516 L971 567" fill="none" stroke="#8068a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<circle cx="1038" cy="639" r="17" fill="#fff" stroke="#8068a1" stroke-width="3"/>
+<path d="M1022 639 L971 595" fill="none" stroke="#8068a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<circle cx="947" cy="581" r="29" fill="#e9e1f1" stroke="#8068a1" stroke-width="3"/>
+<text x="947" y="590" font-size="29" fill="#8068a1" font-weight="700" text-anchor="middle">i</text>
+<text x="966" y="705" font-size="30" fill="#8068a1" font-weight="400" text-anchor="middle">Strict split-local kNN</text>
+<text x="966" y="743" font-size="28" fill="#647582" font-weight="400" text-anchor="middle">Exclude same-profile neighbors</text>
+<path d="M1094 326 C1127 326 1119 400 1151 400" fill="none" stroke="#2875a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<path d="M1075 581 C1127 581 1119 455 1151 455" fill="none" stroke="#8068a1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>
+<path d="M1168 395 L1225 426 L1168 457 Z" fill="#dcebef" stroke="#648fa3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1231" y="303" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">Normalize</text>
+<text x="1231" y="340" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">+ integrate</text>
+<path d="M1225 426 H1278 V458" fill="none" stroke="#2875a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<rect x="1237" y="470" width="14" height="51" rx="2" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="1254" y="470" width="14" height="51" rx="2" fill="#83afc7" stroke="none" stroke-width="2"/>
+<rect x="1271" y="470" width="14" height="51" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="1288" y="470" width="14" height="51" rx="2" fill="#8068a1" stroke="none" stroke-width="2"/>
+<rect x="1305" y="470" width="14" height="51" rx="2" fill="#a0bdd0" stroke="none" stroke-width="2"/>
+<text x="1278" y="566" font-size="32" fill="#2875a8" font-weight="400" text-anchor="middle">h1 … h5</text>
+<path d="M1280 580 V598" fill="none" stroke="#2875a8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<text x="1278" y="629" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">Mean pool</text>
+<text x="1278" y="667" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">+ classify</text>
+<rect x="1250" y="705" width="14" height="30" rx="3" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="1272" y="681" width="14" height="54" rx="3" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="1294" y="713" width="14" height="22" rx="3" fill="#2875a8" stroke="none" stroke-width="2"/>
+<rect x="1316" y="696" width="14" height="39" rx="3" fill="#2875a8" stroke="none" stroke-width="2"/>
+<path d="M1243 740 H1338" fill="none" stroke="#9ba9b1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1290" y="783" font-size="29" fill="#2875a8" font-weight="400" text-anchor="middle">Pmulti</text>
+<text x="491" y="869" font-size="37" fill="#b7645a" font-weight="700" text-anchor="start">Behavioral statistics expert</text>
+<text x="491" y="909" font-size="29" fill="#647582" font-weight="400" text-anchor="start">Training-only fit · raw 17-D fields · no shared gradients</text>
+<rect x="500" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="511" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="522" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="533" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="544" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="555" y="952" width="8" height="66" rx="2" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="566" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="577" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="588" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="599" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="610" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="621" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="632" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="643" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="654" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="665" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<rect x="676" y="952" width="8" height="66" rx="2" fill="#287f76" stroke="none" stroke-width="2"/>
+<text x="610" y="1070" font-size="30" fill="#b7645a" font-weight="400" text-anchor="middle">[numerical; style]</text>
+<path d="M704 985 H795" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rarr)"/>
+<g transform="translate(862 946) scale(0.68)">
+<path d="M0 14 V36 L-40 59 M0 36 L40 59 M-40 85 L-68 116 M-40 85 L-14 116 M40 85 L16 116 M40 85 L68 116" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="-40" cy="72" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="40" cy="72" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="-68" cy="129" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="-14" cy="129" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="16" cy="129" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+<circle cx="68" cy="129" r="13" fill="#fff" stroke="#b7645a" stroke-width="3"/>
+</g>
+<g transform="translate(977 946) scale(0.68)">
+<path d="M0 14 V36 L-40 59 M0 36 L40 59 M-40 85 L-68 116 M-40 85 L-14 116 M40 85 L16 116 M40 85 L68 116" fill="none" stroke="#cba24f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="-40" cy="72" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="40" cy="72" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="-68" cy="129" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="-14" cy="129" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="16" cy="129" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+<circle cx="68" cy="129" r="13" fill="#fff" stroke="#cba24f" stroke-width="3"/>
+</g>
+<g transform="translate(1092 946) scale(0.68)">
+<path d="M0 14 V36 L-40 59 M0 36 L40 59 M-40 85 L-68 116 M-40 85 L-14 116 M40 85 L16 116 M40 85 L68 116" fill="none" stroke="#287f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="-40" cy="72" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="40" cy="72" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="-68" cy="129" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="-14" cy="129" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="16" cy="129" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+<circle cx="68" cy="129" r="13" fill="#fff" stroke="#287f76" stroke-width="3"/>
+</g>
+<text x="977" y="1070" font-size="30" fill="#b7645a" font-weight="400" text-anchor="middle">HGB tree ensemble</text>
+<path d="M1150 989 H1203" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rarr)"/>
+<rect x="1230" y="975" width="17" height="48" rx="3" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="1255" y="996" width="17" height="27" rx="3" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="1280" y="965" width="17" height="58" rx="3" fill="#b7645a" stroke="none" stroke-width="2"/>
+<rect x="1305" y="985" width="17" height="38" rx="3" fill="#b7645a" stroke="none" stroke-width="2"/>
+<path d="M1223 1028 H1330" fill="none" stroke="#9ba9b1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1279" y="1070" font-size="31" fill="#b7645a" font-weight="400" text-anchor="middle">PBSE</text>
+<use href="#calendar" transform="translate(1480 154) scale(0.68)" color="#287f76"/>
+<text x="1520" y="161" font-size="32" fill="#287f76" font-weight="700" text-anchor="start">Validation only</text>
+<path d="M1478 340 V237 M1478 340 H1755" fill="none" stroke="#8eaca5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1500 322 L1546 296 L1592 267 L1638 247 L1684 270 L1730 289" fill="none" stroke="#287f76" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1500" cy="322" r="5" fill="#fff" stroke="#287f76" stroke-width="2"/>
+<circle cx="1546" cy="296" r="5" fill="#fff" stroke="#287f76" stroke-width="2"/>
+<circle cx="1592" cy="267" r="5" fill="#fff" stroke="#287f76" stroke-width="2"/>
+<circle cx="1684" cy="270" r="5" fill="#fff" stroke="#287f76" stroke-width="2"/>
+<circle cx="1730" cy="289" r="5" fill="#fff" stroke="#287f76" stroke-width="2"/>
+<circle cx="1638" cy="247" r="10" fill="#cba24f" stroke="#fff" stroke-width="2"/>
+<text x="1638" y="214" font-size="32" fill="#287f76" font-weight="700" text-anchor="middle">w*</text>
+<text x="1635" y="393" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">Macro-F1 weight search</text>
+<text x="1635" y="430" font-size="28" fill="#647582" font-weight="400" text-anchor="middle">Schematic, not a result</text>
+<path d="M1638 451 V532" fill="none" stroke="#287f76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)" stroke-dasharray="8 7"/>
+<use href="#lock" transform="translate(1638 494) scale(0.63)" color="#287f76"/>
+<path d="M1377 718 C1438 718 1439 603 1515 603" fill="none" stroke="#2875a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#barr)"/>
+<path d="M1359 990 C1468 990 1457 719 1515 719" fill="none" stroke="#b7645a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#rarr)"/>
+<circle cx="1638" cy="643" r="98" fill="#f0f8f5" stroke="#6a9d94" stroke-width="3"/>
+<path d="M1569 603 A82 82 0 0 1 1707 603" fill="none" stroke="#2875a8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1707 683 A82 82 0 0 1 1569 683" fill="none" stroke="#b7645a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1638" y="632" font-size="43" fill="#287f76" font-weight="700" text-anchor="middle">w*</text>
+<text x="1638" y="672" font-size="31" fill="#273540" font-weight="400" text-anchor="middle">fixed</text>
+<text x="1638" y="789" font-size="32" fill="#287f76" font-weight="700" text-anchor="middle">Pfinal =</text>
+<text x="1638" y="830" font-size="30" fill="#273540" font-weight="400" text-anchor="middle">(1-w*) Pmulti + w* PBSE</text>
+<path d="M1435 876 H1835" fill="none" stroke="#c9d4d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1438" y="924" font-size="32" fill="#273540" font-weight="700" text-anchor="start">Account-type predictions</text>
+<use href="#person" transform="translate(1481 1003) scale(0.59)" color="#273540"/>
+<use href="#robot" transform="translate(1593 1004) scale(0.59)" color="#b7645a"/>
+<use href="#robot" transform="translate(1705 1004) scale(0.59)" color="#8068a1"/>
+<use href="#robot" transform="translate(1814 1004) scale(0.59)" color="#287f76"/>
+<use href="#reply" transform="translate(1734 963) scale(0.33)" color="#8068a1"/>
+<use href="#wrench" transform="translate(1835 1036) scale(0.39)" color="#287f76"/>
+<text x="1481" y="1091" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Human</text>
+<text x="1593" y="1091" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Trad.</text>
+<text x="1593" y="1125" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Bot</text>
+<text x="1705" y="1091" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">LLM</text>
+<text x="1705" y="1125" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Bot</text>
+<text x="1814" y="1091" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Full-stack</text>
+<text x="1814" y="1125" font-size="28" fill="#273540" font-weight="400" text-anchor="middle">Agent</text>
+<path d="M1447 1142 V1153 H1744 V1142" fill="none" stroke="#2875a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1595" y="1186" font-size="29" fill="#2875a8" font-weight="400" text-anchor="middle">Twibot22: 3 classes</text>
+<text x="1640" y="1223" font-size="29" fill="#287f76" font-weight="400" text-anchor="middle">Quadbot: all 4 classes</text>
+<path d="M35 1120 H1390" fill="none" stroke="#c9d4d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="35" y="1175" font-size="32" fill="#273540" font-weight="700" text-anchor="start">Group-disjoint train / validation / test</text>
+<text x="35" y="1215" font-size="29" fill="#647582" font-weight="400" text-anchor="start">No same-profile edge · weight locked before test · independently fitted model paths</text>
 </svg>
