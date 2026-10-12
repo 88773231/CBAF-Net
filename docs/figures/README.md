@@ -40,3 +40,14 @@ renderings of `analysis/plot_ablation.py`. They read the audited means from
 legend, and panel spacing have changed from the archived rendering.
 `tests/test_ablation_figure_layout.py` checks text clearance and the reported
 value annotations. The underlying results and archived release remain intact.
+
+## Confusion figure
+
+`cbaf_confusion.png` and `cbaf_confusion.svg` are the current manuscript
+renderings of `analysis/plot_confusion.py`. They use the unchanged public
+test predictions from `results/strict_postprocessed/predictions/`.
+Percentage annotations are fitted to their rendered cells at print width;
+the matrices, normalization, class labels, and values are unchanged.
+`tests/test_confusion_figure_layout.py` verifies the annotation bounds and
+numeric invariance. The original `v1.1.0` confusion assets remain unchanged
+inside the immutable result archive.

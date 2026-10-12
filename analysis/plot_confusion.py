@@ -228,6 +228,23 @@ def annotate_matrix(ax: plt.Axes, matrix: np.ndarray) -> None:
             )
 
 
+def fit_cell_annotations(ax: plt.Axes) -> None:
+    """Keep rendered percentage labels inside their cells at print width."""
+    renderer = ax.figure.canvas.get_renderer()
+    for label in ax.texts:
+        column, row = label.get_position()
+        left, bottom = ax.transData.transform((column - 0.44, row + 0.44))
+        right, top = ax.transData.transform((column + 0.44, row - 0.44))
+        bounds = label.get_window_extent(renderer)
+        scale = min(
+            1.0,
+            abs(right - left) / max(bounds.width, 1.0),
+            abs(top - bottom) / max(bounds.height, 1.0),
+        )
+        if scale < 1.0:
+            label.set_fontsize(label.get_fontsize() * scale)
+
+
 def draw_panel(
     ax: plt.Axes,
     matrix: np.ndarray,
@@ -347,6 +364,10 @@ def save_figure(
         fontsize=7.9,
         color="#4F5D6D",
     )
+
+    fig.canvas.draw()
+    for ax in axes:
+        fit_cell_annotations(ax)
 
     for suffix, options in (
         (".png", {"dpi": dpi}),
