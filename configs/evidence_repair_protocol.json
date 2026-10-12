@@ -1,0 +1,34 @@
+{
+  "purpose": "Exploratory validation repair on existing immutable inputs",
+  "cpu_threads": 2,
+  "seeds": [42, 43, 44],
+  "methods": [
+    "hgb_statistics",
+    "logistic_pooled",
+    "mlp_matched",
+    "temporal_evidence",
+    "without_interaction",
+    "without_gate",
+    "without_style",
+    "without_timing"
+  ],
+  "configuration": {
+    "steps": 5,
+    "hidden_dim": 64,
+    "mlp_hidden_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "branch_loss_weight": 0.1
+  },
+  "selection_metric": "validation_macro_f1_then_mcc",
+  "graph_input": "none",
+  "relative_timing": "Seven global and seven per-step relative-gap features, shared by all new baselines",
+  "linear_baseline_input": "Temporal means of all text/action steps plus profile and statistics",
+  "test_access": "not permitted in this selection run",
+  "old_test_reuse_policy": "previously inspected, not an untouched confirmation set",
+  "success_claim": "not preset; retain all methods, seeds and ablations"
+}

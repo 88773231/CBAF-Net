@@ -27,6 +27,12 @@ recomputable using `analysis/paired_profile_cluster_bootstrap.py` and
 `configs/strict_paired_comparison.json`. Validation-only experimental model
 branches are not part of the reported CBAF-Net method.
 
+The development repair work is documented separately in
+`docs/EVIDENCE_REPAIR.md`. Its temporal-input sidecars and candidate models are
+exploratory, use train/validation only, and do not replace the published test
+table. An input repair must be shared by every new comparator; it cannot be
+presented as an architecture gain against a comparator denied that input.
+
 ## Repository layout
 
 - `src/run_cbaf.py`: canonical CBAF-Net evaluator used by the paper.

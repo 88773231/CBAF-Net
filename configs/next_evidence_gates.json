@@ -1,0 +1,40 @@
+{
+  "status": "not_a_submission_authorization",
+  "canonical_account_data": "retain_existing_5031_and_6708_trajectory_views",
+  "completed_repair": "relative_rounded_gap_sidecars_for_development_splits",
+  "candidate_status": "experimental_temporal_gate_not_established_as_the_final_method",
+  "do_not_repeat": [
+    "enlarge_or_regenerate_the_main_views_without_a_specific_evidence_need",
+    "search_more_weights_on_the_previously_inspected_test",
+    "hide_ablation_variants_that_outperform_the_full_candidate",
+    "report_validation_selection_scores_as_test_scores",
+    "compare_new_timing_inputs_against_old_inputs_as_an_architecture_gain"
+  ],
+  "next_model_hypothesis": {
+    "target": "unseen_behavior_policy_generalization",
+    "first_control": "strong_matched_mlp_with_relative_timing",
+    "candidate_mechanisms_to_validate": [
+      "profile_grouped_policy_robust_optimization",
+      "timing_style_view_consistency_under_label_preserving_augmentations"
+    ],
+    "novelty_status": "hypotheses_only_not_claimed_as_original_or_effective",
+    "domain_metadata_use": "training_grouping_only_never_prediction_input",
+    "stopping_rule": "stop_the_method_route_if_simple_controls_remain_stronger_or_modules_lack_evidence"
+  },
+  "confirmation_requirements": [
+    "three_seed_unseen_policy_evaluation_with_inner_grouped_selection",
+    "same_input_backbone_comparison_and_retrained_module_removals",
+    "generator_or_behavior_challenge_not_used_to_design_the_final_model",
+    "independent_real_source_account_sanity_check_with_its_original_valid_labels",
+    "honest_binary_or_multiclass_task_boundaries_for_external_data",
+    "author_approval_and_source_permission_confirmation"
+  ],
+  "independent_challenge_policy": {
+    "purpose": "evaluation_only_not_main_view_expansion",
+    "base_profiles": "disjoint_from_all_existing_main_view_profiles",
+    "generation": "one_predeclared_unseen_family_or_policy_without_filtering_by_detector_scores",
+    "labels": "strategy_execution_records_not_inferred_from_source_identity",
+    "model_selection": "never_on_the_final_challenge",
+    "resource_authorization": "confirm_gpu_availability_and_estimated_cost_before_generation"
+  }
+}
