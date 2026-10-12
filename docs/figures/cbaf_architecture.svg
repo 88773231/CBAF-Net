@@ -70,7 +70,7 @@
 
   <!-- Blue backbone: feature encoders, content and strict graph structure, five-step pooling. -->
   <path d="M450 125 H1360" stroke="#2876b9" stroke-width="5"/>
-  <text x="472" y="168" class="head blue">Frozen multimodal backbone</text>
+  <text x="472" y="168" class="head blue">Frozen BotDMM backbone</text>
   <text x="472" y="204" class="small muted">profile + post/action sequence + numerical/style inputs</text>
   <path d="M350 583 C403 583 411 282 474 265" class="blueflow"/>
   <path d="M352 745 C390 728 383 422 474 265" fill="none" stroke="#2876b9" stroke-width="3" stroke-dasharray="11 8" marker-end="url(#blueArrow)"/>
