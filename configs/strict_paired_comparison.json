@@ -1,0 +1,46 @@
+{
+  "reference_methods": [
+    "BSE-only",
+    "BotDMM"
+  ],
+  "datasets": {
+    "Twibot22": {
+      "seeds": {
+        "42": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed42/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed42/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed42/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        },
+        "43": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed43/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed43/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed43/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        },
+        "44": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed44/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed44/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Twibot22_seed44/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        }
+      }
+    },
+    "Quadbot": {
+      "seeds": {
+        "42": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed42/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed42/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed42/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        },
+        "43": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed43/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed43/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed43/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        },
+        "44": {
+          "CBAF-Net": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed44/test_predictions.jsonl", "pred_key": "pred"},
+          "BSE-only": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed44/test_predictions.jsonl", "pred_key": "bse_pred"},
+          "BotDMM": {"path": "../results/strict_postprocessed/predictions/Quadbot_seed44/test_predictions.jsonl", "pred_key": "baseline_pred"}
+        }
+      }
+    }
+  }
+}

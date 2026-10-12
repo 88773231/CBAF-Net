@@ -1,0 +1,669 @@
+{
+  "schema_version": "paired-profile-cluster-bootstrap-v1",
+  "manifest": "configs/strict_paired_comparison.json",
+  "sampling_unit": "base_profile_id",
+  "aggregate_estimand": "mean of fixed-seed metrics per synchronized profile replicate",
+  "bootstrap_replicates": 5000,
+  "base_seed": 20261010,
+  "reference_methods": [
+    "BSE-only",
+    "BotDMM"
+  ],
+  "datasets": {
+    "Quadbot": {
+      "row_count": 1120,
+      "profile_count": 280,
+      "classes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "seeds": [
+        "42",
+        "43",
+        "44"
+      ],
+      "methods": [
+        "CBAF-Net",
+        "BSE-only",
+        "BotDMM"
+      ],
+      "per_seed": {
+        "42": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.8125,
+              "lower_95": 0.7982142857142858,
+              "upper_95": 0.8267857142857142
+            },
+            "macro_f1": {
+              "estimate": 0.7905477478704435,
+              "lower_95": 0.7711334369640876,
+              "upper_95": 0.8093832799689209
+            },
+            "mcc": {
+              "estimate": 0.7763440897055793,
+              "lower_95": 0.7592208453790597,
+              "upper_95": 0.793166480990102
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.8125,
+              "lower_95": 0.7990848214285715,
+              "upper_95": 0.8267857142857142
+            },
+            "macro_f1": {
+              "estimate": 0.7911096143159663,
+              "lower_95": 0.7718534530841308,
+              "upper_95": 0.8096422744753369
+            },
+            "mcc": {
+              "estimate": 0.7761779163801058,
+              "lower_95": 0.7594784363630307,
+              "upper_95": 0.7927547030286296
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.8071428571428572,
+              "lower_95": 0.7919642857142857,
+              "upper_95": 0.8214285714285714
+            },
+            "macro_f1": {
+              "estimate": 0.786648484111405,
+              "lower_95": 0.7667974610465698,
+              "upper_95": 0.8055788779390888
+            },
+            "mcc": {
+              "estimate": 0.7655315213958613,
+              "lower_95": 0.7465296779187907,
+              "upper_95": 0.7839070354151969
+            }
+          }
+        },
+        "43": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.8080357142857143,
+              "lower_95": 0.79375,
+              "upper_95": 0.8223214285714285
+            },
+            "macro_f1": {
+              "estimate": 0.7915020329925688,
+              "lower_95": 0.7732912800646123,
+              "upper_95": 0.8094641317889855
+            },
+            "mcc": {
+              "estimate": 0.7630677469683843,
+              "lower_95": 0.74543963756392,
+              "upper_95": 0.7812364521823643
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.8125,
+              "lower_95": 0.7990848214285715,
+              "upper_95": 0.8267857142857142
+            },
+            "macro_f1": {
+              "estimate": 0.7911096143159663,
+              "lower_95": 0.7718534530841308,
+              "upper_95": 0.8096422744753369
+            },
+            "mcc": {
+              "estimate": 0.7761779163801058,
+              "lower_95": 0.7594784363630307,
+              "upper_95": 0.7927547030286296
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.7848214285714286,
+              "lower_95": 0.7696205357142858,
+              "upper_95": 0.8008928571428572
+            },
+            "macro_f1": {
+              "estimate": 0.7804893847358831,
+              "lower_95": 0.7633238932330202,
+              "upper_95": 0.7973588321774655
+            },
+            "mcc": {
+              "estimate": 0.7145832237247715,
+              "lower_95": 0.6938655078412193,
+              "upper_95": 0.7360266425144345
+            }
+          }
+        },
+        "44": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.8125,
+              "lower_95": 0.7982142857142858,
+              "upper_95": 0.8267857142857142
+            },
+            "macro_f1": {
+              "estimate": 0.7925467581215504,
+              "lower_95": 0.7735085981410247,
+              "upper_95": 0.8112083725187844
+            },
+            "mcc": {
+              "estimate": 0.7739081796620908,
+              "lower_95": 0.7568436220523171,
+              "upper_95": 0.7909077143621586
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.8125,
+              "lower_95": 0.7990848214285715,
+              "upper_95": 0.8267857142857142
+            },
+            "macro_f1": {
+              "estimate": 0.7911096143159663,
+              "lower_95": 0.7718534530841308,
+              "upper_95": 0.8096422744753369
+            },
+            "mcc": {
+              "estimate": 0.7761779163801058,
+              "lower_95": 0.7594784363630307,
+              "upper_95": 0.7927547030286296
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.7964285714285714,
+              "lower_95": 0.78125,
+              "upper_95": 0.8116071428571429
+            },
+            "macro_f1": {
+              "estimate": 0.7860758915128834,
+              "lower_95": 0.7682253256418416,
+              "upper_95": 0.8035613431359011
+            },
+            "mcc": {
+              "estimate": 0.7368695564172992,
+              "lower_95": 0.7168409582098547,
+              "upper_95": 0.757327585086279
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "CBAF-Net": {
+          "accuracy": {
+            "estimate": 0.8110119047619048,
+            "lower_95": 0.7973214285714286,
+            "upper_95": 0.8247098214285714
+          },
+          "macro_f1": {
+            "estimate": 0.7915321796615209,
+            "lower_95": 0.773019576695637,
+            "upper_95": 0.8096485843295178
+          },
+          "mcc": {
+            "estimate": 0.7711066721120181,
+            "lower_95": 0.7543671966548154,
+            "upper_95": 0.7877149840168743
+          }
+        },
+        "BSE-only": {
+          "accuracy": {
+            "estimate": 0.8125,
+            "lower_95": 0.7990848214285715,
+            "upper_95": 0.8267857142857142
+          },
+          "macro_f1": {
+            "estimate": 0.7911096143159663,
+            "lower_95": 0.7718534530841308,
+            "upper_95": 0.8096422744753369
+          },
+          "mcc": {
+            "estimate": 0.7761779163801058,
+            "lower_95": 0.7594784363630306,
+            "upper_95": 0.7927547030286296
+          }
+        },
+        "BotDMM": {
+          "accuracy": {
+            "estimate": 0.7961309523809524,
+            "lower_95": 0.7830357142857144,
+            "upper_95": 0.8095238095238094
+          },
+          "macro_f1": {
+            "estimate": 0.7844045867867239,
+            "lower_95": 0.7684320654853056,
+            "upper_95": 0.800247394828634
+          },
+          "mcc": {
+            "estimate": 0.7389947671793107,
+            "lower_95": 0.7220271324984437,
+            "upper_95": 0.7559150525279024
+          }
+        }
+      },
+      "aggregate_comparisons": {
+        "CBAF-Net_minus_BSE-only": {
+          "accuracy": {
+            "estimate": -0.0014880952380952328,
+            "lower_95": -0.005654761904761996,
+            "upper_95": 0.0029761904761903546,
+            "bootstrap_probability_positive": 0.231,
+            "two_sided_bootstrap_tail_probability": 0.5352
+          },
+          "macro_f1": {
+            "estimate": 0.0004225653455546263,
+            "lower_95": -0.0036797702677583005,
+            "upper_95": 0.004776437392873479,
+            "bootstrap_probability_positive": 0.579,
+            "two_sided_bootstrap_tail_probability": 0.842
+          },
+          "mcc": {
+            "estimate": -0.0050712442680876935,
+            "lower_95": -0.012112633071616818,
+            "upper_95": 0.002112701697476226,
+            "bootstrap_probability_positive": 0.0864,
+            "two_sided_bootstrap_tail_probability": 0.1728
+          }
+        },
+        "BotDMM_minus_BSE-only": {
+          "accuracy": {
+            "estimate": -0.01636904761904756,
+            "lower_95": -0.02529761904761907,
+            "upper_95": -0.0071428571428572285,
+            "bootstrap_probability_positive": 0.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          },
+          "macro_f1": {
+            "estimate": -0.006705027529242402,
+            "lower_95": -0.01712454634238965,
+            "upper_95": 0.0040037901900078,
+            "bootstrap_probability_positive": 0.107,
+            "two_sided_bootstrap_tail_probability": 0.214
+          },
+          "mcc": {
+            "estimate": -0.03718314920079513,
+            "lower_95": -0.04963356010260489,
+            "upper_95": -0.02421218926616139,
+            "bootstrap_probability_positive": 0.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        },
+        "CBAF-Net_minus_BotDMM": {
+          "accuracy": {
+            "estimate": 0.014880952380952328,
+            "lower_95": 0.0071428571428571175,
+            "upper_95": 0.022916666666666474,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          },
+          "macro_f1": {
+            "estimate": 0.0071275928747970285,
+            "lower_95": -0.0021274078199816334,
+            "upper_95": 0.016503508009894072,
+            "bootstrap_probability_positive": 0.9334,
+            "two_sided_bootstrap_tail_probability": 0.1332
+          },
+          "mcc": {
+            "estimate": 0.032111904932707436,
+            "lower_95": 0.02108810660648002,
+            "upper_95": 0.04300059761816817,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        },
+        "BSE-only_minus_BotDMM": {
+          "accuracy": {
+            "estimate": 0.01636904761904756,
+            "lower_95": 0.0071428571428572285,
+            "upper_95": 0.02529761904761907,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          },
+          "macro_f1": {
+            "estimate": 0.006705027529242402,
+            "lower_95": -0.004003790190007808,
+            "upper_95": 0.017124546342389645,
+            "bootstrap_probability_positive": 0.893,
+            "two_sided_bootstrap_tail_probability": 0.214
+          },
+          "mcc": {
+            "estimate": 0.03718314920079513,
+            "lower_95": 0.024212189266161383,
+            "upper_95": 0.04963356010260487,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        }
+      }
+    },
+    "Twibot22": {
+      "row_count": 840,
+      "profile_count": 280,
+      "classes": [
+        0,
+        1,
+        2
+      ],
+      "seeds": [
+        "42",
+        "43",
+        "44"
+      ],
+      "methods": [
+        "CBAF-Net",
+        "BSE-only",
+        "BotDMM"
+      ],
+      "per_seed": {
+        "42": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.7571428571428571,
+              "lower_95": 0.7392857142857143,
+              "upper_95": 0.775
+            },
+            "macro_f1": {
+              "estimate": 0.7298764384889765,
+              "lower_95": 0.7039691706586031,
+              "upper_95": 0.7541253903880674
+            },
+            "mcc": {
+              "estimate": 0.6811030574275183,
+              "lower_95": 0.6566649026707098,
+              "upper_95": 0.7054988669508278
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.7595238095238095,
+              "lower_95": 0.7416666666666667,
+              "upper_95": 0.7773809523809524
+            },
+            "macro_f1": {
+              "estimate": 0.731617627169991,
+              "lower_95": 0.705262144041118,
+              "upper_95": 0.7556509176204533
+            },
+            "mcc": {
+              "estimate": 0.6872696778064891,
+              "lower_95": 0.6640719486658381,
+              "upper_95": 0.7101958716619813
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.7559523809523809,
+              "lower_95": 0.7380952380952381,
+              "upper_95": 0.7738095238095238
+            },
+            "macro_f1": {
+              "estimate": 0.7288817659508098,
+              "lower_95": 0.7032157807577427,
+              "upper_95": 0.7530630508499209
+            },
+            "mcc": {
+              "estimate": 0.6786154605566421,
+              "lower_95": 0.6547422129124688,
+              "upper_95": 0.702876572077241
+            }
+          }
+        },
+        "43": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.75,
+              "lower_95": 0.7321428571428571,
+              "upper_95": 0.7678571428571429
+            },
+            "macro_f1": {
+              "estimate": 0.7386974424066418,
+              "lower_95": 0.7184358458385168,
+              "upper_95": 0.7590864384259774
+            },
+            "mcc": {
+              "estimate": 0.6423817262130335,
+              "lower_95": 0.6164382144359889,
+              "upper_95": 0.6688905598784407
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.7595238095238095,
+              "lower_95": 0.7416666666666667,
+              "upper_95": 0.7773809523809524
+            },
+            "macro_f1": {
+              "estimate": 0.731617627169991,
+              "lower_95": 0.705262144041118,
+              "upper_95": 0.7556509176204533
+            },
+            "mcc": {
+              "estimate": 0.6872696778064891,
+              "lower_95": 0.6640719486658381,
+              "upper_95": 0.7101958716619813
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.7488095238095238,
+              "lower_95": 0.7309523809523809,
+              "upper_95": 0.7666666666666667
+            },
+            "macro_f1": {
+              "estimate": 0.7380285437372612,
+              "lower_95": 0.717924562816978,
+              "upper_95": 0.7585275711301147
+            },
+            "mcc": {
+              "estimate": 0.6395947497685144,
+              "lower_95": 0.6137761909597169,
+              "upper_95": 0.6665653714208228
+            }
+          }
+        },
+        "44": {
+          "CBAF-Net": {
+            "accuracy": {
+              "estimate": 0.7595238095238095,
+              "lower_95": 0.7416666666666667,
+              "upper_95": 0.7773809523809524
+            },
+            "macro_f1": {
+              "estimate": 0.7309348540969367,
+              "lower_95": 0.704581611478286,
+              "upper_95": 0.7552730156493938
+            },
+            "mcc": {
+              "estimate": 0.6884819080500886,
+              "lower_95": 0.6657973707437539,
+              "upper_95": 0.7106184358253785
+            }
+          },
+          "BSE-only": {
+            "accuracy": {
+              "estimate": 0.7595238095238095,
+              "lower_95": 0.7416666666666667,
+              "upper_95": 0.7773809523809524
+            },
+            "macro_f1": {
+              "estimate": 0.731617627169991,
+              "lower_95": 0.705262144041118,
+              "upper_95": 0.7556509176204533
+            },
+            "mcc": {
+              "estimate": 0.6872696778064891,
+              "lower_95": 0.6640719486658381,
+              "upper_95": 0.7101958716619813
+            }
+          },
+          "BotDMM": {
+            "accuracy": {
+              "estimate": 0.7488095238095238,
+              "lower_95": 0.7309523809523809,
+              "upper_95": 0.7666666666666667
+            },
+            "macro_f1": {
+              "estimate": 0.7282761563110555,
+              "lower_95": 0.7048771822522047,
+              "upper_95": 0.7507808980113518
+            },
+            "mcc": {
+              "estimate": 0.6542988399581555,
+              "lower_95": 0.6281317800783793,
+              "upper_95": 0.680246472522173
+            }
+          }
+        }
+      },
+      "aggregate": {
+        "CBAF-Net": {
+          "accuracy": {
+            "estimate": 0.7555555555555555,
+            "lower_95": 0.7388888888888889,
+            "upper_95": 0.7722222222222223
+          },
+          "macro_f1": {
+            "estimate": 0.7331695783308517,
+            "lower_95": 0.709930285286971,
+            "upper_95": 0.7550153195752923
+          },
+          "mcc": {
+            "estimate": 0.67065556389688,
+            "lower_95": 0.6491392229651004,
+            "upper_95": 0.6920058882206995
+          }
+        },
+        "BSE-only": {
+          "accuracy": {
+            "estimate": 0.7595238095238095,
+            "lower_95": 0.7416666666666667,
+            "upper_95": 0.7773809523809524
+          },
+          "macro_f1": {
+            "estimate": 0.731617627169991,
+            "lower_95": 0.705262144041118,
+            "upper_95": 0.7556509176204533
+          },
+          "mcc": {
+            "estimate": 0.6872696778064892,
+            "lower_95": 0.6640719486658381,
+            "upper_95": 0.7101958716619813
+          }
+        },
+        "BotDMM": {
+          "accuracy": {
+            "estimate": 0.7511904761904762,
+            "lower_95": 0.734920634920635,
+            "upper_95": 0.7678571428571428
+          },
+          "macro_f1": {
+            "estimate": 0.7317288219997088,
+            "lower_95": 0.7097603976248611,
+            "upper_95": 0.7524711110974553
+          },
+          "mcc": {
+            "estimate": 0.657503016761104,
+            "lower_95": 0.6348588173082457,
+            "upper_95": 0.6802347954445818
+          }
+        }
+      },
+      "aggregate_comparisons": {
+        "CBAF-Net_minus_BSE-only": {
+          "accuracy": {
+            "estimate": -0.003968253968253954,
+            "lower_95": -0.00952380952380949,
+            "upper_95": 0.0011904761904761862,
+            "bootstrap_probability_positive": 0.0582,
+            "two_sided_bootstrap_tail_probability": 0.1588
+          },
+          "macro_f1": {
+            "estimate": 0.0015519511608607095,
+            "lower_95": -0.004517537865190727,
+            "upper_95": 0.007560210786334604,
+            "bootstrap_probability_positive": 0.706,
+            "two_sided_bootstrap_tail_probability": 0.588
+          },
+          "mcc": {
+            "estimate": -0.016614113909609207,
+            "lower_95": -0.027692238763001652,
+            "upper_95": -0.0057256921845905175,
+            "bootstrap_probability_positive": 0.0018,
+            "two_sided_bootstrap_tail_probability": 0.0036
+          }
+        },
+        "BotDMM_minus_BSE-only": {
+          "accuracy": {
+            "estimate": -0.008333333333333304,
+            "lower_95": -0.015079365079365137,
+            "upper_95": -0.0015873015873015817,
+            "bootstrap_probability_positive": 0.0052,
+            "two_sided_bootstrap_tail_probability": 0.0128
+          },
+          "macro_f1": {
+            "estimate": 0.00011119482971777561,
+            "lower_95": -0.007923225038541846,
+            "upper_95": 0.008425282431368234,
+            "bootstrap_probability_positive": 0.5184,
+            "two_sided_bootstrap_tail_probability": 0.9632
+          },
+          "mcc": {
+            "estimate": -0.029766661045385168,
+            "lower_95": -0.04397391232419316,
+            "upper_95": -0.015521520952935484,
+            "bootstrap_probability_positive": 0.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        },
+        "CBAF-Net_minus_BotDMM": {
+          "accuracy": {
+            "estimate": 0.00436507936507935,
+            "lower_95": 0.0011904761904761862,
+            "upper_95": 0.007539682539682624,
+            "bootstrap_probability_positive": 0.9936,
+            "two_sided_bootstrap_tail_probability": 0.0128
+          },
+          "macro_f1": {
+            "estimate": 0.0014407563311429339,
+            "lower_95": -0.00259855154556978,
+            "upper_95": 0.005344082451441777,
+            "bootstrap_probability_positive": 0.7586,
+            "two_sided_bootstrap_tail_probability": 0.4828
+          },
+          "mcc": {
+            "estimate": 0.01315254713577596,
+            "lower_95": 0.00677277584656776,
+            "upper_95": 0.019514760525516085,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        },
+        "BSE-only_minus_BotDMM": {
+          "accuracy": {
+            "estimate": 0.008333333333333304,
+            "lower_95": 0.0015873015873015817,
+            "upper_95": 0.015079365079365137,
+            "bootstrap_probability_positive": 0.9936,
+            "two_sided_bootstrap_tail_probability": 0.0128
+          },
+          "macro_f1": {
+            "estimate": -0.00011119482971777561,
+            "lower_95": -0.008425282431368234,
+            "upper_95": 0.007923225038541837,
+            "bootstrap_probability_positive": 0.4816,
+            "two_sided_bootstrap_tail_probability": 0.9632
+          },
+          "mcc": {
+            "estimate": 0.029766661045385168,
+            "lower_95": 0.015521520952935476,
+            "upper_95": 0.043973912324193155,
+            "bootstrap_probability_positive": 1.0,
+            "two_sided_bootstrap_tail_probability": 0.0
+          }
+        }
+      }
+    }
+  }
+}

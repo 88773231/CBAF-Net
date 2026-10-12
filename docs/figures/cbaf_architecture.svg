@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="900" viewBox="0 0 1920 900">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#51657a" stroke-width="2"/>
+    </marker>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#2876b9" stroke-width="2"/>
+    </marker>
+    <marker id="redArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 2 L10 6 L1 10" fill="none" stroke="#be6156" stroke-width="2"/>
+    </marker>
+    <style>
+      text { font-family: Arial, "DejaVu Sans", sans-serif; fill: #203244; }
+      .head { font-size: 37px; font-weight: 700; }
+      .label { font-size: 31px; font-weight: 700; }
+      .small { font-size: 26px; }
+      .tiny { font-size: 23px; }
+      .muted { fill: #526579; }
+      .blue { fill: #246da7; }
+      .red { fill: #af594e; }
+      .teal { fill: #247b72; }
+      .line { stroke: #aab7c3; stroke-width: 3; fill: none; }
+      .flow { stroke: #51657a; stroke-width: 3.5; fill: none; marker-end: url(#arrow); }
+      .blueflow { stroke: #2876b9; stroke-width: 3.5; fill: none; marker-end: url(#blueArrow); }
+      .redflow { stroke: #be6156; stroke-width: 3.5; fill: none; marker-end: url(#redArrow); }
+    </style>
+  </defs>
+  <rect width="1920" height="900" fill="#ffffff"/>
+
+  <!-- One account trajectory, not four independent source datasets. -->
+  <text x="70" y="65" class="head">Account evidence</text>
+  <text x="480" y="65" class="head">Two independently trained paths</text>
+  <text x="1460" y="65" class="head">Frozen decision rule</text>
+  <path d="M70 87 H1850" stroke="#aab7c3" stroke-width="3"/>
+  <path d="M415 105 V760 M1410 105 V760" stroke="#d4dce3" stroke-width="3"/>
+
+  <circle cx="225" cy="224" r="91" fill="#f5f9fc" stroke="#8ca1b2" stroke-width="3"/>
+  <circle cx="225" cy="196" r="24" fill="#fff" stroke="#233d53" stroke-width="5"/>
+  <path d="M178 273 C180 236 270 236 272 273" fill="none" stroke="#233d53" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="130" cy="166" r="24" fill="#e9f2fa" stroke="#2876b9" stroke-width="3"/>
+  <path d="M120 164 h19 m-18 7 h15 m-15-14 h16" stroke="#2876b9" stroke-width="3"/>
+  <circle cx="327" cy="162" r="24" fill="#fcefe9" stroke="#be6156" stroke-width="3"/>
+  <path d="M317 153 h20 v18 h-13 l-6 5 v-5 h-1 z" fill="none" stroke="#be6156" stroke-width="3"/>
+  <circle cx="315" cy="289" r="24" fill="#eaf5ef" stroke="#247b72" stroke-width="3"/>
+  <circle cx="315" cy="289" r="12" fill="none" stroke="#247b72" stroke-width="3"/>
+  <path d="M315 279 v11 l8 5" fill="none" stroke="#247b72" stroke-width="3"/>
+  <text x="225" y="352" text-anchor="middle" class="label">Paired trajectory</text>
+  <text x="225" y="390" text-anchor="middle" class="small muted">same base profile</text>
+
+  <path d="M90 465 H358" stroke="#d7e0e7" stroke-width="3"/>
+  <text x="95" y="507" class="label blue">Multimodal view</text>
+  <g fill="#e9f2fa" stroke="#2876b9" stroke-width="3">
+    <rect x="95" y="535" width="51" height="62" rx="4"/>
+    <path d="M108 552 h24 M108 564 h24 M108 576 h16" fill="none"/>
+    <rect x="175" y="542" width="51" height="62" rx="4"/>
+    <path d="M187 557 h24 M187 570 h20 M187 583 h24" fill="none"/>
+    <rect x="255" y="535" width="51" height="62" rx="4"/>
+    <path d="M268 551 h24 M268 564 h22 M268 577 h18" fill="none"/>
+  </g>
+  <text x="95" y="640" class="small">profile · posts · actions</text>
+  <text x="95" y="674" class="tiny muted">5 post and 5 event steps</text>
+
+  <path d="M90 710 H358" stroke="#d7e0e7" stroke-width="3"/>
+  <g fill="#be6156">
+    <rect x="99" y="736" width="17" height="24"/><rect x="127" y="723" width="17" height="37"/>
+    <rect x="155" y="730" width="17" height="30"/><rect x="183" y="713" width="17" height="47"/>
+  </g>
+  <text x="216" y="741" class="small red">6 numerical</text>
+  <text x="216" y="774" class="small red">11 style</text>
+
+  <!-- Blue backbone: feature encoders, content and strict graph structure, five-step pooling. -->
+  <path d="M450 125 H1360" stroke="#2876b9" stroke-width="5"/>
+  <text x="472" y="168" class="head blue">Frozen multimodal backbone</text>
+  <text x="472" y="204" class="small muted">profile + post/action sequence + numerical/style inputs</text>
+  <path d="M350 583 C403 583 411 282 474 265" class="blueflow"/>
+  <path d="M352 745 C390 728 383 422 474 265" fill="none" stroke="#2876b9" stroke-width="3" stroke-dasharray="11 8" marker-end="url(#blueArrow)"/>
+
+  <g fill="#f1f7fc" stroke="#719bc0" stroke-width="3">
+    <rect x="475" y="239" width="68" height="52" rx="6"/>
+    <rect x="560" y="239" width="68" height="52" rx="6"/>
+    <rect x="645" y="239" width="68" height="52" rx="6"/>
+    <rect x="730" y="239" width="68" height="52" rx="6"/>
+    <rect x="815" y="239" width="68" height="52" rx="6"/>
+  </g>
+  <g text-anchor="middle" class="tiny blue">
+    <text x="509" y="272">profile</text><text x="594" y="272">posts</text>
+    <text x="679" y="272">events</text><text x="764" y="272">num.</text>
+    <text x="849" y="272">style</text>
+  </g>
+  <text x="489" y="332" class="small muted">encoded, concatenated at each step</text>
+  <path d="M885 265 H921" class="blueflow"/>
+  <path d="M921 265 C946 265 947 328 972 328" stroke="#2876b9" stroke-width="3" fill="none"/>
+  <path d="M921 265 C946 265 947 456 972 456" stroke="#2876b9" stroke-width="3" fill="none"/>
+
+  <circle cx="1040" cy="328" r="70" fill="#eaf3fb" stroke="#2876b9" stroke-width="4"/>
+  <path d="M1010 321 C1023 288 1052 289 1070 320 M1009 339 C1030 359 1055 357 1072 337" fill="none" stroke="#2876b9" stroke-width="5"/>
+  <text x="1040" y="421" text-anchor="middle" class="label blue">Content</text>
+
+  <circle cx="1040" cy="505" r="70" fill="#f1eff9" stroke="#7963a5" stroke-width="4"/>
+  <g stroke="#7963a5" stroke-width="4" fill="#fff">
+    <path d="M1013 516 L1040 480 L1068 518 L1013 516 M1040 480 L1037 533"/>
+    <circle cx="1013" cy="516" r="8"/><circle cx="1040" cy="480" r="8"/>
+    <circle cx="1068" cy="518" r="8"/><circle cx="1037" cy="533" r="8"/>
+  </g>
+  <text x="1040" y="603" text-anchor="middle" class="label" fill="#68518f">Structure</text>
+  <path d="M855 450 C918 450 940 492 969 492" stroke="#7963a5" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <g fill="#fff" stroke="#7963a5" stroke-width="3">
+    <circle cx="817" cy="446" r="11"/><circle cx="857" cy="421" r="11"/>
+    <circle cx="869" cy="472" r="11"/><circle cx="822" cy="493" r="11"/>
+  </g>
+  <path d="M817 446 L857 421 L869 472 L822 493 Z M817 446 L869 472" stroke="#7963a5" stroke-width="3" fill="none"/>
+  <text x="489" y="415" class="label">Split-local kNN</text>
+  <text x="489" y="455" class="small muted">neighbor → target only</text>
+  <text x="489" y="490" class="small muted">no same-profile edge</text>
+
+  <path d="M1110 328 C1160 328 1165 388 1190 388 M1110 505 C1160 505 1165 438 1190 438" stroke="#7e9eb8" stroke-width="3" fill="none"/>
+  <g fill="#fff" stroke="#2876b9" stroke-width="3">
+    <circle cx="1207" cy="414" r="18"/><circle cx="1242" cy="414" r="18"/>
+    <circle cx="1277" cy="414" r="18"/><circle cx="1312" cy="414" r="18"/>
+    <circle cx="1347" cy="414" r="18"/>
+  </g>
+  <text x="1207" y="423" text-anchor="middle" class="tiny">1</text>
+  <text x="1242" y="423" text-anchor="middle" class="tiny">2</text>
+  <text x="1277" y="423" text-anchor="middle" class="tiny">3</text>
+  <text x="1312" y="423" text-anchor="middle" class="tiny">4</text>
+  <text x="1347" y="423" text-anchor="middle" class="tiny">5</text>
+  <text x="1268" y="351" text-anchor="middle" class="small blue">five step features</text>
+  <text x="1277" y="478" text-anchor="middle" class="tiny muted">mean pool → Pmulti</text>
+
+  <!-- Independent behavioral branch; no neural feature sharing. -->
+  <path d="M450 655 H1360" stroke="#be6156" stroke-width="5"/>
+  <text x="472" y="705" class="head red">Behavioral statistics expert</text>
+  <text x="472" y="742" class="small muted">raw 17-D fields · separate fit</text>
+  <path d="M352 745 H460" class="redflow"/>
+  <path d="M746 798 H796" class="redflow"/>
+  <g fill="#fff" stroke="#be6156" stroke-width="3">
+    <circle cx="870" cy="749" r="14"/><circle cx="831" cy="797" r="14"/>
+    <circle cx="909" cy="797" r="14"/><circle cx="870" cy="844" r="14"/>
+    <circle cx="1040" cy="749" r="14"/><circle cx="1001" cy="797" r="14"/>
+    <circle cx="1079" cy="797" r="14"/><circle cx="1040" cy="844" r="14"/>
+  </g>
+  <g fill="none" stroke="#be6156" stroke-width="3">
+    <path d="M870 764 V778 L831 783 M870 778 L909 783 M831 811 L870 830 M909 811 L870 830"/>
+    <path d="M1040 764 V778 L1001 783 M1040 778 L1079 783 M1001 811 L1040 830 M1079 811 L1040 830"/>
+  </g>
+  <text x="1175" y="772" class="label red">HGB trees</text>
+  <text x="1175" y="815" class="small muted">→ PBSE</text>
+
+  <!-- Only decision-level combination; validation cannot change test examples. -->
+  <path d="M1429 125 H1840" stroke="#247b72" stroke-width="5"/>
+  <text x="1450" y="168" class="small teal" font-weight="700">VALIDATION ONLY</text>
+  <path d="M1454 264 V205 H1703" stroke="#8caea8" stroke-width="3" fill="none"/>
+  <path d="M1475 252 L1525 237 L1575 221 L1625 194 L1675 214" fill="none" stroke="#247b72" stroke-width="5"/>
+  <g fill="#fff" stroke="#247b72" stroke-width="3">
+    <circle cx="1475" cy="252" r="6"/><circle cx="1525" cy="237" r="6"/>
+    <circle cx="1575" cy="221" r="6"/><circle cx="1675" cy="214" r="6"/>
+  </g>
+  <circle cx="1625" cy="194" r="10" fill="#d9a547" stroke="#fff" stroke-width="3"/>
+  <text x="1718" y="225" class="small teal">select w*</text>
+  <text x="1454" y="306" class="small muted">Macro-F1 grid (schematic)</text>
+  <path d="M1630 319 V364" stroke="#247b72" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+
+  <path d="M1359 414 H1466" class="blueflow"/>
+  <path d="M1330 795 C1425 795 1418 572 1466 572" class="redflow"/>
+  <circle cx="1592" cy="473" r="111" fill="#f8fbfa" stroke="#72a59e" stroke-width="5"/>
+  <path d="M1514 428 A91 91 0 0 1 1669 426" fill="none" stroke="#2876b9" stroke-width="10"/>
+  <path d="M1669 521 A91 91 0 0 1 1514 521" fill="none" stroke="#be6156" stroke-width="10"/>
+  <text x="1592" y="455" text-anchor="middle" class="head teal">w*</text>
+  <text x="1592" y="493" text-anchor="middle" class="small">locked before test</text>
+  <path d="M1466 414 H1485 M1466 572 H1485" stroke="#51657a" stroke-width="3"/>
+  <path d="M1705 473 H1795" class="flow"/>
+  <g fill="#247b72">
+    <rect x="1802" y="430" width="17" height="71" rx="3"/>
+    <rect x="1828" y="452" width="17" height="49" rx="3"/>
+    <rect x="1854" y="413" width="17" height="88" rx="3"/>
+  </g>
+  <text x="1828" y="540" text-anchor="middle" class="label teal">Pfinal</text>
+  <text x="1612" y="635" text-anchor="middle" class="small">Pfinal = (1-w*) Pmulti + w* PBSE</text>
+
+  <path d="M1463 681 H1850" stroke="#d7e0e7" stroke-width="3"/>
+  <text x="1455" y="725" class="small muted">Prediction classes</text>
+  <g stroke-width="3" fill="#fff">
+    <circle cx="1505" cy="781" r="33" stroke="#2876b9"/>
+    <circle cx="1610" cy="781" r="33" stroke="#be6156"/>
+    <circle cx="1715" cy="781" r="33" stroke="#7963a5"/>
+    <circle cx="1820" cy="781" r="33" stroke="#247b72"/>
+  </g>
+  <circle cx="1505" cy="772" r="8" fill="none" stroke="#2876b9" stroke-width="3"/>
+  <path d="M1489 795 Q1505 779 1521 795" fill="none" stroke="#2876b9" stroke-width="3"/>
+  <g fill="none" stroke-width="3">
+    <rect x="1595" y="772" width="30" height="20" rx="5" stroke="#be6156"/>
+    <path d="M1610 772 v-8 M1700 772 h30 v20 h-30 z M1715 772 v-8" stroke="#7963a5"/>
+    <rect x="1805" y="772" width="30" height="20" rx="5" stroke="#247b72"/>
+    <path d="M1820 772 v-8 M1820 793 l12 11" stroke="#247b72"/>
+  </g>
+  <g fill="#be6156"><circle cx="1603" cy="782" r="2.5"/><circle cx="1618" cy="782" r="2.5"/></g>
+  <g fill="#7963a5"><circle cx="1708" cy="782" r="2.5"/><circle cx="1722" cy="782" r="2.5"/></g>
+  <g fill="#247b72"><circle cx="1813" cy="782" r="2.5"/><circle cx="1827" cy="782" r="2.5"/></g>
+  <g class="tiny" text-anchor="middle">
+    <text x="1505" y="844">Human</text><text x="1610" y="844">Trad. bot</text>
+    <text x="1715" y="844">LLM bot</text><text x="1820" y="844">Agent</text>
+  </g>
+  <text x="960" y="882" text-anchor="middle" class="tiny muted">Group-disjoint train / validation / test · same master profiles in nested 3-class and 4-class views</text>
+</svg>

@@ -4,6 +4,29 @@ This repository accompanies the manuscript "CBAF-Net: Auditable Fusion for Contr
 
 CBAF-Net combines probabilities from a frozen BotDMM checkpoint with an independently fitted HistGradientBoosting behavioral-statistics expert. The scalar mixture weight is selected on the validation split and then frozen before test evaluation.
 
+## Evidence and version boundary
+
+The publication baseline is the immutable `v1.1.0` strict rerun. `Twibot22`
+(5,031 trajectories, three classes) is a nested view of the same 1,677 paired
+profile groups as `Quadbot` (6,708 trajectories, four classes), not an
+independent second source benchmark. The three-class view is not the original
+TwiBot-22 benchmark. The LLM Bot and Full-stack Agent classes are controlled
+simulations, not verified live-platform account labels.
+
+Under the strict graph protocol, mean test Macro-F1 for BotDMM, BSE-only, and
+CBAF-Net is respectively 0.7317, 0.7316, and 0.7332 on `Twibot22`, and
+0.7844, 0.7911, and 0.7915 on `Quadbot`. Paired profile-cluster confidence
+intervals for CBAF-Net's Macro-F1 differences from either standalone method
+include zero. BSE-only has higher Accuracy and MCC than the fusion on both
+views. These results do not establish that fusion is necessary, a new
+state-of-the-art detector, or transfer to new generators or platforms.
+
+`results/strict_postprocessed/` remains the unchanged `v1.1.0` result set.
+The post-rejection paired comparison against BSE-only is separately
+recomputable using `analysis/paired_profile_cluster_bootstrap.py` and
+`configs/strict_paired_comparison.json`. Validation-only experimental model
+branches are not part of the reported CBAF-Net method.
+
 ## Repository layout
 
 - `src/run_cbaf.py`: canonical CBAF-Net evaluator used by the paper.
@@ -14,6 +37,9 @@ CBAF-Net combines probabilities from a frozen BotDMM checkpoint with an independ
 - `dataset_pipeline/`: schema validation, feature export, view construction, and release audits.
 - `configs/`: a non-sensitive controlled-view provenance example.
 - `docs/`: data card and reproducibility boundary.
+- `docs/figures/cbaf_architecture.svg`: editable method schematic; the PNG is
+  its manuscript rendering. The validation curve is illustrative, not a
+  measured result, and the watermarked icon references were not reused.
 
 The backbone's temporal reducer is deterministic mean pooling followed by
 LayerNorm and dropout. The implementation names it `TemporalMeanPooling`; the
@@ -118,6 +144,20 @@ model or tunes on the test split.
 The `v1.1.0` release includes the audited public outputs under
 `results/strict_postprocessed/`. Run `sha256sum -c SHA256SUMS` from that
 directory to verify every distributed result artifact before recomputation.
+
+To recompute the paired differences against both BotDMM and BSE-only from
+the published prediction files without retraining:
+
+```bash
+python analysis/paired_profile_cluster_bootstrap.py \
+  --manifest configs/strict_paired_comparison.json \
+  --out results/paired_profile_cluster_bootstrap.json \
+  --replicates 5000 \
+  --seed 20261010
+```
+
+The output is an additional post-rejection audit; it does not replace the
+original `v1.1.0` result manifest or change any prediction.
 
 The BSE is frozen as `HistGradientBoostingClassifier` with
 `learning_rate=0.1`, `min_samples_leaf=20`, `max_iter=300`,
