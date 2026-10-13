@@ -1,0 +1,43 @@
+{
+  "schema": "training-only-cosine-policy-screen-v1",
+  "seeds": [42, 43, 44],
+  "new_methods": ["cosine_policy", "without_policy_contrast"],
+  "cached_cosine_removal": "paired_policy_screen/without_pair_margin",
+  "both_removed_control": "erm_mlp",
+  "configuration": {
+    "steps": 5,
+    "hidden_dim": 128,
+    "mlp_hidden_dim": 128,
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10,
+    "auxiliary_weight": 0.1
+  },
+  "regularization": {
+    "contrast_weight": 0.1,
+    "temperature": 0.2,
+    "cosine_scale": 16.0
+  },
+  "new_fits": 36,
+  "reused_fits": 72,
+  "cpu_threads": 2,
+  "primary_task": "Quadbot",
+  "transfer_task": "Twibot22",
+  "primary_metric": "pooled_three_excluded_policy_macro_f1",
+  "primary_success": "Quadbot_full_mean_above_all_three_controls_and_both_individual_removals",
+  "desired_control_gain_points": 1.0,
+  "report_transfer_and_all_class_policy_seed_results": true,
+  "every_class_or_policy_improvement_required": false,
+  "no_hyperparameter_search": true,
+  "no_label_timing_or_account_augmentation": true,
+  "original_val_or_test_paths_opened": false,
+  "previous_challenge_exposure": true,
+  "novelty_established": false,
+  "submission_allowed": false
+}
