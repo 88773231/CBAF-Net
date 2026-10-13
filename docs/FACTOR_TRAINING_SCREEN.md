@@ -71,3 +71,11 @@ is part of this screen. A one-seed result cannot establish reproducibility.
 The run is a technical feasibility check. Real novelty, a reproducible
 advantage against recent fair comparators and independent evaluation remain
 separate requirements before replacing the paper or preparing submission.
+
+## Completed Screen
+
+The fixed 36 fits and 36 checkpoint replays completed on October 13, 2026.
+All outcomes are retained in `FACTOR_TRAINING_RESULTS.md`. The residual
+removal is substantially better on both burst conditions, so the proposed
+full two-module candidate is not established as successful. The factor-only
+direction requires replication and still loses to controls on other policies.
