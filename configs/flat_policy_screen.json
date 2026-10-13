@@ -1,0 +1,52 @@
+{
+  "schema": "training-only-flat-policy-screen-v1",
+  "seeds": [42, 43, 44],
+  "new_methods": ["flat_policy", "without_policy_contrast", "two_pass_erm"],
+  "cached_flatness_removal": "paired_policy_screen/without_pair_margin",
+  "both_removed_control": "erm_mlp",
+  "configuration": {
+    "steps": 5,
+    "hidden_dim": 128,
+    "mlp_hidden_dim": 128,
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10,
+    "auxiliary_weight": 0.1
+  },
+  "regularization": {
+    "contrast_weight": 0.1,
+    "temperature": 0.2,
+    "sam_radius": 0.05
+  },
+  "new_main_fits": 54,
+  "new_axis_fits": 48,
+  "new_fits": 102,
+  "cached_fits": 72,
+  "cpu_threads": 2,
+  "primary_task": "Quadbot",
+  "transfer_task": "Twibot22",
+  "primary_metric": "pooled_three_excluded_policy_macro_f1",
+  "desired_control_gain_points": 1.0,
+  "desired_positive_seed_count": 2,
+  "axis_pairs": {
+    "fixed_partition": [[43, 42], [44, 42]],
+    "fixed_training_seed": [[42, 43], [42, 44]]
+  },
+  "axis_probe_is_independent_confirmation": false,
+  "diagnostic_sha256": "7781433d0f5489f90014ce4a07e09b11867a12366d166d785644c6e9ea329bda",
+  "novelty_established": false,
+  "submission_allowed": false,
+  "no_hyperparameter_search": true,
+  "original_val_or_test_paths_opened": false,
+  "no_label_timing_or_account_augmentation": true,
+  "report_all_conditions_classes_policies_seeds_and_axes": true,
+  "same_epoch_not_same_compute": true,
+  "gradient_evaluations_per_batch": 2,
+  "compute_control": "two_pass_erm"
+}
