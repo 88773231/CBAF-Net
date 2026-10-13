@@ -18,11 +18,17 @@ unchanged while model development continues on the revision branch.
   promoting unsupported modules.
 - Completed: fitting/inner-selection sensitivity diagnostic on 36
   preserved checkpoints, with exact parameter restoration.
-- In progress: fixed SAM/contrast development screen, two objective
+- Completed: fixed SAM/contrast development screen, two objective
   removals, one-pass ERM, per-batch compute-control ERM, HGB and adapted
   BotDMM; 102 new fits including training-seed/partition-axis probes.
-- Pending: assess all planned results, uncertainty and model mechanisms.
-  Improvement on an adapted weak baseline is not a sufficient success.
+- Completed: all planned results, per-class/policy evidence, both axes
+  and a conditional profile-bootstrap analysis are retained in
+  `FLAT_POLICY_RESULTS.md`. Quadbot full is 96.01% versus ordinary
+  MLP's 94.96%; two-pass ERM is 95.35%. Module and transfer limitations
+  remain explicit. No final paper replacement is authorized.
+- Pending: confirm module effects and a substantive task-specific
+  method contribution. SAM plus established supervised contrast alone
+  is not demonstrated algorithmic novelty.
 - Pending: identify and implement recent bot-specific comparisons that
   use compatible inputs, or label adaptations and teacher/graph access
   explicitly. Do not use paper names without actual reproductions.

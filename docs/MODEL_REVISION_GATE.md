@@ -39,6 +39,17 @@ and removing cosine readout by 1.06 points. The full model is 93.57%.
 See `COSINE_POLICY_RESULTS.md`; the candidate is not a submission
 replacement, and the scale/weight must not be tuned on exposed scores.
 
+The subsequent SAM/contrast screen is a promising four-class development
+candidate. Quadbot Macro-F1 is 96.01% (run SD 0.17), versus one-pass
+ERM's 94.96%, a +1.04-point mean gain; both seed/partition axes favor
+the full model in 3/3 pairs. Two-pass ERM narrows the gain to +0.66
+points. Contrast's mean contribution is +0.94 points but is positive
+in only 1/3 paired main runs, so the two-component claim still needs
+confirmation. Twibot22 is 93.09%; removing SAM is better by 1.53
+points in all three main pairs. See `FLAT_POLICY_RESULTS.md` for
+every condition, both axes and explicitly conditional profile intervals.
+Retain the recipe for further evidence, not as a submission replacement.
+
 The user requires overall three/four-class improvement, not an
 improvement in every class or every policy. Retain class/policy
 breakdowns as diagnostics, but do not confuse them with that primary
@@ -73,6 +84,15 @@ early-stopping effects. Diagnose representation or prediction stability
 using fitting/inner-selection information before adding another component.
 Do not change epochs, seeds or scales using challenge scores, or treat
 three-class transfer failures as grounds to suppress their reporting.
+
+The fixed flatness round now provides better four-class development
+stability. Freeze it without searching its radius or contrast weight.
+Confirm module effects and comparable information/compute budgets;
+do not equate a stable full-model score with stable paired module effects.
+Its unchanged MLP inference and established SAM/contrast components
+still need substantive task-specific novelty before a method contribution
+can support a CCF-B submission. Fair recent controls and independent
+confirmation remain separate requirements.
 
 Use equal folds, input features, optimization budgets and evaluation
 rules where possible. Disclose extra graph information, representation
