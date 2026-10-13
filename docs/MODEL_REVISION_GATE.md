@@ -28,6 +28,17 @@ adapted BotDMM, which is not sufficient when a stronger control exists.
 Twibot22's pair-margin removal is better by 1.89 points overall.
 See `PAIRED_POLICY_RESULTS.md` for the full development evidence.
 
+The normalized-readout/cross-policy-contrast screen meets its frozen
+Quadbot mean gate, but does not establish the desired robust improvement.
+Full pooled Macro-F1 is 95.25% versus ERM's 94.96%, a 0.29-point gain
+with paired SD 3.76; only one of three seed/fold pairs favors the full
+condition. Quadbot means favor both module removals less than the full
+condition, but the differences are small relative to their paired
+variability. Twibot22 transfer favors removing contrast by 0.56 points
+and removing cosine readout by 1.06 points. The full model is 93.57%.
+See `COSINE_POLICY_RESULTS.md`; the candidate is not a submission
+replacement, and the scale/weight must not be tuned on exposed scores.
+
 The user requires overall three/four-class improvement, not an
 improvement in every class or every policy. Retain class/policy
 breakdowns as diagnostics, but do not confuse them with that primary
@@ -52,6 +63,16 @@ The paired margin is not a supported second contribution. Reconsider
 its mechanism before another fixed round instead of coefficient-tuning
 the same exposed challenge. Training losses must be described as losses,
 not presented as new inference architecture modules.
+
+The cosine candidate has now replaced that margin in a fixed test.
+Although its four-class means improve, there is no established stable
+one-point improvement over the stronger control. Its high known-policy
+selection scores still coexist with substantial excluded-policy variation.
+Saved histories do not isolate initialization, inner-partition or
+early-stopping effects. Diagnose representation or prediction stability
+using fitting/inner-selection information before adding another component.
+Do not change epochs, seeds or scales using challenge scores, or treat
+three-class transfer failures as grounds to suppress their reporting.
 
 Use equal folds, input features, optimization budgets and evaluation
 rules where possible. Disclose extra graph information, representation
