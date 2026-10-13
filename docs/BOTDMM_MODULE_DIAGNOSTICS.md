@@ -41,3 +41,11 @@ needed before final scientific claims.
 `analysis/summarize_botdmm_modules.py` verifies complete records and reports
 descriptive paired profile intervals against the full-timing control.
 Raw trajectories and per-account predictions remain private.
+
+## Completed Diagnostic
+
+All 36 fits and 36 checkpoint replays completed on October 13, 2026.
+The complete table and interpretation are in `BOTDMM_MODULE_RESULTS.md`.
+Neither removal repaired the burst-policy failure or established the
+requested one-percentage-point improvement. No further architecture or
+weight search on these exposed outer challenges follows from this round.
