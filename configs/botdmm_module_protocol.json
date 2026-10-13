@@ -1,0 +1,33 @@
+{
+  "schema": "botdmm-fixed-module-diagnostics-v1",
+  "purpose": "Diagnose structure masking and orthogonal processing, not propose a final model",
+  "cpu_threads": 2,
+  "seeds": [42, 43, 44],
+  "methods": ["botdmm_without_structure", "botdmm_without_orthogonal"],
+  "configuration": {
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10
+  },
+  "baseline_reference": "botdmm_timing_20261013/botdmm_timing",
+  "timing_inputs": "retained_in_both_module_controls",
+  "inner_split": "identical_seeded_profile_partition_to_timing_baseline",
+  "selection_rule": "worst_known_policy_macro_f1_then_overall_macro_f1_then_mcc",
+  "training_and_batch_context": "same_fold_local_graph_and_seed_rows_including_context_batchnorm",
+  "structure_removal": "mask_structure_output_using_existing_no_structure_mode",
+  "orthogonal_removal": "existing_no_orthogonal_mode_still_normalizes_each_branch",
+  "parameter_layout": "unchanged_inactive_modules_remain_in_checkpoint",
+  "combined_removal": "not_run_structure_mask_already_makes_orthogonal_processing_redundant",
+  "graph_boundary": "feature_knn_not_social_edges_challenge_unlabelled_transductive",
+  "claim_scope": "posthoc_diagnostic_existing_validation_challenges",
+  "test_access": "forbidden",
+  "submission_allowed": false,
+  "no_hyperparameter_search": true,
+  "stopping_rule": "retain_all_results_no_further_weight_or_architecture_search_on_these_outer_scores"
+}
