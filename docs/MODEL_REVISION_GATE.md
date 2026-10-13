@@ -14,13 +14,29 @@ their relevant, honestly measured removals. It must not rename a better
 removal into a new full model while retaining the old claims, delete
 unfavorable runs, or change splits until the ablation looks favorable.
 
+## Current Decision
+
+The fixed three-seed conditional-routing/content-bridge screen also fails
+the replacement gate. Its bridge lowers excluded-burst mean Macro-F1 by
+5.77 points in Twibot22 and 10.49 points in Quadbot. Routing is not
+consistently helpful across policies. The full model remains below MLP
+on burst means and below adapted BotDMM on cyclic/uniform means.
+See `CONDITIONAL_SCREEN_RESULTS.md` for every condition and seed.
+
+Near-perfect known-policy inner selection does not establish robust
+Human/Traditional discrimination under an excluded scheduler. Before
+training another design, diagnose the dependency with the existing
+checkpoints. Any input masking or fitting-reference replacement is
+post-hoc diagnostic evidence, not a new model result or causal proof.
+
 ## Next Candidate
 
-Treat a no-residual factor model as a development reference, not an
-automatically promoted final method. Improve a specific, diagnosed
-prediction limitation with a justified architectural mechanism. Freeze
-the recipe and define removals of that mechanism before evaluating it.
-Do not add modules merely to obtain two named contributions.
+Treat both no-residual and no-bridge models as development references,
+not automatically promoted final methods. Improve a specifically
+diagnosed prediction limitation with a justified architectural or
+training mechanism. Freeze the recipe and define its controls before
+evaluating it. Do not add modules merely to obtain two named contributions
+or repeat bridge/residual-weight searches on exposed challenge scores.
 
 Use equal folds, input features, optimization budgets and evaluation
 rules where possible. Disclose extra graph information, representation
@@ -45,3 +61,8 @@ Keep original datasets, released results, submitted manuscript and
 GitHub main/release unchanged until a genuinely supported replacement
 is ready. Archive the development work separately. Do not promise a
 particular gain, SOTA or acceptance before the evidence exists.
+
+Do not require a universal one-percentage-point gain where a comparator
+already exceeds 99%; the mathematical ceiling may preclude it. Set
+meaningful criteria for the affected boundary and disclose unchanged
+or worse conditions rather than suppressing them.
