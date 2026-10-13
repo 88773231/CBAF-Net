@@ -1,0 +1,41 @@
+{
+  "schema": "training-only-conditional-bridge-screen-v1",
+  "seeds": [42, 43, 44],
+  "methods": [
+    "conditional_bridge",
+    "without_conditional_routing",
+    "without_content_bridge",
+    "without_both"
+  ],
+  "reused_controls": ["erm_mlp", "hgb_statistics", "botdmm_timing"],
+  "cpu_threads": 2,
+  "configuration": {
+    "steps": 5,
+    "hidden_dim": 128,
+    "mlp_hidden_dim": 128,
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10,
+    "auxiliary_weight": 0.1
+  },
+  "new_fits": 72,
+  "reused_control_fits": 54,
+  "conditional_routing": "direct_Human_and_Agent_leaves_subdivide_automatic_posting_into_Traditional_and_LLM",
+  "content_bridge": "zero_initialized_linear_content_projection_before_operation_activation",
+  "subtype_auxiliary": "Traditional_and_LLM_Bot_rows_only_in_all_four_conditions",
+  "checkpoint_selection": "unchanged_worst_known_policy_then_macro_f1_then_mcc",
+  "partitions": "exact_existing_training_only_factor_screen_folds",
+  "fitting_transform_scope": "inner_fitting_profiles_only",
+  "original_val_or_test_paths_opened": false,
+  "previous_challenge_exposure": true,
+  "no_hyperparameter_search": true,
+  "no_timing_or_label_augmentation": true,
+  "novelty_established": false,
+  "submission_allowed": false
+}
