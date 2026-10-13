@@ -2,7 +2,28 @@
   "status": "not_a_submission_authorization",
   "canonical_account_data": "retain_existing_5031_and_6708_trajectory_views",
   "completed_repair": "relative_rounded_gap_sidecars_for_development_splits",
-  "candidate_status": "experimental_temporal_gate_not_established_as_the_final_method",
+  "candidate_status": "frozen_flat_policy_development_candidate_not_submission_ready",
+  "consolidation_document": "docs/SUBMISSION_CONSOLIDATION.md",
+  "current_flat_policy_evidence": {
+    "new_fits_completed": 102,
+    "new_checkpoint_replays_completed": 102,
+    "verified_cached_fits": 72,
+    "quadbot_development_macro_f1_mean": 0.9600596997948632,
+    "two_component_support": "not_confirmed",
+    "three_class_sam_removal": "better_in_all_three_main_pairs",
+    "independent_confirmation": false,
+    "algorithmic_novelty_established": false
+  },
+  "next_fixed_control": {
+    "configuration": "configs/botsscl_policy_control.json",
+    "status": "prepared_not_executed_on_research_data",
+    "planned_fits": 36,
+    "planned_checkpoint_replays": 36,
+    "input": "same_complete_flattened_history_and_fitting_only_normalization",
+    "scope": "training_only_development",
+    "adaptation": "mechanism_control_not_faithful_original_botsscl_reproduction",
+    "gpu_required": false
+  },
   "completed_policy_objective_study": {
     "scheduled_and_completed_runs": 90,
     "neural_checkpoints_replayed": 72,
@@ -27,7 +48,10 @@
     "target": "unseen_behavior_policy_generalization",
     "first_control": "strong_matched_mlp_with_relative_timing",
     "first_required_comparison": "retrained_BotDMM_with_relative_timing_and_same_inner_selection",
-    "candidate_mechanisms_to_validate": [],
+    "candidate_mechanisms_to_validate": [
+      "fixed_cross_policy_contrast",
+      "fixed_standard_sam"
+    ],
     "completed_mechanisms_not_to_present_as_final": [
       "policy_class_group_DRO",
       "RDrop_prediction_consistency",

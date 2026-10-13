@@ -14,6 +14,12 @@ unchanged while model development continues on the revision branch.
 
 ## Work Checklist
 
+- Consolidation: `SUBMISSION_CONSOLIDATION.md` is the current work-order and
+  method/figure boundary. Keep one working Word and unchanged core views.
+- Prepared, not run: a complete-history BotSSCL-mechanism comparator and an
+  identical-architecture supervised-only control, scheduled for 36 fits and
+  36 replays on the existing training-only folds. This is an adaptation,
+  not a faithful reproduction or a completed recent-baseline table.
 - Completed: record the failed cosine/pair-margin screens without
   promoting unsupported modules.
 - Completed: fitting/inner-selection sensitivity diagnostic on 36

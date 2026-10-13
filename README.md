@@ -6,6 +6,14 @@ CBAF-Net combines probabilities from a frozen BotDMM checkpoint with an independ
 
 ## Evidence and version boundary
 
+Revision work is summarized in `docs/SUBMISSION_CONSOLIDATION.md`. The frozen
+SAM/contrast candidate has a 96.01% four-class development Macro-F1, not a
+replacement test score. Its paired module effects and three-class transfer
+remain mixed; see `docs/FLAT_POLICY_RESULTS.md`. Newly prepared matched-input
+BotSSCL-mechanism controls are not completed results or faithful original-paper
+reproductions. No revision work authorizes a new submission or changes the
+released method described below.
+
 The publication baseline is the immutable `v1.1.0` strict rerun. `Twibot22`
 (5,031 trajectories, three classes) is a nested view of the same 1,677 paired
 profile groups as `Quadbot` (6,708 trajectories, four classes), not an
