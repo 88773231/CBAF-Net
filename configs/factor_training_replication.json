@@ -1,0 +1,43 @@
+{
+  "schema": "training-only-factor-replication-v1",
+  "purpose": "Fixed replication of all prior conditions; no architecture or weight search",
+  "seeds": [43, 44],
+  "reused_seeds": [42],
+  "cpu_threads": 2,
+  "methods": [
+    "factor_residual",
+    "without_factor_fusion",
+    "without_interaction_residual",
+    "erm_mlp",
+    "hgb_statistics",
+    "botdmm_timing"
+  ],
+  "configuration": {
+    "steps": 5,
+    "hidden_dim": 128,
+    "mlp_hidden_dim": 128,
+    "embedding_dimension": 128,
+    "feature_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "max_epochs": 30,
+    "patience": 6,
+    "batch_size": 128,
+    "knn_k": 10,
+    "auxiliary_weight": 0.1
+  },
+  "outer_split": "heldout_policy_original_training_profiles_only",
+  "inner_selection": "one_sixth_of_each_remaining_policy_original_training_profiles",
+  "original_val_or_test_paths_opened": false,
+  "all_challenges_exploratory": true,
+  "previously_used_training_profiles_not_independent_confirmation": true,
+  "no_hyperparameter_search": true,
+  "fitting_transform_scope": "inner_fitting_profiles_only",
+  "without_factor_fusion": "replace_factor_combination_with_flat_head_keep_auxiliary_heads",
+  "without_interaction_residual": "remove_cross_tower_residual_entirely",
+  "taxonomic_targets": "construction_labels_not_true_real_account_intent",
+  "botdmm_graph": "feature_knn_not_social_edges_unlabelled_transductive",
+  "hgb_encoding": "global_statistics_only",
+  "submission_allowed": false
+}
