@@ -16,12 +16,23 @@ unfavorable runs, or change splits until the ablation looks favorable.
 
 ## Current Decision
 
-The fixed three-seed conditional-routing/content-bridge screen also fails
-the replacement gate. Its bridge lowers excluded-burst mean Macro-F1 by
-5.77 points in Twibot22 and 10.49 points in Quadbot. Routing is not
-consistently helpful across policies. The full model remains below MLP
-on burst means and below adapted BotDMM on cyclic/uniform means.
+The fixed three-seed conditional-routing/content-bridge screen failed
+the replacement gate. Its bridge lowered excluded-burst mean Macro-F1 by
+5.77 points in Twibot22 and 10.49 points in Quadbot.
 See `CONDITIONAL_SCREEN_RESULTS.md` for every condition and seed.
+
+The subsequent paired-policy screen also fails the user-confirmed
+overall criterion. Overall Twibot22 Macro-F1 is 92.73% versus ERM's
+91.73%, but Quadbot is 94.70% versus ERM's 94.96%. Both views exceed
+adapted BotDMM, which is not sufficient when a stronger control exists.
+Twibot22's pair-margin removal is better by 1.89 points overall.
+See `PAIRED_POLICY_RESULTS.md` for the full development evidence.
+
+The user requires overall three/four-class improvement, not an
+improvement in every class or every policy. Retain class/policy
+breakdowns as diagnostics, but do not confuse them with that primary
+success requirement. A favorable class cannot rescue a failed overall
+score; a worse class alone does not invalidate an improved overall score.
 
 Near-perfect known-policy inner selection does not establish robust
 Human/Traditional discrimination under an excluded scheduler. Before
@@ -31,12 +42,16 @@ post-hoc diagnostic evidence, not a new model result or causal proof.
 
 ## Next Candidate
 
-Treat both no-residual and no-bridge models as development references,
+Treat no-residual, no-bridge and single-objective models as development references,
 not automatically promoted final methods. Improve a specifically
 diagnosed prediction limitation with a justified architectural or
 training mechanism. Freeze the recipe and define its controls before
 evaluating it. Do not add modules merely to obtain two named contributions
 or repeat bridge/residual-weight searches on exposed challenge scores.
+The paired margin is not a supported second contribution. Reconsider
+its mechanism before another fixed round instead of coefficient-tuning
+the same exposed challenge. Training losses must be described as losses,
+not presented as new inference architecture modules.
 
 Use equal folds, input features, optimization budgets and evaluation
 rules where possible. Disclose extra graph information, representation
