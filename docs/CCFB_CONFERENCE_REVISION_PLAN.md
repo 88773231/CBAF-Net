@@ -16,10 +16,12 @@ unchanged while model development continues on the revision branch.
 
 - Consolidation: `SUBMISSION_CONSOLIDATION.md` is the current work-order and
   method/figure boundary. Keep one working Word and unchanged core views.
-- Prepared, not run: a complete-history BotSSCL-mechanism comparator and an
-  identical-architecture supervised-only control, scheduled for 36 fits and
-  36 replays on the existing training-only folds. This is an adaptation,
-  not a faithful reproduction or a completed recent-baseline table.
+- Completed: 36 complete-history BotSSCL-mechanism/supervised-only control
+  fits and 36 checkpoint replays on the existing training-only folds.
+  Twibot22 control/candidate Macro-F1 is 98.50%/93.09%; Quadbot is
+  94.81%/96.01%. The current candidate fails the two-view superiority
+  requirement. This is a mechanism adaptation, not a faithful reproduction
+  or a completed recent-baseline table. See `BOTSSCL_POLICY_CONTROL_RESULTS.md`.
 - Completed: record the failed cosine/pair-margin screens without
   promoting unsupported modules.
 - Completed: fitting/inner-selection sensitivity diagnostic on 36
@@ -42,6 +44,9 @@ unchanged while model development continues on the revision branch.
   frozen. Changing folds or seeds on already inspected profiles is not
   independent evidence. Reserve external evaluation records and
   provenance before scoring; do not rebuild the two core datasets.
+- Completed metadata disclosure, not end-to-end reproduction:
+  `GENERATION_DISCLOSURE.md` records class-wide generator settings and
+  explicitly unverified weight, prompt/archive, and source-permission gaps.
 - Pending: articulate a task-specific, technically substantive method
   contribution. SAM, cosine heads and supervised contrast are
   established methods; a favorable combination alone does not establish

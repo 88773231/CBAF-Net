@@ -49,11 +49,26 @@ SAM and supervised contrast are established mechanisms. A task-specific
 contribution and evidence for it are still required; two names attached to
 existing losses do not establish two algorithmic innovations.
 
-## Next Bounded Comparison
+## Completed Bounded Comparison
 
-`configs/botsscl_policy_control.json` schedules 36 additional fits and 36
+`configs/botsscl_policy_control.json` completed 36 additional fits and 36
 checkpoint replays: two graph-free conditions, three excluded policies, three
-seeds, and both unchanged views. There is no data generation or label change.
+seeds, and both unchanged views. There was no data generation or label change.
+All original fitting files and the failed initial replay record were preserved.
+The initial replay exited with signal 9 under a 2 GiB memory ceiling. A
+single-fold-cache adapter passed two equivalence/tampering tests locally and
+remotely and completed the same frozen checks without additional research fits.
+`analysis/bounded_botsscl_replay.py` preserves the hashed training source.
+
+The new control's pooled means are 98.50% in Twibot22 and 94.81% in Quadbot.
+The current candidate is 93.09% and 96.01%, respectively. The candidate loses
+all three paired three-class comparisons; it wins two of three four-class
+pairs. The same-encoder supervised-only control is 96.59% and 94.30%.
+This completes the input-matched diagnostic, not the user's unified two-view
+superiority requirement. Do not tune toward these exposed scores or present
+the stronger three-class comparator as a new original contribution.
+Full seed, class, policy, compute and conditional uncertainty records are in
+`BOTSSCL_POLICY_CONTROL_RESULTS.md`.
 
 The BotSSCL-mechanism condition uses fitting-only feature donors and NT-Xent
 pretraining, then supervised multiclass fine-tuning. Its paired control uses
@@ -79,7 +94,8 @@ optimizer, selected epochs or total compute. The adapter has no dropout;
 the configuration's dropout field remains present only to preserve the
 reference configuration and is not an active adapter setting.
 
-Run using the preserved private training inputs and study paths:
+The preserved execution commands are shown below. Completed directories refuse
+overwrites; these are documentation, not an instruction to rerun the study:
 
 ```bash
 python -m analysis.run_botsscl_policy_control run \
@@ -130,12 +146,13 @@ than presenting exposed results as confirmatory.
 
 ## Work Order
 
-1. Finish local control implementation and regression checks.
-2. Run the fixed matched-input controls on CPU when the private inputs are
-   accessible. Do not keep a GPU container billed while authoring locally.
-3. Review all controls and paired module differences. Revise/remove an
+1. Completed: control implementation, 150-test local/remote regressions,
+   36 fits and 36 replays, plus two local/remote resource-adapter tests.
+2. Completed: local prediction/identity verification and pooled-metric
+   recomputation. Retain all controls and the initial replay failure record.
+3. Next: revise/remove an
    unsupported mechanism; do not hide its development record or rename its
-   removal as the old full method.
+   removal as the old full method. The current full recipe is not promoted.
 4. Establish task-specific novelty and reserve an independent evaluation
    protocol before scoring it. Do not promise SOTA.
 5. Rewrite the one working manuscript and its actual final schematic, then
@@ -146,3 +163,6 @@ than presenting exposed results as confirmatory.
 This is a local preparation step. Actual completion of runs, synchronization
 and independent validation must be recorded separately, never inferred from
 passing synthetic regression fixtures.
+
+The 2026-10-14 metadata audit is summarized in `GENERATION_DISCLOSURE.md`.
+It does not close the source-permission or generator-archive requirements.

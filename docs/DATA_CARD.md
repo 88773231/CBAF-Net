@@ -32,6 +32,12 @@ experiments and are not verified real-platform labels.
 - LLM bots: controlled content-only generation without environment observation.
 - Full-stack agents: controlled observe-remember-act simulation.
 
+The revision-branch metadata audit in `GENERATION_DISCLOSURE.md` records
+Qwen2.5-7B-Instruct settings for both generated classes and OASIS 0.2.5 for
+the agent class. It distinguishes recorded settings from independently
+verified weights, execution archives, and source permissions; those remaining
+gaps are not filled by the metadata audit.
+
 The public-facing class names `Twibot22` and `Quadbot` denote the experimental
 views in this study; they do not imply that every class is an original TwiBot-22
 annotation. Controlled-generation classes must not be represented as verified
@@ -97,6 +103,6 @@ or consequential decisions about individual accounts.
 ## Submission disclosures outside this anonymous package
 
 - The supplement does not redistribute TwiBot-22-derived source records. The final manuscript and submission metadata must cite the exact source terms and permitted access procedure verified by the authors.
-- Generator checkpoint identifiers, prompts, decoding settings, simulator version, and filtering or deduplication configuration are not included in this results-only anonymous package. They must accompany any claimed end-to-end public release.
+- The original results-only supplement does not include generator checkpoint identifiers, prompts, decoding settings, simulator version, or filtering/deduplication configuration. The revision branch separately records some class-wide metadata in `GENERATION_DISCLOSURE.md`; it does not provide a verified end-to-end generator archive.
 - The package contains no raw text or original account identifiers, but the institutional ethics or exemption wording remains an author-level submission declaration.
 - Access to underlying source data is governed by the original provider; this package grants access only to the derived, reindexed audit artifacts it contains.

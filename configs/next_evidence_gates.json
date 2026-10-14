@@ -16,13 +16,40 @@
   },
   "next_fixed_control": {
     "configuration": "configs/botsscl_policy_control.json",
-    "status": "prepared_not_executed_on_research_data",
+    "status": "completed_not_promoted_to_submission",
     "planned_fits": 36,
     "planned_checkpoint_replays": 36,
     "input": "same_complete_flattened_history_and_fitting_only_normalization",
     "scope": "training_only_development",
     "adaptation": "mechanism_control_not_faithful_original_botsscl_reproduction",
-    "gpu_required": false
+    "gpu_required": false,
+    "completed_fits": 36,
+    "completed_checkpoint_replays": 36,
+    "result_document": "docs/BOTSSCL_POLICY_CONTROL_RESULTS.md",
+    "control_macro_f1_mean": {
+      "Twibot22": 0.9849575030961288,
+      "Quadbot": 0.9481157297694457
+    },
+    "supervised_only_macro_f1_mean": {
+      "Twibot22": 0.9659180647589807,
+      "Quadbot": 0.94297892505086
+    },
+    "full_minus_pretrained_control_percentage_points": {
+      "Twibot22": -5.406702617320095,
+      "Quadbot": 1.1943970025417508
+    },
+    "two_view_superiority_requirement": "not_met",
+    "independent_confirmation": false,
+    "development_summary_sha256": "fdbf988d717885a8edbb478d25f6124a7d3bf682d3c7bc37aa561c6f98dc507e",
+    "replay_resource_adapter": "single_fold_cache_only_no_new_research_fits",
+    "resource_adapter_tests_passed_local_and_remote": 2
+  },
+  "generation_disclosure": {
+    "document": "docs/GENERATION_DISCLOSURE.md",
+    "status": "metadata_only_not_verified_end_to_end",
+    "source_permission_verified": false,
+    "weight_revision_verified": false,
+    "generation_archive_verified": false
   },
   "completed_policy_objective_study": {
     "scheduled_and_completed_runs": 90,
