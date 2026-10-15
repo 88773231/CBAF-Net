@@ -50,8 +50,13 @@ New model-facing output directories default to `Twibot22` and `Quadbot`.
 
 ## Feature representation
 
-The frozen export records 768-dimensional description, text, and AMR blocks; a
-2,304-dimensional graph block; six numerical features; and eleven style features.
+The frozen export records 768-dimensional description, text, and event/action
+blocks, a 2,304-dimensional compatibility block, six numerical features, and
+eleven style features. The first three are deterministic signed word/character
+hashes, not pretrained semantic embeddings. The legacy `amr` tensor name is a
+compatibility alias for hashed event/action serialization, not parsed AMR.
+The compatibility block constructs neighbor pairs; it is not a separate node
+feature branch. The original model inputs omit inter-post intervals.
 The URL feature counts both literal URLs and privacy-redacted `<URL>` tokens.
 Because every released trajectory has 25 posts and 25 actions, the numerical
 post/action counts and the duplicated style post count are three constant schema
@@ -93,6 +98,10 @@ This package contains no raw post text, profile description, original account ID
 or source-platform handle. Prediction artifacts use package-local profile-group
 indices. Access to any underlying TwiBot-22-derived material remains subject to
 the source dataset's terms and is not granted by this supplement.
+The TwiBot-22 paper distinguishes its CC BY-NC-ND 4.0 dataset license from
+its MIT evaluation-code license. Our MIT code license does not authorize
+redistribution of modified source content. See `SOURCE_PERMISSIONS.md`;
+the authors must confirm the applicable permissions before submission.
 
 ## Intended use
 
@@ -100,7 +109,7 @@ The artifacts support audit and reproduction of aggregate research results. They
 are not suitable for production moderation, identity inference, user profiling,
 or consequential decisions about individual accounts.
 
-## Submission disclosures outside this anonymous package
+## Submission disclosures outside the results package
 
 - The supplement does not redistribute TwiBot-22-derived source records. The final manuscript and submission metadata must cite the exact source terms and permitted access procedure verified by the authors.
 - The original results-only supplement does not include generator checkpoint identifiers, prompts, decoding settings, simulator version, or filtering/deduplication configuration. The revision branch separately records some class-wide metadata in `GENERATION_DISCLOSURE.md`; it does not provide a verified end-to-end generator archive.

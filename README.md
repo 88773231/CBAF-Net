@@ -1,10 +1,31 @@
 # CBAF-Net Reproducibility Release
 
-This repository accompanies the manuscript "CBAF-Net: Auditable Fusion for Controlled Multiclass Detection of LLM-Driven and Agentic Social Accounts"
+This repository accompanies the working manuscript "CBAF Net Behavioral
+Statistics Fusion for Controlled Multiclass Social Bot Detection".
 
 CBAF-Net combines probabilities from a frozen BotDMM checkpoint with an independently fitted HistGradientBoosting behavioral-statistics expert. The scalar mixture weight is selected on the validation split and then frozen before test evaluation.
+Here BotDMM is the matched multiclass, cross-entropy-only adaptation on
+signed-hash inputs and a compatibility graph, not a faithful reproduction of
+all original objectives and inputs. No new semantic encoder, routing
+network, graph operator, or four-expert architecture is claimed.
 
 ## Evidence and version boundary
+
+Latest work order (2026-10-15): stop method expansion after the completed
+final bounded trial and prioritize evidence/manuscript/release closeout,
+with a CCF-C fallback accepted. All 12 representation fits and replays
+completed. Semantic features help the MLP by 0.4758 percentage points but
+harm the cue-encoder control by 0.0683; the predeclared complete-study
+continuation rules fail. See `docs/SEMANTIC_REPRESENTATION_RESULTS.md` and
+the aggregate `results/semantic_representation/selection_summary.json`.
+These are overlapping known-policy selection results, not new test
+scores or a replacement original method. No training or paid GPU job
+remains. The supported final method remains the original probability
+mixture, with four-class Quadbot primary and three-class Twibot22 auxiliary.
+The manuscript and synchronized revision are tracked separately from the
+immutable `v1.1.0` evidence. Actual alignment status is recorded in
+`docs/CLOSEOUT_20261015.md`; an aggregate development export alone does not
+establish it.
 
 Revision work is summarized in `docs/SUBMISSION_CONSOLIDATION.md`. The frozen
 SAM/contrast candidate has a 96.01% four-class development Macro-F1, not a
@@ -16,6 +37,40 @@ adaptation, not a faithful original-paper reproduction. These exposed
 development results fail the requirement of superiority on both views; see
 `docs/BOTSSCL_POLICY_CONTROL_RESULTS.md`. No revision work authorizes a new
 submission or changes the released method described below.
+
+A read-only, locally verified prediction diagnosis is recorded in
+`docs/CONTROL_PREDICTION_DIAGNOSIS.md`. Candidate/control row and fitting
+normalization identities match, while architecture choices remain
+confounded. The 2026-10-14 user-authorized next step is a four-class,
+known-policy same-encoder objective audit in
+`docs/ENCODER_OBJECTIVE_DIAGNOSTIC_PLAN.md`, with nine new fits and three
+reused supervised references. See its execution receipt for actual status.
+Neither diagnostic promotes a candidate or replaces a test result.
+
+The nine-fit audit completed with 12 known-policy checkpoint replays,
+165 passing local tests and five passing targeted remote tests. The
+encoder swap is not promoted; see
+`docs/ENCODER_OBJECTIVE_DIAGNOSTIC_RESULTS.md`. No new challenge score,
+manuscript replacement or public release was produced.
+
+A separate five-block correspondence/transition hypothesis is implemented in
+`src/trajectory_correspondence.py`; its frozen four-class feasibility plan is
+`docs/TRAJECTORY_CORRESPONDENCE_PLAN.md`. Its twelve fits and twelve checkpoint
+replays are complete and locally verified. The full architecture fails the
+transition-removal gate: known-policy mean 98.71% versus 98.85% without
+transition. See `docs/TRAJECTORY_CORRESPONDENCE_RESULTS.md`. Neither the best
+removal nor these inner-selection scores replace the paper/release method.
+
+The subsequent compact, transition-free check completed 30 new fits,
+six cached controls and 36 checkpoint replays. All 188 local tests pass;
+the receipt audit verifies every cell. Compact known-policy mean is
+98.64%, versus 98.60% for correspondence removal, 98.17% supervised
+encoder and 98.12% BotSSCL mechanism. The +0.047-point module mean is
+not a consistently helpful effect; one seed mean reverses. See
+`docs/COMPACT_CORRESPONDENCE_RESULTS.md`. The user's latest priority
+is prompt completion with a lower-tier venue if necessary:
+`docs/SUBMISSION_SPRINT.md` stops open-ended architecture searches.
+No final-test, independent-evaluation, novelty or submission claim follows.
 
 The publication baseline is the immutable `v1.1.0` strict rerun. `Twibot22`
 (5,031 trajectories, three classes) is a nested view of the same 1,677 paired
@@ -203,3 +258,6 @@ records before claiming end-to-end public reproducibility.
 ## License
 
 The MIT license in `LICENSE` covers only code and documentation owned by the authors. It does not relicense third-party source data, pretrained models, or checkpoints.
+The TwiBot-22 paper identifies a CC BY-NC-ND 4.0 dataset license, distinct
+from its MIT code license. See `docs/SOURCE_PERMISSIONS.md` for the public
+release boundary and pending author confirmations.

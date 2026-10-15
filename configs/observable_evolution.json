@@ -1,0 +1,33 @@
+{
+  "schema": "known-policy-observable-evolution-screen-v1",
+  "dataset": "Quadbot",
+  "conditions": ["evolution_distillation", "without_evolution", "without_distillation", "without_both", "same_input_mlp"],
+  "configuration": {
+    "seed": 42,
+    "width": 32,
+    "readout": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 128,
+    "max_epochs": 30,
+    "patience": 6,
+    "cue_supervision_weight": 0.1,
+    "distillation_weight": 0.1,
+    "temperature": 2.0,
+    "warmup_epochs": 3
+  },
+  "new_fits": 15,
+  "checkpoint_replays": 15,
+  "minimum_module_mean_macro_f1_gain": 0.0025,
+  "no_hyperparameter_search": true,
+  "input_representation_changed": true,
+  "legacy_input_scores_are_not_matched_controls": true,
+  "same_input_compute_or_capacity_matching_claimed": false,
+  "original_validation_or_test_access": false,
+  "excluded_policy_feature_extraction_or_forward": false,
+  "independent_confirmation": false,
+  "algorithmic_novelty_established": false,
+  "gpu_required": false,
+  "submission_allowed": false
+}

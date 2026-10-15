@@ -1,0 +1,41 @@
+{
+  "schema": "known-policy-class-conditioned-cues-v1",
+  "dataset": "Quadbot",
+  "conditions": [
+    "class_routing_pair_margin",
+    "without_pair_margin",
+    "without_class_routing",
+    "scalar_routing_control",
+    "clean_backbone_control",
+    "same_input_mlp"
+  ],
+  "configuration": {
+    "seed": 42,
+    "width": 32,
+    "readout": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 128,
+    "max_epochs": 30,
+    "patience": 6,
+    "cue_supervision_weight": 0.1,
+    "pair_margin_weight": 0.1,
+    "pair_margin": 1.0
+  },
+  "new_fits": 12,
+  "checkpoint_replays": 18,
+  "cached_exact_partition_controls": 6,
+  "minimum_module_mean_macro_f1_gain": 0.0025,
+  "same_original_observation_inputs_and_partitions": true,
+  "ordinary_scalar_gate_control_required": true,
+  "no_hyperparameter_search": true,
+  "pair_margin_is_training_objective_not_architectural_module": true,
+  "previously_exposed_known_policy_selection_only": true,
+  "original_validation_test_or_excluded_policy_forwards": false,
+  "compute_and_parameter_matching_claimed": false,
+  "algorithmic_novelty_established": false,
+  "independent_confirmation": false,
+  "gpu_required": false,
+  "submission_allowed": false
+}

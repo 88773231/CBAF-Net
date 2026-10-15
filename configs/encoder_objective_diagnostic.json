@@ -1,0 +1,20 @@
+{
+  "schema": "known-policy-encoder-objective-diagnostic-v1",
+  "dataset": "Quadbot",
+  "seeds": [42],
+  "conditions": ["supervised_reference", "contrast_only", "sam_only", "sam_contrast"],
+  "regularization": {
+    "contrast_weight": 0.1,
+    "temperature": 0.2,
+    "sam_radius": 0.05
+  },
+  "new_fits": 9,
+  "reused_reference_checkpoints": 3,
+  "cpu_threads": 2,
+  "selection_population": "known_policy_inner_selection_only",
+  "challenge_forward_or_scoring": false,
+  "original_validation_or_test_access": false,
+  "independent_confirmation": false,
+  "no_hyperparameter_search": true,
+  "submission_allowed": false
+}

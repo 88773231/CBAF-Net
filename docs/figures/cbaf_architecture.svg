@@ -79,7 +79,7 @@
 <text x="178" y="401" font-size="29" fill="#287f76" font-weight="400" text-anchor="start">Short reply</text>
 <path d="M180 417 H327 M180 429 H298" fill="none" stroke="#b3c2cc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 <use href="#clock" transform="translate(151 484) scale(0.43)" color="#cba24f"/>
-<text x="176" y="490" font-size="29" fill="#273540" font-weight="400" text-anchor="start">Event time</text>
+<text x="176" y="490" font-size="29" fill="#273540" font-weight="400" text-anchor="start">Action log</text>
 <circle cx="238" cy="562" r="6" fill="#728997" stroke="none" stroke-width="2"/>
 <use href="#person" transform="translate(66 425) scale(0.79)" color="#273540"/>
 <path d="M42 476 Q79 490 111 448" fill="none" stroke="#f1cbb5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>

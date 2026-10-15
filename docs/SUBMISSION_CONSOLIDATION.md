@@ -1,6 +1,38 @@
 # Submission Consolidation
 
-## Decision
+## Latest User Scope
+
+The subsequent explicit instruction is CCF-C manuscript/release closeout,
+not another model search. See `CLOSEOUT_20261015.md` for the current
+evidence boundary and completed checks. Earlier optimization priorities
+below are retained as history, not the current work order.
+
+The latest 2026-10-15 instruction permits one final limited improvement
+attempt and a CCF-C fallback if unsupported. See
+`FINAL_BOUNDED_TRIAL_20261015.md` and the latest override in
+`SUBMISSION_SPRINT.md`; earlier optimization-first text below is historical.
+The local semantic screen completed all 12 fits/replays and its audit
+against the archived source. Both complete-study continuation rules fail;
+close the branch and stop additional method searches. Full results are
+in `SEMANTIC_REPRESENTATION_RESULTS.md`. No core data regeneration,
+manuscript result replacement or public model promotion has occurred.
+No training process or remote GPU job remains. Local evidence export is
+not remote/GitHub synchronization or a rendered final manuscript.
+
+## Historical Decisions
+
+An earlier instruction on 2026-10-15 restored the CCF-B target and requested
+diagnosis-led bounded model work before manuscript alignment. See the current
+override in `SUBMISSION_SPRINT.md`. The prior finish-first instruction is
+historical. No new data generation, automatic final-model claim or formal
+submission is authorized. "70%" is not a measurable venue quality threshold.
+
+The user instruction on 2026-10-14 was to continue bounded model
+improvement before rewriting or submitting the manuscript. Quadbot is
+primary; main-text module removals may focus on four classes. Twibot22
+remains auxiliary and its negative results are retained. The former
+two-view superiority requirement was superseded.
+No optimization-until-acceptance promise or new submission is authorized.
 
 Retain the existing datasets and freeze the current SAM/cross-policy-contrast
 recipe. It is a development candidate, not the manuscript's final method.
@@ -150,9 +182,11 @@ than presenting exposed results as confirmatory.
    36 fits and 36 replays, plus two local/remote resource-adapter tests.
 2. Completed: local prediction/identity verification and pooled-metric
    recomputation. Retain all controls and the initial replay failure record.
-3. Next: revise/remove an
-   unsupported mechanism; do not hide its development record or rename its
-   removal as the old full method. The current full recipe is not promoted.
+3. Completed: the four-class same-encoder objective diagnostic, nine new
+   fits, three reused references and 12 known-policy checkpoint replays.
+   The encoder swap with combined objectives is not promoted; see
+   `ENCODER_OBJECTIVE_DIAGNOSTIC_RESULTS.md`. Do not hide development
+   records or rename a removal as the old full method.
 4. Establish task-specific novelty and reserve an independent evaluation
    protocol before scoring it. Do not promise SOTA.
 5. Rewrite the one working manuscript and its actual final schematic, then
@@ -166,3 +200,32 @@ passing synthetic regression fixtures.
 
 The 2026-10-14 metadata audit is summarized in `GENERATION_DISCLOSURE.md`.
 It does not close the source-permission or generator-archive requirements.
+
+## Completed Prediction Diagnosis
+
+`CONTROL_PREDICTION_DIAGNOSIS.md` records a local, read-only diagnosis of
+the verified private export. All 138 member digests and 18 pooled seed
+metrics matched. Candidate/control sample identities and nine fitting
+normalization pairs per view matched; all 160 local tests passed.
+No research fit, raw-tensor access or checkpoint-weight access occurred.
+
+Twibot22 candidate Burst accounts for 75.84% of its error events.
+Its Human/Traditional boundary is weaker, but the control also changes
+encoder depth, activation, normalization, dropout and initialization.
+The current evidence cannot isolate SAM or pretraining as the cause.
+Quadbot's advantage is also concentrated in Burst; Cyclic and Uniform
+remain stronger for the new controls.
+
+Retire the frozen recipe as a unified final-model candidate, preserving
+all development results. The bounded objective audit has completed; see
+`ENCODER_OBJECTIVE_DIAGNOSTIC_RESULTS.md`. Continued four-class method work
+now has a fixed twelve-fit architecture hypothesis in
+`TRAJECTORY_CORRESPONDENCE_PLAN.md`, not a new two-view search or
+permission to call known-policy selections test results. All twelve
+architecture fits and checkpoint replays completed and were verified, but
+the full condition fails its transition-removal gate. See
+`TRAJECTORY_CORRESPONDENCE_RESULTS.md`. Stop expanding that full
+architecture; its best removal is not automatically a new final method.
+Do not construct a challenge-tuned
+router or ensemble from the observed prediction disagreements.
+Word, released results and GitHub main/tag remain unchanged.

@@ -2,10 +2,21 @@
 
 ## Goal and Current Boundary
 
+The latest instruction on 2026-10-15 restores CCF-B as the target and requests
+model improvement before final alignment. Follow the current override in
+`SUBMISSION_SPRINT.md`; the previous finish-first work order is historical.
+There is no objective numerical "70% CCF-B submission standard" or supported
+acceptance probability. Do not pursue open-ended searches or withhold results.
+
 Aim for a regular/full main-conference paper with a supported bot-detection
 method contribution. No acceptance, SOTA or one-point improvement is
 promised. No venue-specific submission is authorized by this plan.
 The current working paper is not ready for another submission.
+
+The latest 2026-10-14 user instruction keeps Quadbot as the primary task,
+allows four-class main-text ablations, and requests continued model work
+before the paper is rewritten. Three-class auxiliary weaknesses still
+limit cross-taxonomy claims. There is no universal CCF-B score threshold.
 
 Keep the 5,031-row Twibot22 and 6,708-row Quadbot controlled views unchanged.
 They share 1,677 base profiles and are not independent real-world
@@ -37,6 +48,40 @@ unchanged while model development continues on the revision branch.
 - Pending: confirm module effects and a substantive task-specific
   method contribution. SAM plus established supervised contrast alone
   is not demonstrated algorithmic novelty.
+- Completed: read-only candidate/control prediction diagnosis with
+  138 exported member digests, same ordered rows and fitting-normalization
+  identities, and 18 pooled seed metrics verified. All 160 local tests
+  passed. Burst explains 75.84% of the three-class candidate error
+  events; architecture changes remain confounded. See
+  `CONTROL_PREDICTION_DIAGNOSIS.md`.
+- Completed: bounded four-class same-encoder objective diagnostic,
+  nine new fits, three reused references and 12 known-policy checkpoint
+  replays. The combination beats its supervised reference in only one
+  of three inner selections and is not promoted. No challenge scoring
+  occurred. See `ENCODER_OBJECTIVE_DIAGNOSTIC_RESULTS.md`; the full local
+  regression passed 165 tests and five targeted remote tests passed.
+- Completed: historical within-account correspondence/adjacent-transition
+  screen, twelve fits and twelve exact checkpoint replays. Eight remote
+  tests and a twelve-cell read-only local receipt audit passed. The
+  complete condition fails the fixed transition-removal gate, 98.71%
+  versus 98.85% without transition on known-policy inner selections.
+  Stop expanding the full architecture. See
+  `TRAJECTORY_CORRESPONDENCE_RESULTS.md`; no test result or final-model
+  claim is authorized.
+- Completed: the compact three-seed matrix and receipt audit. Module mean
+  contribution is only +0.047 percentage points with one seed reversal.
+  Do not promote it into a stable contribution.
+- Completed: fitting-only dependence probes on nine retained checkpoints,
+  zero new fits and no selection/challenge/test forwards. Uniform history
+  replacement changed only 3/22,392 prediction passes. See
+  `CORRESPONDENCE_DEPENDENCE_RESULTS.md`.
+- Completed, not promoted: centered nonlinear historical interactions,
+  six new fits and nine exact-partition references. The fifteen-cell receipt
+  audit and 197 local tests pass, but the continuation gate fails. Relation
+  gain is only +0.0689 points and BotSSCL is beaten in one fold only.
+  The prior compact condition is also better at the same training seed.
+  See `CENTERED_HISTORY_INTERACTION_RESULTS.md`; no seed expansion or
+  coefficient search is authorized for this failed branch.
 - Pending: identify and implement recent bot-specific comparisons that
   use compatible inputs, or label adaptations and teacher/graph access
   explicitly. Do not use paper names without actual reproductions.

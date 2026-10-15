@@ -1,0 +1,31 @@
+{
+  "schema": "known-policy-compact-correspondence-stability-v1",
+  "dataset": "Quadbot",
+  "partition_seed": 42,
+  "training_seeds": [42, 43, 44],
+  "conditions": ["compact_correspondence", "without_correspondence", "supervised_encoder", "botsscl_mechanism"],
+  "configuration": {
+    "block_dim": 64,
+    "readout_dim": 128,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "batch_size": 128,
+    "max_epochs": 30,
+    "patience": 6
+  },
+  "pretraining": {"epochs": 30, "corruption_rate": 0.6, "temperature": 1.0},
+  "new_fits": 30,
+  "reused_reference_checkpoints": 6,
+  "checkpoint_replays": 36,
+  "cpu_threads": 2,
+  "selection_population": "known_policy_inner_selection_only",
+  "challenge_forward_or_scoring": false,
+  "original_validation_or_test_access": false,
+  "no_hyperparameter_search": true,
+  "design_informed_by_prior_development": true,
+  "development_gate": "positive_mean_and_at_least_two_positive_seed_means_against_each_control",
+  "independent_confirmation": false,
+  "algorithmic_novelty_established": false,
+  "submission_allowed": false
+}

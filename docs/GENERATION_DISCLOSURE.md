@@ -2,7 +2,8 @@
 
 ## Evidence Status
 
-This disclosure summarizes a read-only metadata audit on 2026-10-14. The
+This disclosure summarizes read-only metadata audits on 2026-10-14 and
+2026-10-15. The
 master JSONL matched the retained SHA-256:
 `b5ce0d14eed32b053f5ca78409cc07f0d8ff595d9511e762a127e7a5c2e7b16b`.
 The audit did not run a detector or modify accounts, labels, or partitions.
@@ -41,6 +42,7 @@ Every LLM Bot and Full-stack Agent record contains the following values:
 | Top-p | 0.9 | 0.9 |
 | Maximum new tokens | 1,200 | 1,200 |
 | Repetition penalty | 1.05 | 1.05 |
+| Quantization | NF4 4-bit | NF4 4-bit |
 | Generation rounds | 5 | 5 |
 | Items per round | 5 | 5 |
 | Shared conditioning identifier | twibot-22-shared-seed | twibot-22-shared-seed |
@@ -53,6 +55,29 @@ The pipeline identifier is retained provenance, not a public dataset name.
 Shared recorded settings do not prove identical effective output distributions.
 The values above are class-wide metadata counts, not conclusions from an
 independent generator rerun.
+
+## Controller and Fallback Records
+
+The 1,677 retained agent trajectories contain 41,925 actions. Their metadata
+record 11,289 controller fallback actions, 793 deterministic text fallback
+actions, and zero no-claim surface repair actions. These recorded counters
+are not assumed disjoint. Required agent actions include post and repost.
+The Full-stack Agent label therefore denotes a hybrid controller-mediated
+strategy rather than unconstrained LLM behavior.
+
+LLM metadata permit a maximum of five text fallbacks per trajectory. The
+actual LLM fallback distribution has not been verified. Both generated
+classes record the `qwen-closed-world-grounding-v5` semantic verifier.
+These class-correlated rescue/filtering mechanisms may introduce
+construction shortcuts.
+
+The current private generator source was found, with SHA-256
+`087f8112dfb8c146e07b6df0e89830d4757b86263fb555857074de23faf4b8dc`.
+No accepted `*.report.json` files were found in the expected legacy
+stage-2 chunk directory during the bounded inventory. This does not prove
+that reports do not exist elsewhere, and does not bind the current source
+to every accepted trajectory. No raw prompts, source identifiers, texts,
+or weights were included in this inventory.
 
 ## Remaining Reproducibility Gaps
 
@@ -68,8 +93,10 @@ In particular, the current evidence does not establish:
 - Exact source-data access and redistribution permissions.
 - An institutional ethics determination or exemption approved by the authors.
 
-The MIT code license does not grant rights to third-party data or model
-weights. Private machine paths, raw posts, prompts, original account
+The TwiBot-22 paper states a CC BY-NC-ND 4.0 dataset license and a separate
+MIT code license. The MIT license of our code does not grant rights to
+third-party data or model weights; see `SOURCE_PERMISSIONS.md`.
+Private machine paths, raw posts, prompts, original account
 identifiers, and source tweet identifiers are not exported by this disclosure.
 
 Before claiming end-to-end reproduction, retain an author-verified source-term

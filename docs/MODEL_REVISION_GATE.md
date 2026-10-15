@@ -16,6 +16,12 @@ unfavorable runs, or change splits until the ablation looks favorable.
 
 ## Current Decision
 
+Latest instruction, 2026-10-14: continue bounded optimization before
+manuscript replacement or submission, with Quadbot as primary and
+four-class ablations in the main text. Do not impose the earlier
+two-view superiority requirement as the current user requirement.
+Retain three-class results and do not make unsupported transfer claims.
+
 The fixed three-seed conditional-routing/content-bridge screen failed
 the replacement gate. Its bridge lowered excluded-burst mean Macro-F1 by
 5.77 points in Twibot22 and 10.49 points in Quadbot.
@@ -50,7 +56,21 @@ points in all three main pairs. See `FLAT_POLICY_RESULTS.md` for
 every condition, both axes and explicitly conditional profile intervals.
 Retain the recipe for further evidence, not as a submission replacement.
 
-The user requires overall three/four-class improvement, not an
+The matched-input BotSSCL mechanism control subsequently reached 98.50%
+in Twibot22 versus the candidate's 93.09%; its supervised-only encoder
+reached 96.59%. Quadbot remains favorable for the candidate at 96.01%
+versus 94.81% and 94.30%. Retire the frozen recipe as a supported
+unified two-view replacement. The read-only prediction audit found
+matching sample and normalization identities, but the control encoder's
+depth, normalization, activation, dropout and initialization differ.
+See `CONTROL_PREDICTION_DIAGNOSIS.md`; these data do not isolate a
+single objective as the cause. The same-encoder fitting-only diagnostic
+has completed nine new fits and twelve checkpoint replays. Its combined
+objectives beat the supervised reference in only one of three known-policy
+selections; do not promote that encoder swap. See
+`ENCODER_OBJECTIVE_DIAGNOSTIC_RESULTS.md`.
+
+The earlier user requirement was overall three/four-class improvement, not an
 improvement in every class or every policy. Retain class/policy
 breakdowns as diagnostics, but do not confuse them with that primary
 success requirement. A favorable class cannot rescue a failed overall
@@ -63,6 +83,48 @@ checkpoints. Any input masking or fitting-reference replacement is
 post-hoc diagnostic evidence, not a new model result or causal proof.
 
 ## Next Candidate
+
+The five-block historical correspondence/adjacent transition candidate now has
+an implementation and eight focused tests; the full local suite passes 173
+tests. `TRAJECTORY_CORRESPONDENCE_PLAN.md` freezes one four-class twelve-fit
+known-policy feasibility screen. All twelve fits and twelve exact checkpoint
+replays have now completed and been locally verified. The complete
+architecture fails the transition-removal gate: known-policy means are
+98.71% complete, 98.30% without correspondence, 98.85% without transition
+and 98.50% without both. Stop expanding this full architecture; see
+`TRAJECTORY_CORRESPONDENCE_RESULTS.md`. Correspondence has a positive
+development signal, not final-model or novelty confirmation. Generic
+attention/difference/product operations do not establish originality.
+
+A transition-free compact follow-up is now frozen in
+`COMPACT_CORRESPONDENCE_PLAN.md`. The 188-test local suite and 11-test
+remote regression pass. Training began at 23:18:06 Asia/Shanghai on
+2026-10-14, using CPU only. All three training seeds share the existing
+seed-42 fitting/selection partitions. The 36-cell matrix includes 30
+new fits and six exact-partition cached controls; older seed-43/44
+controls must not be reused because their partitions differ.
+All 36 cells have completed and passed the local receipt audit; see
+`COMPACT_CORRESPONDENCE_RESULTS.md`. The weak directional development
+gate passes, but module contribution is only +0.047 points and one seed
+mean reverses. This is not consistent module improvement, significance,
+independent confirmation or a supported final-model replacement.
+The latest instruction, 2026-10-15, restores the CCF-B target and authorizes
+diagnosis-led bounded optimization before alignment. The earlier finish-first
+freeze is superseded; see the current override in `SUBMISSION_SPRINT.md`.
+There is no measurable universal "70% submission standard". Inspect fitting-only
+checkpoint dependence before choosing a new recipe. Keep the manuscript
+and canonical/public release unchanged until all gates are addressed.
+
+The fitting-only dependence diagnosis and centered-interaction redesign have
+now completed. All 197 local tests and five remote targeted tests pass; the
+fifteen-cell prediction receipt audit also passes. The redesign does not pass
+its scientific continuation gate: full/removal means are 98.5730%/98.5042%,
+and the BotSSCL-mechanism control is beaten in only one fold. Same-seed compact
+correspondence was 98.8488%, so this is not an improvement over that architecture.
+See `CENTERED_HISTORY_INTERACTION_RESULTS.md`. Stop expanding or tuning this
+branch. A new recipe requires a specific additional prediction diagnosis;
+keep the CCF-B target without implying a numerical readiness or acceptance
+probability. No final manuscript or public model replacement is justified.
 
 Treat no-residual, no-bridge and single-objective models as development references,
 not automatically promoted final methods. Improve a specifically
